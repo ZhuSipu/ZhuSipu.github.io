@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>朱思朴 | zhusipu</title>
+  <style>
+    :root {
+      --bg: #f5f0e6;
+      --ink: #1d1a16;
+      --muted: #5f564c;
+      --accent: #b74b2b;
+      --card: #fffaf2;
+      --line: #dccfbf;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Noto Serif SC", "Songti SC", "STSong", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 20%, #efe0c7 0%, transparent 40%),
+        radial-gradient(circle at 85% 75%, #e9d3ba 0%, transparent 38%),
+        var(--bg);
+      line-height: 1.75;
+    }
+
+    .container {
+      width: min(960px, 92%);
+      margin: 0 auto;
+      padding: 56px 0 72px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 22px;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4.8vw, 3.4rem);
+      letter-spacing: 0.04em;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      text-transform: lowercase;
+      letter-spacing: 0.08em;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .column {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 16px;
+      min-height: 120px;
+    }
+
+    .column h2 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    .column p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .latest {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px 20px;
+    }
+
+    .latest h3 {
+      margin: 0 0 6px;
+      font-size: 1.35rem;
+    }
+
+    .latest .tag {
+      color: var(--accent);
+      font-size: 0.95rem;
+      margin: 0 0 12px;
+    }
+
+    .latest p {
+      margin: 0;
+      color: #3f372f;
+    }
+
+    @media (max-width: 760px) {
+      .container { padding-top: 36px; }
+      .columns { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>朱思朴 zhusipu</h1>
+      <p class="subtitle">写作 · 观察 · 影像</p>
+    </header>
+
+    <section class="columns" aria-label="栏目">
+      <article class="column">
+        <h2>文艺评论</h2>
+        <p>记录阅读与观影中的细节，关注作品里的情绪结构与现实回声。</p>
+      </article>
+      <article class="column">
+        <h2>社会观察</h2>
+        <p>从城市空间、公共议题与日常关系出发，整理时代中的微小切面。</p>
+      </article>
+      <article class="column">
+        <h2>摄影作品</h2>
+        <p>以街头与自然光影为线索，捕捉那些稍纵即逝但值得停留的瞬间。</p>
+      </article>
+    </section>
+
+    <section class="latest" aria-label="最新文章">
+      <p class="tag">最新文章</p>
+      <h3>《在快速叙事里，慢下来的人》</h3>
+      <p>
+        我越来越意识到，“效率”并不是唯一值得追逐的词。在地铁里、商场里、社交平台里，
+        每个人都在向前滑动，仿佛停下就是落后。但真正触动我的，往往是那些愿意停顿的人：
+        他们会抬头看一棵树的影子，会在一句话里反复琢磨，会对一个陌生人的疲惫保持体谅。
+        也许，慢下来不是拒绝时代，而是重新夺回感受世界的能力。
+      </p>
+    </section>
+  </main>
+</body>
+</html>
