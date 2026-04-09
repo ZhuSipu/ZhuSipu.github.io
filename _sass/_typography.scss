@@ -1,0 +1,291 @@
+/*******************************************************************************
+ * Typography styles: Headings, text, links, tables, blockquotes
+ ******************************************************************************/
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+em,
+div,
+li,
+span,
+strong {
+  color: var(--global-text-color);
+}
+
+body {
+  font-size: var(--font-body, 1rem);
+  font-family: var(--font-body-family, Charter, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif);
+  font-weight: var(--font-body-weight, 400);
+  line-height: var(--font-body-line-height, 1.75);
+}
+
+.layout-about .post-title {
+  font-size: var(--font-about-title, 3rem);
+  font-family: var(--font-title-family, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+  font-weight: var(--font-about-title-weight, 300);
+  line-height: var(--font-about-title-line-height, 1.15);
+  margin-bottom: var(--space-about-title-margin-bottom, 0.5rem);
+}
+
+.layout-about .post-title > span {
+  font-weight: var(--font-about-title-first-name-weight, 700);
+}
+
+.layout-page .post-title {
+  font-size: var(--font-page-title, 3rem);
+  font-family: var(--font-title-family, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+  font-weight: var(--font-page-title-weight, 300);
+  line-height: var(--font-page-title-line-height, 1.15);
+  margin-bottom: var(--space-page-title-margin-bottom, 0.5rem);
+}
+
+.layout-cv .post-title {
+  font-size: var(--font-cv-title, 3rem);
+  font-family: var(--font-title-family, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+  font-weight: var(--font-cv-title-weight, 300);
+  line-height: var(--font-cv-title-line-height, 1.15);
+  margin-bottom: var(--space-cv-title-margin-bottom, 0.5rem);
+}
+
+.layout-page .post-description {
+  font-size: var(--font-page-description, 1rem);
+  font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+  font-weight: var(--font-page-description-weight, 300);
+  line-height: var(--font-page-description-line-height, 1.6);
+  margin-bottom: var(--space-page-description-margin-bottom, 1.5rem);
+}
+
+.layout-cv .post-description {
+  font-size: var(--font-cv-description, 1rem);
+  font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+  font-weight: var(--font-cv-description-weight, 300);
+  line-height: var(--font-cv-description-line-height, 1.6);
+  margin-bottom: var(--space-cv-description-margin-bottom, 1.5rem);
+}
+
+.layout-about .desc {
+  font-size: var(--font-about-subtitle, 1.1rem);
+  font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+  font-weight: var(--font-about-subtitle-weight, 400);
+  line-height: var(--font-about-subtitle-line-height, 1.5);
+  margin-bottom: var(--space-about-subtitle-margin-bottom, 1.5rem);
+}
+
+.layout-about .clearfix p {
+  font-size: var(--font-about-body, 1.2rem);
+  font-family: var(--font-body-family, Charter, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif);
+  font-weight: var(--font-about-body-weight, 300);
+  line-height: var(--font-about-body-line-height, 1.5);
+  margin-bottom: var(--space-about-paragraph-gap, 1rem);
+}
+
+.layout-about .clearfix p:last-child {
+  margin-bottom: 0;
+}
+
+.layout-about .section-title {
+  font-size: var(--font-about-section-title, 2rem);
+  font-family: var(--font-title-family, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+  font-weight: var(--font-about-section-title-weight, 300);
+  line-height: var(--font-about-section-title-line-height, 1.25);
+  margin-top: var(--space-about-section-title-margin-top, 2.5rem);
+  margin-bottom: var(--space-about-section-title-margin-bottom, 1rem);
+}
+
+.layout-page .section-title {
+  font-size: var(--font-page-section-title, 2rem);
+  font-family: var(--font-title-family, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+  font-weight: var(--font-page-section-title-weight, 300);
+  line-height: var(--font-page-section-title-line-height, 1.25);
+  margin-top: var(--space-page-section-title-margin-top, 2.5rem);
+  margin-bottom: var(--space-page-section-title-margin-bottom, 1rem);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-title-family, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+}
+
+h1 {
+  font-size: var(--font-heading-h1, 2.2rem);
+  font-weight: var(--font-heading-h1-weight, 700);
+  line-height: var(--font-heading-h1-line-height, 1.2);
+}
+
+h2 {
+  font-size: var(--font-heading-h2, 1.6rem);
+  font-weight: var(--font-heading-h2-weight, 700);
+  line-height: var(--font-heading-h2-line-height, 1.25);
+}
+
+h3 {
+  font-size: var(--font-heading-h3, 1.3rem);
+  font-weight: var(--font-heading-h3-weight, 700);
+  line-height: var(--font-heading-h3-line-height, 1.3);
+}
+
+h4 {
+  font-size: var(--font-heading-h4, 1.15rem);
+  font-weight: var(--font-heading-h4-weight, 700);
+  line-height: var(--font-heading-h4-line-height, 1.35);
+}
+
+h5 {
+  font-size: var(--font-heading-h5, 1rem);
+  font-weight: var(--font-heading-h5-weight, 700);
+  line-height: var(--font-heading-h5-line-height, 1.4);
+}
+
+h6 {
+  font-size: var(--font-heading-h6, 0.95rem);
+  font-weight: var(--font-heading-h6-weight, 700);
+  line-height: var(--font-heading-h6-line-height, 1.45);
+}
+
+p,
+li,
+blockquote,
+table,
+td,
+th {
+  font-family: var(--font-body-family, Charter, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif);
+  font-weight: var(--font-body-weight, 400);
+  line-height: var(--font-body-line-height, 1.75);
+}
+
+strong,
+b {
+  font-weight: var(--font-body-strong-weight, 700);
+  color: var(--font-body-strong-color, inherit);
+  text-decoration-line: var(--font-body-strong-underline, underline);
+  text-decoration-color: currentColor;
+  text-decoration-thickness: var(--font-body-strong-underline-thickness, 1px);
+  text-underline-offset: var(--font-body-strong-underline-offset, 0.12em);
+}
+
+hr {
+  border-top: 1px solid var(--global-divider-color);
+}
+
+table {
+  td,
+  th {
+    font-size: var(--font-table, 1rem);
+    padding: 1px 1rem 1px 0;
+    line-height: var(--font-table-line-height, 1.6);
+  }
+
+  th {
+    font-weight: var(--font-table-header-weight, 700);
+  }
+}
+
+a,
+table.table a {
+  color: var(--global-theme-color);
+
+  &:hover {
+    color: var(--global-theme-color);
+    text-decoration: underline;
+  }
+
+  &:hover:after :not(.nav-item.dropdown) {
+    width: 100%;
+  }
+}
+
+.table-dark {
+  background-color: transparent;
+  &.table-bordered {
+    border: 1px solid var(--global-divider-color) !important;
+  }
+}
+
+blockquote {
+  background: var(--global-bg-color);
+  border-left: 5px solid var(--global-theme-color);
+  margin: 1.5em 0;
+  padding: 1em;
+  font-size: var(--font-blockquote, 1.2rem);
+  line-height: var(--font-blockquote-line-height, 1.7);
+
+  p {
+    margin-bottom: 0;
+  }
+
+  /* Tips, warnings, and dangers blockquotes */
+  &.block-tip {
+    border-color: var(--global-tip-block);
+    background-color: var(--global-tip-block-bg);
+
+    em,
+    li,
+    p,
+    strong {
+      color: var(--global-tip-block-text);
+    }
+
+    a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--global-tip-block-title);
+    }
+  }
+
+  &.block-warning {
+    border-color: var(--global-warning-block);
+    background-color: var(--global-warning-block-bg);
+
+    em,
+    li,
+    p,
+    strong {
+      color: var(--global-warning-block-text);
+    }
+
+    a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--global-warning-block-title);
+    }
+  }
+
+  &.block-danger {
+    border-color: var(--global-danger-block);
+    background-color: var(--global-danger-block-bg);
+
+    em,
+    li,
+    p,
+    strong {
+      color: var(--global-danger-block-text);
+    }
+
+    a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--global-danger-block-title);
+    }
+  }
+}

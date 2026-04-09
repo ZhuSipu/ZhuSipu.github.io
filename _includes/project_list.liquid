@@ -1,0 +1,25 @@
+{% assign project_items = include.projects | sort: "importance" %}
+
+<div class="publications">
+  <ol class="bibliography">
+    {% for project in project_items %}
+      <li>
+        <div class="abbr">
+          {% if project.year %}
+            <abbr class="badge">{{ project.year }}</abbr>
+          {% endif %}
+        </div>
+        <div class="award hidden"></div>
+        <div class="title">{{ project.title }}</div>
+        {% if project.description %}
+          <div class="author">
+            <em>{{ project.description }}</em>
+          </div>
+        {% endif %}
+        {% if project.details %}
+          <div class="periodical">{{ project.details | newline_to_br }}</div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ol>
+</div>

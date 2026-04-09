@@ -1,0 +1,350 @@
+# -----------------------------------------------------------------------------
+# Style settings
+# -----------------------------------------------------------------------------
+
+# 这个文件只放视觉相关配置：
+# 字体、字号、字重、行距、页边距、版心宽度、头像尺寸、图标大小等。
+
+layout:
+  # max_width: 页面主体内容的最大宽度（影响整体左右留白）
+  max_width: 1000px
+  profile:
+    # width_mobile: 首页头像区域在移动端的宽度
+    width_mobile: 100%
+    # max_width_mobile: 首页头像区域在移动端的最大宽度
+    max_width_mobile: 240px
+    # width_desktop: 首页头像区域在桌面端的宽度
+    width_desktop: 24%
+    # max_width_desktop: 首页头像区域在桌面端的最大宽度
+    max_width_desktop: 220px
+    # image_slot_width: 首页头像图片在响应式图片计算中的参考宽度
+    image_slot_width: 30%
+
+typography:
+  shared:
+    fonts:
+      # 全站通用字体
+      ui: '"Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif'
+      title: '"Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif'
+      body: 'Charter, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif'
+
+    headings:
+      # 一级标题
+      h1:
+        size: 2.2rem
+        weight: 300
+        line_height: 1.2
+
+      # 二级标题
+      h2:
+        size: 2rem
+        weight: 300
+        line_height: 1.25
+
+      # 三级标题
+      h3:
+        size: 1.3rem
+        weight: 300
+        line_height: 1.3
+
+      # 四级标题
+      h4:
+        size: 1.15rem
+        weight: 300
+        line_height: 1.35
+
+      # 五级标题
+      h5:
+        size: 1rem
+        weight: 300
+        line_height: 1.4
+
+      # 六级标题
+      h6:
+        size: 0.95rem
+        weight: 700
+        line_height: 1.45
+
+    # 正文；strong_weight 用于 Markdown 加粗
+    body:
+      size: 1.2rem
+      weight: 300
+      line_height: 1.5
+      strong_weight: 500
+
+    # 表格；header_weight 用于表头
+    table:
+      size: 1rem
+      header_weight: 700
+      line_height: 1.6
+
+    # 引用块
+    blockquote:
+      size: 1.2rem
+      line_height: 1.7
+
+    # 图片说明
+    caption:
+      size: 0.875rem
+      weight: 650
+      line_height: 1.5
+      margin_top: 0.75rem
+      margin_bottom: 1.5rem
+
+  navbar:
+    # 左上角站点名
+    brand:
+      size: 1rem
+      weight: 700
+      line_height: 1.2
+
+    # 导航栏文字；active_weight 用于当前页面
+    link:
+      size: 1rem
+      weight: 650
+      line_height: 1.2
+      active_weight: 750
+
+    # 导航栏社交图标
+    social:
+      size: 1.7rem
+      weight: 650
+
+  about:
+    # 首页主标题
+    title:
+      size: 3rem
+      weight: 300
+      first_name_weight: 600
+      line_height: 1.15
+      margin_bottom: 0.5rem
+
+    # 首页副标题
+    subtitle:
+      size: 1.1rem
+      weight: 400
+      line_height: 1.5
+      margin_bottom: 1.5rem
+
+    # 首页正文
+    body:
+      size: 1.2rem
+      weight: 300
+      line_height: 1.5
+      paragraph_gap: 2.3rem
+
+    # 首页头像旁个人信息
+    profile_info:
+      size: 1rem
+      weight: 650
+      line_height: 1.5
+      margin_top: 5px
+      margin_bottom: 5px
+
+    # 首页区块标题（selected publications / projects）
+    section_title:
+      size: 2.5rem
+      weight: 300
+      line_height: 1.25
+      margin_top: 2.5rem
+      margin_bottom: 1.5rem
+
+    # 首页论文与项目列表
+    publications:
+      year_title:
+        size: 1.5rem
+        weight: 700
+        line_height: 1.25
+        margin_bottom: 1rem
+
+      item_title:
+        size: 1.2rem
+        weight: 700
+        line_height: 1.35
+        margin_bottom: 0.25rem
+
+      item_meta:
+        size: 0.95rem
+        weight: 200
+        line_height: 1.7
+
+      button:
+        size: 0.875rem
+        weight: 650
+        line_height: 1.4
+
+      hidden:
+        size: 0.875rem
+        weight: 400
+        line_height: 1.4
+
+      container_margin_top: 0
+      item_gap: 1rem
+
+    # 首页底部社交图标
+    social_icons:
+      size: 4rem
+      margin_top: 2rem
+
+    # 首页底部联系说明
+    contact_note:
+      size: 0.8rem
+      weight: 650
+      line_height: 1.6
+      margin_top: 0.5rem
+
+  page:
+    # 普通页面主标题
+    title:
+      size: 3rem
+      weight: 300
+      line_height: 1.15
+      margin_bottom: 0.5rem
+
+    # 普通页面描述
+    description:
+      size: 1rem
+      weight: 300
+      line_height: 1.6
+      margin_bottom: 1.5rem
+
+    # 普通页面区块标题（如 References）
+    section_title:
+      size: 2rem
+      weight: 300
+      line_height: 1.25
+      margin_top: 2.5rem
+      margin_bottom: 1rem
+
+    # 普通页面中的论文列表
+    publications:
+      year_title:
+        size: 1.5rem
+        weight: 700
+        line_height: 1.25
+        margin_bottom: 1rem
+
+      item_title:
+        size: 1.2rem
+        weight: 700
+        line_height: 1.35
+        margin_bottom: 0.25rem
+
+      item_meta:
+        size: 0.95rem
+        weight: 200
+        line_height: 1.7
+
+      button:
+        size: 0.875rem
+        weight: 650
+        line_height: 1.4
+
+      hidden:
+        size: 0.875rem
+        weight: 400
+        line_height: 1.4
+
+      container_margin_top: 0
+      item_gap: 1rem
+
+  cv:
+    # CV 页面主标题
+    title:
+      size: 3rem
+      weight: 300
+      line_height: 1.15
+      margin_bottom: 0.5rem
+
+    # CV 页面描述
+    description:
+      size: 1rem
+      weight: 300
+      line_height: 1.6
+      margin_bottom: 1.5rem
+
+    # CV 卡片区块之间的间距
+    card:
+      gap: 1rem
+
+    # CV 卡片标题
+    card_title:
+      size: 1.3rem
+      weight: 700
+      line_height: 1.3
+      margin_bottom: 1rem
+
+    # CV 联系方式左侧标签
+    label:
+      size: 0.95rem
+      weight: 700
+      line_height: 1.5
+
+    # CV 联系方式右侧内容
+    value:
+      size: 0.95rem
+      weight: 400
+      line_height: 1.5
+
+    # CV 条目主标题（学位 / 职位 / 奖项名）
+    entry_title:
+      size: 1rem
+      weight: 700
+      line_height: 1.4
+
+    # CV 条目补充信息（学校 / 公司 / 出版方）
+    entry_meta:
+      size: 0.95rem
+      weight: 400
+      line_height: 1.5
+
+    # CV 条目说明文字
+    entry_summary:
+      size: 0.95rem
+      weight: 400
+      line_height: 1.6
+
+    # CV 日期徽标
+    badge:
+      size: 0.8rem
+      weight: 700
+      line_height: 1.2
+
+    # CV 按钮
+    button:
+      size: 0.7rem
+      weight: 400
+      line_height: 1.4
+
+    # CV 地点 / 次级说明
+    location:
+      size: 0.7rem
+      weight: 400
+      line_height: 1.4
+
+    # CV 次级文字（列表、院系、等级等）
+    minor:
+      size: 0.8rem
+      weight: 400
+      line_height: 1.4
+
+    # CV 小图标
+    icon_small:
+      size: 0.8rem
+
+    # CV 中图标
+    icon_medium:
+      size: 0.95rem
+
+  footer:
+    # 固定页脚
+    fixed:
+      size: 0.75rem
+      weight: 650
+      line_height: 1.5
+
+    # 普通页脚
+    sticky:
+      size: 0.9rem
+      weight: 650
+      line_height: 1.6

@@ -1,0 +1,41 @@
+/*******************************************************************************
+ * Footer styles
+ ******************************************************************************/
+
+footer.fixed-bottom {
+  background-color: var(--global-footer-bg-color);
+  font-size: var(--font-footer-fixed, 0.75rem);
+  font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+  font-weight: var(--font-footer-fixed-weight, 650);
+  line-height: var(--font-footer-fixed-line-height, 1.5);
+
+  .container {
+    color: var(--global-footer-text-color);
+    padding-top: 9px;
+    padding-bottom: 8px;
+    text-align: center;
+  }
+
+  a {
+    color: var(--global-footer-link-color);
+
+    &:hover {
+      color: var(--global-theme-color);
+      text-decoration: none;
+    }
+  }
+}
+
+footer.sticky-bottom {
+  border-top: 1px solid var(--global-divider-color);
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: var(--font-footer-sticky, 0.9rem);
+  font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+  font-weight: var(--font-footer-sticky-weight, 650);
+  line-height: var(--font-footer-sticky-line-height, 1.6);
+
+  .container {
+    text-align: center;
+  }
+}

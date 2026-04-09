@@ -1,0 +1,24 @@
+{% comment %}
+  Interests renderer for the canonical cv.yml schema.
+{% endcomment %}
+
+<div class="card-text">
+  {% for entry in entries %}
+    <div class="interest-item">
+      {% if entry.icon %}
+        <i class="{{ entry.icon }}"></i>
+      {% endif %}
+      <strong>{{ entry.name }}:</strong>
+      {% assign interest_items = entry.items | default: entry.keywords %}
+      {% if interest_items %}
+        {% for keyword in interest_items %}
+          {% if forloop.last %}
+            {{ keyword }}
+          {% else %}
+            {{ keyword }},
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,20 @@
+{% comment %}
+  Languages renderer for the canonical cv.yml schema.
+{% endcomment %}
+
+<div class="card-text">
+  {% for entry in entries %}
+    <div class="language-item">
+      {% if entry.icon %}
+        <i class="{{ entry.icon }}"></i>
+      {% endif %}
+      {% capture lang_name %}
+        {% if entry.name %}{{ entry.name }}{% elsif entry.language %}{{ entry.language }}{% endif %}
+      {% endcapture %}
+      {% capture fluency %}
+        {% if entry.level %}{{ entry.level }}{% elsif entry.fluency %}{{ entry.fluency }}{% elsif entry.summary %}{{ entry.summary }}{% endif %}
+      {% endcapture %}
+      <strong>{{ lang_name }}:</strong> {{ fluency }}
+    </div>
+  {% endfor %}
+</div>

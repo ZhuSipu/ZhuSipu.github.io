@@ -1,0 +1,86 @@
+{% comment %}
+  Experience renderer for the canonical cv.yml schema.
+{% endcomment %}
+
+<ul class="card-text list-group list-group-flush">
+  {% for entry in entries %}
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-xs-2 col-sm-2 col-md-2 text-center date-column">
+          {% capture start_date %}
+            {% if entry.start %}{{ entry.start }}{% elsif entry.start_date %}{{ entry.start_date }}{% endif %}
+          {% endcapture %}
+          {% capture end_date %}
+            {% if entry.end %}{{ entry.end }}{% elsif entry.end_date %}{{ entry.end_date }}{% endif %}
+          {% endcapture %}
+
+          {% if start_date != '' %}
+            {% comment %} Extract year only from dates like "1933-01-01" or just use "1933" as is {% endcomment %}
+            {% assign startDate = start_date | split: '-' | first %}
+            {% assign endDate = end_date | split: '-' | first | default: 'Present' %}
+            {% assign date = startDate | append: ' - ' | append: endDate %}
+          {% else %}
+            {% assign date = '' %}
+          {% endif %}
+
+          <table class="table-cv">
+            <tbody>
+              <tr>
+                <td>
+                  <span class="badge cv-entry-badge danger-color-dark text-uppercase align-middle" style="min-width: 75px">{{ date }}</span>
+                </td>
+              </tr>
+              {% capture location %}
+                {% if entry.location %}{{ entry.location }}{% endif %}
+              {% endcapture %}
+              {% if location != '' %}
+                <tr>
+                  <td>
+                    <p class="location">
+                      <i class="fa-solid fa-location-dot iconlocation"></i>
+                      {{ location }}
+                    </p>
+                  </td>
+                </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-xs-10 col-sm-10 col-md-10 mt-2 mt-md-0">
+          {% capture position_title %}
+            {% if entry.role %}{{ entry.role }}{% elsif entry.position %}{{ entry.position }}{% endif %}
+          {% endcapture %}
+
+          {% if entry.url %}
+            <h6 class="title cv-entry-title ml-1 ml-md-4">
+              <a href="{{ entry.url }}">{{ position_title }}</a>
+            </h6>
+          {% elsif position_title != '' %}
+            <h6 class="title cv-entry-title ml-1 ml-md-4">{{ position_title }}</h6>
+          {% endif %}
+
+          {% capture company_name %}
+            {% if entry.organization %}{{ entry.organization }}{% elsif entry.company %}{{ entry.company }}{% elsif entry.name %}{{ entry.name }}{% endif %}
+          {% endcapture %}
+          {% if company_name != '' %}
+            <h6 class="cv-entry-meta ml-1 ml-md-4">{{ company_name }}</h6>
+          {% endif %}
+
+          {% if entry.summary %}
+            <h6 class="cv-entry-meta ml-1 ml-md-4"><em>{{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}</em></h6>
+          {% endif %}
+
+          {% if entry.highlights %}
+            <ul class="items">
+              {% for item in entry.highlights %}
+                <li>
+                  <span class="item">{{ item | markdownify | remove: '<p>' | remove: '</p>' }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>

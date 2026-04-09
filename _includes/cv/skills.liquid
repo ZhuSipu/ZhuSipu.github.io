@@ -1,0 +1,27 @@
+{% comment %}
+  Skills renderer for the canonical cv.yml schema.
+{% endcomment %}
+
+<div class="card-text">
+  {% for entry in entries %}
+    <div class="skill-item">
+      {% if entry.icon %}
+        <i class="{{ entry.icon }}"></i>
+      {% endif %}
+      <strong>
+        {{- entry.name -}}
+        {%- if entry.level %} ({{ entry.level }}){% endif %}:</strong
+      >
+      {% assign skill_items = entry.items | default: entry.keywords %}
+      {% if skill_items %}
+        {% for keyword in skill_items %}
+          {% if forloop.last %}
+            {{ keyword }}
+          {% else %}
+            {{ keyword }},
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,17 @@
+_site
+.bundle/*
+!.bundle/config
+.bundle-user
+.DS_Store
+_archive/
+.idea
+.jekyll-cache
+.jekyll-metadata
+.ruby-version
+.sass-cache
+.tweet-cache
+.venv
+assets/libs/
+assets/rendercv/rendercv_output/*.typ
+node_modules/
+vendor

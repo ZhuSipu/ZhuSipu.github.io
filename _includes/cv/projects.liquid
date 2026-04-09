@@ -1,0 +1,31 @@
+{% comment %}
+  Unified projects entry renderer for both formats
+{% endcomment %}
+
+<ul class="card-text list-group list-group-flush">
+  {% for entry in entries %}
+    <li class="list-group-item">
+      {% if entry.url %}
+        <h6 class="title cv-entry-title">
+          <a href="{{ entry.url }}" target="_blank">{{ entry.name }}</a>
+        </h6>
+      {% else %}
+        <h6 class="title cv-entry-title">{{ entry.name }}</h6>
+      {% endif %}
+
+      {% if entry.summary %}
+        <p class="cv-entry-summary">{{ entry.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+      {% endif %}
+
+      {% if entry.highlights %}
+        <ul class="items">
+          {% for item in entry.highlights %}
+            <li>
+              <span class="item">{{ item | markdownify | remove: '<p>' | remove: '</p>' }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

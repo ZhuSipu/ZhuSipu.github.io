@@ -1,0 +1,399 @@
+<!-- Metadata, OpenGraph and Schema.org -->
+{% include metadata.liquid %}
+
+<!-- Security: Content Security Policy -->
+<!-- Permissive CSP suitable for academic websites. Allows external images, videos, and common embed services. -->
+<!-- To customize for your needs, see: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+<meta
+  http-equiv="Content-Security-Policy"
+  content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"
+>
+
+<!-- Bootstrap & MDB -->
+<link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url | bust_file_cache }}">
+<link
+  rel="stylesheet"
+  href="{{ site.third_party_libraries.mdb.url.css }}"
+  integrity="{{ site.third_party_libraries.mdb.integrity.css }}"
+  crossorigin="anonymous"
+>
+
+{% if page.pretty_table %}
+  <!-- Bootstrap Table -->
+  <link
+    defer
+    rel="stylesheet"
+    href="{{ site.third_party_libraries.bootstrap-table.url.css }}"
+    integrity="{{ site.third_party_libraries.bootstrap-table.integrity.css }}"
+    crossorigin="anonymous"
+  >
+{% endif %}
+
+<!-- Fonts -->
+<link
+  defer
+  rel="stylesheet"
+  type="text/css"
+  href="{{ site.third_party_libraries.google_fonts.url.fonts }}"
+>
+
+<!-- Code Syntax Highlighting -->
+<link
+  defer
+  rel="stylesheet"
+  href="{{ '/assets/css/jekyll-pygments-themes-github.css' | relative_url | bust_file_cache }}"
+  media=""
+  id="highlight_theme_light"
+>
+
+{% if page.toc and page.toc.sidebar %}
+  <!-- Sidebar Table of Contents -->
+  <link defer href="{{ '/assets/css/bootstrap-toc.min.css' | relative_url | bust_file_cache }}" rel="stylesheet">
+{% endif %}
+
+<!-- Styles -->
+{% assign style = site.data.site_style %}
+<style>
+  :root {
+    --layout-max-width: {{ style.layout.max_width | default: '930px' }};
+    --profile-width-mobile: {{ style.layout.profile.width_mobile | default: '100%' }};
+    --profile-max-width-mobile: {{ style.layout.profile.max_width_mobile | default: '240px' }};
+    --profile-width-desktop: {{ style.layout.profile.width_desktop | default: '24%' }};
+    --profile-max-width-desktop: {{ style.layout.profile.max_width_desktop | default: '220px' }};
+
+    --font-ui: {{ style.typography.shared.fonts.ui | default: '"Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif' }};
+    --font-title-family: {{ style.typography.shared.fonts.title | default: '"Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif' }};
+    --font-body-family: {{ style.typography.shared.fonts.body | default: 'Charter, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif' }};
+
+    --font-heading-h1: {{ style.typography.shared.headings.h1.size | default: '2.2rem' }};
+    --font-heading-h1-weight: {{ style.typography.shared.headings.h1.weight | default: 700 }};
+    --font-heading-h1-line-height: {{ style.typography.shared.headings.h1.line_height | default: 1.2 }};
+    --font-heading-h2: {{ style.typography.shared.headings.h2.size | default: '2rem' }};
+    --font-heading-h2-weight: {{ style.typography.shared.headings.h2.weight | default: 700 }};
+    --font-heading-h2-line-height: {{ style.typography.shared.headings.h2.line_height | default: 1.25 }};
+    --font-heading-h3: {{ style.typography.shared.headings.h3.size | default: '1.3rem' }};
+    --font-heading-h3-weight: {{ style.typography.shared.headings.h3.weight | default: 700 }};
+    --font-heading-h3-line-height: {{ style.typography.shared.headings.h3.line_height | default: 1.3 }};
+    --font-heading-h4: {{ style.typography.shared.headings.h4.size | default: '1.15rem' }};
+    --font-heading-h4-weight: {{ style.typography.shared.headings.h4.weight | default: 700 }};
+    --font-heading-h4-line-height: {{ style.typography.shared.headings.h4.line_height | default: 1.35 }};
+    --font-heading-h5: {{ style.typography.shared.headings.h5.size | default: '1rem' }};
+    --font-heading-h5-weight: {{ style.typography.shared.headings.h5.weight | default: 700 }};
+    --font-heading-h5-line-height: {{ style.typography.shared.headings.h5.line_height | default: 1.4 }};
+    --font-heading-h6: {{ style.typography.shared.headings.h6.size | default: '0.95rem' }};
+    --font-heading-h6-weight: {{ style.typography.shared.headings.h6.weight | default: 700 }};
+    --font-heading-h6-line-height: {{ style.typography.shared.headings.h6.line_height | default: 1.45 }};
+
+    --font-body: {{ style.typography.shared.body.size | default: '1rem' }};
+    --font-body-weight: {{ style.typography.shared.body.weight | default: 400 }};
+    --font-body-line-height: {{ style.typography.shared.body.line_height | default: 1.75 }};
+    --font-body-strong-weight: {{ style.typography.shared.body.strong_weight | default: 700 }};
+    --font-body-strong-color: {{ style.typography.shared.body.strong_color | default: 'inherit' }};
+    --font-body-strong-underline: {{ style.typography.shared.body.strong_underline | default: 'underline' }};
+    --font-body-strong-underline-offset: {{ style.typography.shared.body.strong_underline_offset | default: '0.12em' }};
+    --font-body-strong-underline-thickness: {{ style.typography.shared.body.strong_underline_thickness | default: '1px' }};
+
+    --font-table: {{ style.typography.shared.table.size | default: '1rem' }};
+    --font-table-header-weight: {{ style.typography.shared.table.header_weight | default: 700 }};
+    --font-table-line-height: {{ style.typography.shared.table.line_height | default: 1.6 }};
+
+    --font-blockquote: {{ style.typography.shared.blockquote.size | default: '1.2rem' }};
+    --font-blockquote-line-height: {{ style.typography.shared.blockquote.line_height | default: 1.7 }};
+
+    --font-caption: {{ style.typography.shared.caption.size | default: '0.875rem' }};
+    --font-caption-weight: {{ style.typography.shared.caption.weight | default: 650 }};
+    --font-caption-line-height: {{ style.typography.shared.caption.line_height | default: 1.5 }};
+    --space-caption-margin-top: {{ style.typography.shared.caption.margin_top | default: '0.75rem' }};
+    --space-caption-margin-bottom: {{ style.typography.shared.caption.margin_bottom | default: '1.5rem' }};
+
+    --font-navbar-brand: {{ style.typography.navbar.brand.size | default: '1rem' }};
+    --font-navbar-brand-weight: {{ style.typography.navbar.brand.weight | default: 700 }};
+    --font-navbar-brand-line-height: {{ style.typography.navbar.brand.line_height | default: 1.2 }};
+    --font-navbar-link: {{ style.typography.navbar.link.size | default: '1rem' }};
+    --font-navbar-link-weight: {{ style.typography.navbar.link.weight | default: 650 }};
+    --font-navbar-link-line-height: {{ style.typography.navbar.link.line_height | default: 1.2 }};
+    --font-navbar-active-weight: {{ style.typography.navbar.link.active_weight | default: 750 }};
+    --font-navbar-social: {{ style.typography.navbar.social.size | default: '1.7rem' }};
+    --font-navbar-social-weight: {{ style.typography.navbar.social.weight | default: 650 }};
+
+    --font-about-title: {{ style.typography.about.title.size | default: '3rem' }};
+    --font-about-title-weight: {{ style.typography.about.title.weight | default: 300 }};
+    --font-about-title-first-name-weight: {{ style.typography.about.title.first_name_weight | default: 700 }};
+    --font-about-title-line-height: {{ style.typography.about.title.line_height | default: 1.15 }};
+    --space-about-title-margin-bottom: {{ style.typography.about.title.margin_bottom | default: '0.5rem' }};
+    --font-about-subtitle: {{ style.typography.about.subtitle.size | default: '1.1rem' }};
+    --font-about-subtitle-weight: {{ style.typography.about.subtitle.weight | default: 400 }};
+    --font-about-subtitle-line-height: {{ style.typography.about.subtitle.line_height | default: 1.5 }};
+    --space-about-subtitle-margin-bottom: {{ style.typography.about.subtitle.margin_bottom | default: '1.5rem' }};
+    --font-about-body: {{ style.typography.about.body.size | default: '1.2rem' }};
+    --font-about-body-weight: {{ style.typography.about.body.weight | default: 300 }};
+    --font-about-body-line-height: {{ style.typography.about.body.line_height | default: 1.5 }};
+    --space-about-paragraph-gap: {{ style.typography.about.body.paragraph_gap | default: '1rem' }};
+    --font-about-profile-info: {{ style.typography.about.profile_info.size | default: '1rem' }};
+    --font-about-profile-info-weight: {{ style.typography.about.profile_info.weight | default: 650 }};
+    --font-about-profile-info-line-height: {{ style.typography.about.profile_info.line_height | default: 1.5 }};
+    --space-about-profile-info-margin-top: {{ style.typography.about.profile_info.margin_top | default: '5px' }};
+    --space-about-profile-info-margin-bottom: {{ style.typography.about.profile_info.margin_bottom | default: '5px' }};
+    --font-about-section-title: {{ style.typography.about.section_title.size | default: '2rem' }};
+    --font-about-section-title-weight: {{ style.typography.about.section_title.weight | default: 300 }};
+    --font-about-section-title-line-height: {{ style.typography.about.section_title.line_height | default: 1.25 }};
+    --space-about-section-title-margin-top: {{ style.typography.about.section_title.margin_top | default: '2.5rem' }};
+    --space-about-section-title-margin-bottom: {{ style.typography.about.section_title.margin_bottom | default: '1rem' }};
+    --font-about-publication-year: {{ style.typography.about.publications.year_title.size | default: '1.5rem' }};
+    --font-about-publication-year-weight: {{ style.typography.about.publications.year_title.weight | default: 700 }};
+    --font-about-publication-year-line-height: {{ style.typography.about.publications.year_title.line_height | default: 1.25 }};
+    --space-about-publication-year-margin-bottom: {{ style.typography.about.publications.year_title.margin_bottom | default: '1rem' }};
+    --font-about-publication-title: {{ style.typography.about.publications.item_title.size | default: '1.2rem' }};
+    --font-about-publication-title-weight: {{ style.typography.about.publications.item_title.weight | default: 700 }};
+    --font-about-publication-title-line-height: {{ style.typography.about.publications.item_title.line_height | default: 1.35 }};
+    --space-about-publication-title-margin-bottom: {{ style.typography.about.publications.item_title.margin_bottom | default: '0.25rem' }};
+    --font-about-publication-meta: {{ style.typography.about.publications.item_meta.size | default: '0.95rem' }};
+    --font-about-publication-meta-weight: {{ style.typography.about.publications.item_meta.weight | default: 400 }};
+    --font-about-publication-meta-line-height: {{ style.typography.about.publications.item_meta.line_height | default: 1.7 }};
+    --font-about-publication-button: {{ style.typography.about.publications.button.size | default: '0.875rem' }};
+    --font-about-publication-button-weight: {{ style.typography.about.publications.button.weight | default: 650 }};
+    --font-about-publication-button-line-height: {{ style.typography.about.publications.button.line_height | default: 1.4 }};
+    --font-about-publication-hidden: {{ style.typography.about.publications.hidden.size | default: '0.875rem' }};
+    --font-about-publication-hidden-weight: {{ style.typography.about.publications.hidden.weight | default: 400 }};
+    --font-about-publication-hidden-line-height: {{ style.typography.about.publications.hidden.line_height | default: 1.4 }};
+    --space-about-publication-container-margin-top: {{ style.typography.about.publications.container_margin_top | default: '0' }};
+    --space-about-publication-item-gap: {{ style.typography.about.publications.item_gap | default: '1rem' }};
+    --font-about-social-icons: {{ style.typography.about.social_icons.size | default: '4rem' }};
+    --space-about-social-icons-margin-top: {{ style.typography.about.social_icons.margin_top | default: '2rem' }};
+    --font-about-contact-note: {{ style.typography.about.contact_note.size | default: '0.8rem' }};
+    --font-about-contact-note-weight: {{ style.typography.about.contact_note.weight | default: 650 }};
+    --font-about-contact-note-line-height: {{ style.typography.about.contact_note.line_height | default: 1.6 }};
+    --space-about-contact-note-margin-top: {{ style.typography.about.contact_note.margin_top | default: '0.5rem' }};
+
+    --font-page-title: {{ style.typography.page.title.size | default: '3rem' }};
+    --font-page-title-weight: {{ style.typography.page.title.weight | default: 300 }};
+    --font-page-title-line-height: {{ style.typography.page.title.line_height | default: 1.15 }};
+    --space-page-title-margin-bottom: {{ style.typography.page.title.margin_bottom | default: '0.5rem' }};
+    --font-page-description: {{ style.typography.page.description.size | default: '1rem' }};
+    --font-page-description-weight: {{ style.typography.page.description.weight | default: 300 }};
+    --font-page-description-line-height: {{ style.typography.page.description.line_height | default: 1.6 }};
+    --space-page-description-margin-bottom: {{ style.typography.page.description.margin_bottom | default: '1.5rem' }};
+    --font-page-section-title: {{ style.typography.page.section_title.size | default: '2rem' }};
+    --font-page-section-title-weight: {{ style.typography.page.section_title.weight | default: 300 }};
+    --font-page-section-title-line-height: {{ style.typography.page.section_title.line_height | default: 1.25 }};
+    --space-page-section-title-margin-top: {{ style.typography.page.section_title.margin_top | default: '2.5rem' }};
+    --space-page-section-title-margin-bottom: {{ style.typography.page.section_title.margin_bottom | default: '1rem' }};
+    --font-page-publication-year: {{ style.typography.page.publications.year_title.size | default: '1.5rem' }};
+    --font-page-publication-year-weight: {{ style.typography.page.publications.year_title.weight | default: 700 }};
+    --font-page-publication-year-line-height: {{ style.typography.page.publications.year_title.line_height | default: 1.25 }};
+    --space-page-publication-year-margin-bottom: {{ style.typography.page.publications.year_title.margin_bottom | default: '1rem' }};
+    --font-page-publication-title: {{ style.typography.page.publications.item_title.size | default: '1.2rem' }};
+    --font-page-publication-title-weight: {{ style.typography.page.publications.item_title.weight | default: 700 }};
+    --font-page-publication-title-line-height: {{ style.typography.page.publications.item_title.line_height | default: 1.35 }};
+    --space-page-publication-title-margin-bottom: {{ style.typography.page.publications.item_title.margin_bottom | default: '0.25rem' }};
+    --font-page-publication-meta: {{ style.typography.page.publications.item_meta.size | default: '0.95rem' }};
+    --font-page-publication-meta-weight: {{ style.typography.page.publications.item_meta.weight | default: 400 }};
+    --font-page-publication-meta-line-height: {{ style.typography.page.publications.item_meta.line_height | default: 1.7 }};
+    --font-page-publication-button: {{ style.typography.page.publications.button.size | default: '0.875rem' }};
+    --font-page-publication-button-weight: {{ style.typography.page.publications.button.weight | default: 650 }};
+    --font-page-publication-button-line-height: {{ style.typography.page.publications.button.line_height | default: 1.4 }};
+    --font-page-publication-hidden: {{ style.typography.page.publications.hidden.size | default: '0.875rem' }};
+    --font-page-publication-hidden-weight: {{ style.typography.page.publications.hidden.weight | default: 400 }};
+    --font-page-publication-hidden-line-height: {{ style.typography.page.publications.hidden.line_height | default: 1.4 }};
+    --space-page-publication-container-margin-top: {{ style.typography.page.publications.container_margin_top | default: '0' }};
+    --space-page-publication-item-gap: {{ style.typography.page.publications.item_gap | default: '1rem' }};
+
+    --font-cv-title: {{ style.typography.cv.title.size | default: '3rem' }};
+    --font-cv-title-weight: {{ style.typography.cv.title.weight | default: 300 }};
+    --font-cv-title-line-height: {{ style.typography.cv.title.line_height | default: 1.15 }};
+    --space-cv-title-margin-bottom: {{ style.typography.cv.title.margin_bottom | default: '0.5rem' }};
+    --font-cv-description: {{ style.typography.cv.description.size | default: '1rem' }};
+    --font-cv-description-weight: {{ style.typography.cv.description.weight | default: 300 }};
+    --font-cv-description-line-height: {{ style.typography.cv.description.line_height | default: 1.6 }};
+    --space-cv-description-margin-bottom: {{ style.typography.cv.description.margin_bottom | default: '1.5rem' }};
+    --space-cv-card-gap: {{ style.typography.cv.card.gap | default: '1rem' }};
+    --font-cv-card-title: {{ style.typography.cv.card_title.size | default: '1.3rem' }};
+    --font-cv-card-title-weight: {{ style.typography.cv.card_title.weight | default: 700 }};
+    --font-cv-card-title-line-height: {{ style.typography.cv.card_title.line_height | default: 1.3 }};
+    --space-cv-card-title-margin-bottom: {{ style.typography.cv.card_title.margin_bottom | default: '1rem' }};
+    --font-cv-label: {{ style.typography.cv.label.size | default: '0.95rem' }};
+    --font-cv-label-weight: {{ style.typography.cv.label.weight | default: 700 }};
+    --font-cv-label-line-height: {{ style.typography.cv.label.line_height | default: 1.5 }};
+    --font-cv-value: {{ style.typography.cv.value.size | default: '0.95rem' }};
+    --font-cv-value-weight: {{ style.typography.cv.value.weight | default: 400 }};
+    --font-cv-value-line-height: {{ style.typography.cv.value.line_height | default: 1.5 }};
+    --font-cv-entry-title: {{ style.typography.cv.entry_title.size | default: '1rem' }};
+    --font-cv-entry-title-weight: {{ style.typography.cv.entry_title.weight | default: 700 }};
+    --font-cv-entry-title-line-height: {{ style.typography.cv.entry_title.line_height | default: 1.4 }};
+    --font-cv-entry-meta: {{ style.typography.cv.entry_meta.size | default: '0.95rem' }};
+    --font-cv-entry-meta-weight: {{ style.typography.cv.entry_meta.weight | default: 400 }};
+    --font-cv-entry-meta-line-height: {{ style.typography.cv.entry_meta.line_height | default: 1.5 }};
+    --font-cv-entry-summary: {{ style.typography.cv.entry_summary.size | default: '0.95rem' }};
+    --font-cv-entry-summary-weight: {{ style.typography.cv.entry_summary.weight | default: 400 }};
+    --font-cv-entry-summary-line-height: {{ style.typography.cv.entry_summary.line_height | default: 1.6 }};
+    --font-cv-badge: {{ style.typography.cv.badge.size | default: '0.8rem' }};
+    --font-cv-badge-weight: {{ style.typography.cv.badge.weight | default: 700 }};
+    --font-cv-badge-line-height: {{ style.typography.cv.badge.line_height | default: 1.2 }};
+    --font-cv-button: {{ style.typography.cv.button.size | default: '0.7rem' }};
+    --font-cv-button-weight: {{ style.typography.cv.button.weight | default: 400 }};
+    --font-cv-button-line-height: {{ style.typography.cv.button.line_height | default: 1.4 }};
+    --font-cv-location: {{ style.typography.cv.location.size | default: '0.7rem' }};
+    --font-cv-location-weight: {{ style.typography.cv.location.weight | default: 400 }};
+    --font-cv-location-line-height: {{ style.typography.cv.location.line_height | default: 1.4 }};
+    --font-cv-minor: {{ style.typography.cv.minor.size | default: '0.8rem' }};
+    --font-cv-minor-weight: {{ style.typography.cv.minor.weight | default: 400 }};
+    --font-cv-minor-line-height: {{ style.typography.cv.minor.line_height | default: 1.4 }};
+    --font-cv-icon-small: {{ style.typography.cv.icon_small.size | default: '0.8rem' }};
+    --font-cv-icon-medium: {{ style.typography.cv.icon_medium.size | default: '0.95rem' }};
+
+    --font-footer-fixed: {{ style.typography.footer.fixed.size | default: '0.75rem' }};
+    --font-footer-fixed-weight: {{ style.typography.footer.fixed.weight | default: 650 }};
+    --font-footer-fixed-line-height: {{ style.typography.footer.fixed.line_height | default: 1.5 }};
+    --font-footer-sticky: {{ style.typography.footer.sticky.size | default: '0.9rem' }};
+    --font-footer-sticky-weight: {{ style.typography.footer.sticky.weight | default: 650 }};
+    --font-footer-sticky-line-height: {{ style.typography.footer.sticky.line_height | default: 1.6 }};
+  }
+</style>
+
+{% if page.pseudocode %}
+  <!-- pseudocode -->
+  <link
+    defer
+    rel="stylesheet"
+    href="{{ site.third_party_libraries.pseudocode.url.css }}"
+    integrity="{{ site.third_party_libraries.pseudocode.integrity.css }}"
+    crossorigin="anonymous"
+  >
+{% endif %}
+
+{% if site.icon.size <= 4 %}
+  <link
+    rel="shortcut icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>{{ site.icon }}</text></svg>"
+  >
+{% elsif site.icon != blank %}
+  <link rel="shortcut icon" href="{{ site.icon | prepend: '/assets/img/' | relative_url | bust_file_cache}}">
+{% endif %}
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url | bust_css_cache }}">
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+{% if site.enable_darkmode %}
+  <!-- Dark Mode -->
+  <script src="{{ '/assets/js/theme.js' | relative_url | bust_file_cache }}"></script>
+  <link
+    defer
+    rel="stylesheet"
+    href="{{ '/assets/css/jekyll-pygments-themes-native.css' | relative_url | bust_file_cache }}"
+    media="none"
+    id="highlight_theme_dark"
+  >
+  <script>
+    initTheme();
+  </script>
+{% endif %}
+
+{% if page.map %}
+  <!-- GeoJSON support via Leaflet -->
+  <link
+    defer
+    rel="stylesheet"
+    href="{{ site.third_party_libraries.leaflet.url.css }}"
+    integrity="{{ site.third_party_libraries.leaflet.integrity.css }}"
+    crossorigin="anonymous"
+  >
+{% endif %}
+
+{% if page.code_diff %}
+  <!-- diff2html -->
+  <link
+    defer
+    rel="stylesheet"
+    href="{{ site.third_party_libraries.highlightjs.url.css.light }}"
+    integrity="{{ site.third_party_libraries.highlightjs.integrity.css.light }}"
+    crossorigin="anonymous"
+    media="screen and (prefers-color-scheme: light)"
+  >
+  <link
+    defer
+    rel="stylesheet"
+    href="{{ site.third_party_libraries.highlightjs.url.css.dark }}"
+    integrity="{{ site.third_party_libraries.highlightjs.integrity.css.dark }}"
+    crossorigin="anonymous"
+    media="screen and (prefers-color-scheme: dark)"
+  >
+  <link
+    defer
+    rel="stylesheet"
+    href="{{ site.third_party_libraries.diff2html.url.css }}"
+    integrity="{{ site.third_party_libraries.diff2html.integrity.css }}"
+    crossorigin="anonymous"
+  >
+{% endif %}
+
+{% if page.images %}
+  {% if page.images.compare %}
+    <!-- Image comparison slider -->
+    <link
+      defer
+      rel="stylesheet"
+      href="{{ site.third_party_libraries.img-comparison-slider.url.css }}"
+      integrity="{{ site.third_party_libraries.img-comparison-slider.integrity.css }}"
+      crossorigin="anonymous"
+    >
+  {% endif %}
+  {% if page.images.lightbox2 %}
+    <!-- Lightbox2 -->
+    <link
+      defer
+      rel="stylesheet"
+      href="{{ site.third_party_libraries.lightbox2.url.css }}"
+      integrity="{{ site.third_party_libraries.lightbox2.integrity.css }}"
+      crossorigin="anonymous"
+    >
+  {% endif %}
+  {% if page.images.photoswipe %}
+    <!-- Photoswipe -->
+    <link
+      defer
+      rel="stylesheet"
+      href="{{ site.third_party_libraries.photoswipe.url.css }}"
+      crossorigin="anonymous"
+    >
+  {% endif %}
+  {% if page.images.slider %}
+    <!-- Image slider -->
+    <link
+      defer
+      rel="stylesheet"
+      href="{{ site.third_party_libraries.swiper.url.css }}"
+      integrity="{{ site.third_party_libraries.swiper.integrity.css }}"
+      crossorigin="anonymous"
+    >
+  {% endif %}
+  {% if page.images.spotlight %}
+    <!-- Spotlight -->
+    <link
+      defer
+      rel="stylesheet"
+      href="{{ site.third_party_libraries.spotlight.url.css }}"
+      integrity="{{ site.third_party_libraries.spotlight.integrity.css }}"
+      crossorigin="anonymous"
+    >
+  {% endif %}
+  {% if page.images.venobox %}
+    <!-- Venobox -->
+    <link
+      defer
+      rel="stylesheet"
+      href="{{ site.third_party_libraries.venobox.url.css }}"
+      integrity="{{ site.third_party_libraries.venobox.integrity.css }}"
+      crossorigin="anonymous"
+    >
+  {% endif %}
+{% endif %}
+
+{% if site.enable_cookie_consent %}
+  <!-- Cookie Consent -->
+  <link
+    defer
+    rel="stylesheet"
+    href="{{ site.third_party_libraries.vanilla-cookieconsent.url.css }}"
+    integrity="{{ site.third_party_libraries.vanilla-cookieconsent.integrity.css }}"
+    crossorigin="anonymous"
+  >
+{% endif %}
