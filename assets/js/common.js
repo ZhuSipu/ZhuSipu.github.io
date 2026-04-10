@@ -66,7 +66,6 @@ $(document).ready(function () {
     const photoThumbs = Array.from(document.querySelectorAll("[data-photo-thumb]"));
     const photoBackButtons = Array.from(document.querySelectorAll("[data-photo-back]"));
     const photoCarouselStage = photoCarousel.querySelector(".photo-carousel-stage");
-    const photoCarouselTopbar = photoCarousel.querySelector(".photo-carousel-topbar");
     const navbar = document.querySelector("#navbar");
     const footer = document.querySelector("footer");
     const slides = Array.from(photoCarousel.querySelectorAll("[data-photo-slide]"));
@@ -113,7 +112,6 @@ $(document).ready(function () {
 
       const activeSlide = slides[activeIndex];
       const activeImage = activeSlide ? activeSlide.querySelector(".photo-feature-image img") : null;
-      const activeNote = activeSlide ? activeSlide.querySelector(".photo-feature-note") : null;
 
       if (!activeImage) return;
 
@@ -126,13 +124,6 @@ $(document).ready(function () {
       const imageTop = Math.max(0, imageRect.top - stageRect.top);
       const imageRight = Math.max(0, stageRect.right - imageRect.right);
       const imageBottom = Math.max(0, imageRect.bottom - stageRect.top);
-      const topbarHeight = photoCarouselTopbar ? Math.ceil(photoCarouselTopbar.getBoundingClientRect().height) : 0;
-      const noteHeight = activeNote ? Math.ceil(activeNote.getBoundingClientRect().height) : 0;
-      const desiredBackTop = imageTop - topbarHeight - 10;
-      const desiredNoteTop = imageBottom + 5;
-      const maxNoteTop = Math.max(0, stageRect.height - noteHeight);
-      const backTop = Math.max(0, desiredBackTop);
-      const noteTop = Math.min(desiredNoteTop, maxNoteTop);
 
       photoCarouselStage.style.setProperty("--photo-image-left", `${imageLeft}px`);
       photoCarouselStage.style.setProperty("--photo-image-top", `${imageTop}px`);
@@ -140,8 +131,6 @@ $(document).ready(function () {
       photoCarouselStage.style.setProperty("--photo-image-height", `${imageRect.height}px`);
       photoCarouselStage.style.setProperty("--photo-image-bottom", `${imageBottom}px`);
       photoCarouselStage.style.setProperty("--photo-image-width", `${imageRect.width}px`);
-      photoCarouselStage.style.setProperty("--photo-back-top", `${backTop}px`);
-      photoCarouselStage.style.setProperty("--photo-note-top", `${noteTop}px`);
     };
 
     const updatePhotoViewportMetrics = () => {

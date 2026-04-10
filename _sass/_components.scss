@@ -410,12 +410,10 @@ html[data-theme="dark"] .cv .card {
 }
 
 .photo-detail-view {
-  --photo-detail-nav-height: 57px;
-  --photo-detail-footer-height: 124px;
   --photo-detail-edge-gap: 50px;
-  --photo-detail-viewport-height: calc(100dvh - var(--photo-detail-nav-height) - var(--photo-detail-footer-height));
+  --photo-detail-viewport-height: 60vh;
   position: relative;
-  height: var(--photo-detail-viewport-height);
+  min-height: var(--photo-detail-viewport-height);
   opacity: 0;
   transform: translateY(1.5rem) scale(0.985);
   transition: opacity 0.38s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
@@ -473,12 +471,13 @@ html[data-theme="dark"] .cv .card {
 
 .photo-carousel-topbar {
   position: absolute;
-  top: var(--photo-back-top, 0px);
+  top: var(--photo-image-top);
   left: var(--photo-image-left);
   z-index: 3;
   display: flex;
   width: var(--photo-image-width);
   justify-content: flex-start;
+  transform: translateY(calc(-100% - 10px));
 }
 
 .photo-carousel-nav {
@@ -603,7 +602,7 @@ html[data-theme="dark"] .cv .card {
 
 .photo-feature-note {
   position: absolute;
-  top: var(--photo-note-top, calc(var(--photo-image-bottom) + 5px));
+  top: calc(var(--photo-image-bottom) + 8px);
   left: 50%;
   width: var(--photo-image-width);
   margin: 0;
@@ -615,10 +614,6 @@ html[data-theme="dark"] .cv .card {
   text-align: center;
   transform: translateX(-50%);
   z-index: 3;
-}
-
-body.photo-gallery-detail-mode .container {
-  max-width: calc(100vw - 2rem);
 }
 
 body.photo-gallery-detail-mode .container.mt-5 {
@@ -657,8 +652,7 @@ body.photo-gallery-detail-mode .photo-feature-image img {
   }
 
   .photo-carousel-stage {
-    width: calc(100vw - 3rem);
-    max-width: 100%;
+    width: 100%;
   }
 
   .photo-carousel-nav {
