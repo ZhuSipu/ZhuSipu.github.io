@@ -478,7 +478,7 @@ html[data-theme="dark"] .cv .card {
   display: flex;
   width: var(--photo-image-width);
   justify-content: flex-start;
-  transform: translateY(-100%);
+  transform: translate(-5px, calc(-100% - 5px));
 }
 
 .photo-carousel-nav {
@@ -604,7 +604,7 @@ html[data-theme="dark"] .cv .card {
 
 .photo-feature-note {
   position: absolute;
-  top: var(--photo-image-bottom);
+  top: calc(var(--photo-image-bottom) + 5px);
   left: var(--photo-image-left);
   width: var(--photo-image-width);
   margin: 0;
