@@ -60,6 +60,9 @@ $(document).ready(function () {
 
   const photoCarousel = document.querySelector("[data-photo-carousel]");
   if (photoCarousel) {
+    const photoOverview = document.querySelector("[data-photo-overview]");
+    const photoThumbs = Array.from(document.querySelectorAll("[data-photo-thumb]"));
+    const photoBackButton = document.querySelector("[data-photo-back]");
     const slides = Array.from(photoCarousel.querySelectorAll("[data-photo-slide]"));
     const prevButton = photoCarousel.querySelector("[data-photo-prev]");
     const nextButton = photoCarousel.querySelector("[data-photo-next]");
@@ -78,6 +81,24 @@ $(document).ready(function () {
       activeIndex = nextIndex;
     };
 
+    const setPhotoMode = (detailMode) => {
+      document.body.classList.toggle("photo-gallery-detail-mode", detailMode);
+      if (photoOverview) {
+        photoOverview.hidden = detailMode;
+      }
+      photoCarousel.hidden = !detailMode;
+    };
+
+    const openPhotoDetail = (nextIndex) => {
+      renderPhotoSlide(nextIndex);
+      setPhotoMode(true);
+      photoCarousel.focus();
+    };
+
+    const closePhotoDetail = () => {
+      setPhotoMode(false);
+    };
+
     const stepPhotoSlide = (direction) => {
       if (!slides.length) return;
       const nextIndex = (activeIndex + direction + slides.length) % slides.length;
@@ -86,6 +107,19 @@ $(document).ready(function () {
 
     if (slides.length) {
       renderPhotoSlide(activeIndex);
+    }
+
+    setPhotoMode(false);
+
+    photoThumbs.forEach((thumb) => {
+      thumb.addEventListener("click", () => {
+        const nextIndex = Number(thumb.getAttribute("data-photo-index") || "0");
+        openPhotoDetail(nextIndex);
+      });
+    });
+
+    if (photoBackButton) {
+      photoBackButton.addEventListener("click", closePhotoDetail);
     }
 
     if (prevButton) {
@@ -104,6 +138,10 @@ $(document).ready(function () {
       if (event.key === "ArrowRight") {
         event.preventDefault();
         stepPhotoSlide(1);
+      }
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closePhotoDetail();
       }
     });
   }

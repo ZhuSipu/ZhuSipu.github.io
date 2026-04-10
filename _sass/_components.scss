@@ -283,11 +283,57 @@ html[data-theme="dark"] .cv .card {
   width: 100%;
 }
 
-.photo-carousel {
+.photo-overview-grid {
   display: grid;
-  grid-template-columns: minmax(2.75rem, 4rem) minmax(0, 1fr) minmax(2.75rem, 4rem);
-  align-items: center;
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  background: #fff;
+}
+
+.photo-thumb {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.photo-thumb:focus-visible {
+  outline: 2px solid var(--global-theme-color);
+  outline-offset: 4px;
+}
+
+.photo-thumb-image {
+  figure {
+    margin: 0;
+  }
+}
+
+.photo-thumb-figure,
+.photo-feature-figure {
+  display: block;
+  width: 100%;
+  border-radius: 0;
+}
+
+.photo-detail-view {
+  position: relative;
+}
+
+.photo-detail-back {
+  margin-bottom: 1rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--global-text-color-light);
+  font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.photo-detail-back:hover {
+  color: var(--global-theme-color);
 }
 
 .photo-carousel-stage {
@@ -296,27 +342,38 @@ html[data-theme="dark"] .cv .card {
 }
 
 .photo-carousel-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  aspect-ratio: 1 / 1;
+  width: 2.75rem;
+  height: 2.75rem;
   padding: 0;
-  border: 1px solid var(--global-divider-color);
-  border-radius: 999px;
+  border: 0;
   background: transparent;
-  color: var(--global-text-color);
+  color: #9a9a9a;
   font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
-  font-size: 2rem;
+  font-size: 4rem;
+  font-weight: 300;
   line-height: 1;
   cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transform: translateY(-50%);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.photo-carousel-nav-prev {
+  left: -3.5rem;
+}
+
+.photo-carousel-nav-next {
+  right: -3.5rem;
 }
 
 .photo-carousel-nav:hover {
   color: var(--global-theme-color);
-  border-color: var(--global-theme-color);
-  transform: scale(1.04);
+  transform: translateY(-50%) scale(1.08);
 }
 
 .photo-carousel-nav:focus-visible {
@@ -324,9 +381,12 @@ html[data-theme="dark"] .cv .card {
   outline-offset: 3px;
 }
 
+.photo-carousel-track {
+  width: 100%;
+}
+
 .photo-feature {
   display: none;
-  gap: 0.85rem;
 }
 
 .photo-feature.is-active {
@@ -339,52 +399,37 @@ html[data-theme="dark"] .cv .card {
   }
 }
 
-.photo-feature-figure {
-  display: block;
-  width: 100%;
-  border-radius: 0;
+body.photo-gallery-detail-mode .container {
+  max-width: calc(100vw - 2rem);
 }
 
-.photo-feature-meta {
-  max-width: 20rem;
+body.photo-gallery-detail-mode .layout-page .post-header {
+  display: none;
 }
 
-.photo-feature-title,
-.photo-feature-kicker {
-  font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
-}
-
-.photo-feature-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  line-height: 1.4;
-}
-
-.photo-feature-kicker {
-  margin-top: 0.15rem;
-  font-size: 0.75rem;
-  font-weight: 650;
-  line-height: 1.5;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--global-text-color-light);
-}
-
-.photo-feature-description {
-  margin-top: 0.35rem;
-  margin-bottom: 0;
-  font-size: 0.95rem;
-  line-height: 1.7;
+body.photo-gallery-detail-mode .photo-feature-image img {
+  max-height: calc(100vh - 5rem);
+  object-fit: contain;
 }
 
 @media (max-width: 768px) {
-  .photo-carousel {
-    grid-template-columns: minmax(2.5rem, 3rem) minmax(0, 1fr) minmax(2.5rem, 3rem);
+  .photo-overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.75rem;
   }
 
   .photo-carousel-nav {
-    font-size: 1.6rem;
+    font-size: 2.75rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .photo-carousel-nav-prev {
+    left: -2rem;
+  }
+
+  .photo-carousel-nav-next {
+    right: -2rem;
   }
 }
 
