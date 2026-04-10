@@ -94,7 +94,7 @@ typography:
   navbar:
     # 左上角站点名
     brand:
-      size: 1rem
+      size: 1.5rem
       weight: 700
       line_height: 1.2
 
@@ -266,6 +266,13 @@ typography:
     # CV 卡片区块之间的间距
     card:
       gap: 1rem
+
+    # CV 左侧目录（TOC）
+    toc:
+      size: 1.0rem
+      weight: 400
+      active_weight: 700
+      line_height: 1.5
 
     # CV 卡片标题
     card_title:

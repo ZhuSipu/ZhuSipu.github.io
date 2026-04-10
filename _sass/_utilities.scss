@@ -179,12 +179,16 @@ nav[data-toggle="toc"] {
   top: 5rem;
 
   .nav .nav > li > a {
-    font-size: 0.75rem;
+    font-size: var(--font-cv-toc, 0.75rem);
+    font-weight: var(--font-cv-toc-weight, 400);
+    line-height: var(--font-cv-toc-line-height, 1.5);
   }
 
   .nav > li > a {
     color: var(--global-text-color);
-    font-size: 0.75rem;
+    font-size: var(--font-cv-toc, 0.75rem);
+    font-weight: var(--font-cv-toc-weight, 400);
+    line-height: var(--font-cv-toc-line-height, 1.5);
 
     &:hover {
       color: var(--global-hover-color);
@@ -195,7 +199,9 @@ nav[data-toggle="toc"] {
   .nav-link.active {
     color: var(--global-theme-color);
     border-left-color: var(--global-theme-color);
-    font-size: 0.75rem;
+    font-size: var(--font-cv-toc, 0.75rem);
+    font-weight: var(--font-cv-toc-active-weight, 700);
+    line-height: var(--font-cv-toc-line-height, 1.5);
 
     &:hover {
       color: var(--global-hover-color);

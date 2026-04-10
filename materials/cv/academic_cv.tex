@@ -1,0 +1,154 @@
+\documentclass[10.5pt,letterpaper]{article}
+
+\usepackage[margin=0.6in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{newtxtext}
+\usepackage{changepage}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.04}
+
+% ---------- Spacing ----------
+\newlength{\SectionTopSpace}
+\newlength{\SectionBottomSpace}
+\newlength{\ItemGap}
+\setlength{\SectionTopSpace}{0.82em}
+\setlength{\SectionBottomSpace}{0.82em}
+\setlength{\ItemGap}{0.40em}
+
+% ---------- Section Style ----------
+\titleformat{\section}
+  {\large\bfseries}
+  {}{0em}{}
+  [\vspace{0.18em}\hrule]
+
+\titlespacing*{\section}{0pt}{\SectionTopSpace}{\SectionBottomSpace}
+
+% ---------- Commands ----------
+\newcommand{\cvname}[1]{\begin{center}{\Large\bfseries #1}\end{center}}
+\newcommand{\cvcontact}[1]{\begin{center}\small #1\end{center}}
+
+% Keep body indented relative to section titles
+\newenvironment{cvcontent}
+  {\begin{adjustwidth}{1.6em}{0pt}}
+  {\end{adjustwidth}}
+
+\newcommand{\entry}[4]{%
+  \textbf{#1} \hfill \textit{#2}\par
+  \textit{#3\ifx&#4&\else, #4\fi}\par
+  \vspace{\ItemGap}
+}
+
+\newcommand{\project}[3]{%
+  \textbf{#1} \hfill \textit{#2}\par
+  #3\par
+  \vspace{\ItemGap}
+}
+
+\newcommand{\publication}[3]{%
+  \textbf{#1}\par
+  #2\par
+  #3\par
+  \vspace{\ItemGap}
+}
+
+\newcommand{\award}[1]{%
+  #1\par
+  \vspace{\ItemGap}
+}
+
+% ---------- Document ----------
+\begin{document}
+
+\cvname{SIPU ZHU}
+\cvcontact{Beijing, China \quad • \quad \href{mailto:zhusp22@mails.tsinghua.edu.cn}{zhusp22@mails.tsinghua.edu.cn}}
+
+% ---------- Profile ----------
+\section*{PROFILE}
+\begin{cvcontent}
+I am an incoming Ph.D. student in Architectural Design at Tsinghua University, advised by Academician Zhuang Weimin. My research focuses on spatial intelligence, human--computer interaction, and AI in the built environment.
+\end{cvcontent}
+
+% ---------- Education ----------
+\section*{EDUCATION}
+\begin{cvcontent}
+\entry
+{Tsinghua University, Beijing, China}
+{Sep 2026 -- Present}
+{Ph.D. in Architectural Design}
+{Advisor: Academician Zhuang Weimin}
+
+\entry
+{Tsinghua University, Beijing, China}
+{Sep 2022 -- Jun 2026}
+{Bachelor of Architecture}
+{GPA: 3.89/4.0, Rank 2}
+\end{cvcontent}
+
+% ---------- Publications ----------
+\section*{PUBLICATIONS}
+\begin{cvcontent}
+\publication
+{Healing with sight, smell and sound: A virtual reality study on multisensory synergistic stress recovery in hospital staff break spaces}
+{Dalin Lyu, Hengyi Cong, \textbf{Sipu Zhu}, Yulong Liu, Weimin Zhuang}
+{Keywords: virtual reality, multisensory design, healthcare architecture, stress recovery\par
+\textit{Building and Environment, 2026 \quad \href{https://doi.org/10.1016/j.buildenv.2026.114587}{[link]}}}
+\end{cvcontent}
+
+% ---------- Research Projects ----------
+\section*{RESEARCH PROJECTS}
+\begin{cvcontent}
+\project
+{Human--Robot Interaction in Architectural Space}
+{2026}
+{Studies how spatial scale affects human visual attention toward humanoid robots using eye-tracking experiments in corridor and hall environments.}
+
+\project
+{Evaluation of Aesthetic Perception in Large Models}
+{2025}
+{Compares large model judgments with human aesthetic responses to architectural imagery.}
+
+\project
+{Immersive Architectural Interaction Design with CAVE Projection}
+{2024}
+{Develops immersive workflows combining CAVE systems, VR simulation, and real-time spatial interaction.}
+\end{cvcontent}
+
+% ---------- Honors ----------
+\section*{HONORS}
+\begin{cvcontent}
+\award{Toyota Scholarship, Tsinghua Alumni Comprehensive Excellence Scholarship (2025)}
+\award{Cheng Xiankang Memorial Scholarship (2024)}
+\award{Guangyi Design First-Class Scholarship (2024)}
+\award{Outstanding Social Work Scholarship (2023)}
+\end{cvcontent}
+
+% ---------- Research Interests ----------
+\section*{RESEARCH INTERESTS}
+\begin{cvcontent}
+Architectural Design, Spatial Intelligence, Human--Computer Interaction, AI in Architecture, Urban Studies
+\end{cvcontent}
+
+% ---------- Employment ----------
+\section*{EMPLOYMENT}
+\begin{cvcontent}
+\entry
+{Tsinghua Architectural Design and Research Institute, Beijing, China}
+{Feb 2026 -- Present}
+{Intern}
+{}
+
+\entry
+{Vanke Southwest Architectural Design Research Center, China}
+{Jun 2024 -- Sep 2024}
+{Intern}
+{}
+\end{cvcontent}
+
+\end{document}

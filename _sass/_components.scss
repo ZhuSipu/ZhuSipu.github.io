@@ -131,6 +131,10 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
+html[data-theme="dark"] .cv .card {
+  background-color: #2b2b2b;
+}
+
 .table-cv-map {
   background-color: transparent;
   border: none;
