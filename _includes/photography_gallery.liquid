@@ -52,7 +52,12 @@
     <div class="photo-detail-view" data-photo-carousel tabindex="0" hidden>
       <div class="photo-carousel-stage">
         <div class="photo-carousel-topbar">
-          <button class="photo-detail-back" type="button" data-photo-back>All Photos</button>
+          <button class="photo-detail-back" type="button" data-photo-back aria-label="Back to all photos">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M19 12H6.5" />
+              <path d="M11.5 5 4.5 12l7 7" />
+            </svg>
+          </button>
         </div>
 
         <button class="photo-carousel-nav photo-carousel-nav-prev" type="button" aria-label="Previous photograph" data-photo-prev>
