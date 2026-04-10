@@ -429,8 +429,8 @@ html[data-theme="dark"] .cv .card {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.1rem;
+  height: 1.1rem;
   padding: 0;
   border: 0;
   background: transparent;
@@ -451,7 +451,7 @@ html[data-theme="dark"] .cv .card {
 .photo-detail-back path {
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.6;
+  stroke-width: 1.7;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -605,7 +605,7 @@ body.photo-gallery-detail-mode .container {
 }
 
 body.photo-gallery-detail-mode .container.mt-5 {
-  margin-top: 0.5rem !important;
+  margin-top: var(--photo-detail-nav-offset, 1rem) !important;
 }
 
 body.photo-gallery-detail-mode {
@@ -619,22 +619,6 @@ body.photo-gallery-detail-mode .layout-page .post-header {
 body.photo-gallery-detail-mode .photo-feature-image img {
   max-height: calc(var(--photo-detail-viewport-height) * 0.9);
   object-fit: contain;
-}
-
-body.fixed-top-nav .photo-detail-view {
-  --photo-detail-nav-height: 57px;
-}
-
-body:not(.fixed-top-nav) .photo-detail-view {
-  --photo-detail-nav-height: 72px;
-}
-
-body.sticky-bottom-footer .photo-detail-view {
-  --photo-detail-footer-height: 124px;
-}
-
-body:not(.sticky-bottom-footer) .photo-detail-view {
-  --photo-detail-footer-height: 32px;
 }
 
 @media (prefers-reduced-motion: reduce) {

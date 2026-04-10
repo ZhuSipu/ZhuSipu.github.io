@@ -66,6 +66,8 @@ $(document).ready(function () {
     const photoThumbs = Array.from(document.querySelectorAll("[data-photo-thumb]"));
     const photoBackButtons = Array.from(document.querySelectorAll("[data-photo-back]"));
     const photoCarouselStage = photoCarousel.querySelector(".photo-carousel-stage");
+    const navbar = document.querySelector("#navbar");
+    const footer = document.querySelector("footer");
     const slides = Array.from(photoCarousel.querySelectorAll("[data-photo-slide]"));
     const prevButton = photoCarousel.querySelector("[data-photo-prev]");
     const nextButton = photoCarousel.querySelector("[data-photo-next]");
@@ -124,6 +126,15 @@ $(document).ready(function () {
       photoCarouselStage.style.setProperty("--photo-image-left", `${imageLeft}px`);
       photoCarouselStage.style.setProperty("--photo-image-right", `${imageRight}px`);
       photoCarouselStage.style.setProperty("--photo-image-width", `${imageRect.width}px`);
+    };
+
+    const updatePhotoViewportMetrics = () => {
+      const navbarHeight = navbar ? Math.ceil(navbar.getBoundingClientRect().height) : 0;
+      const footerHeight = footer ? Math.ceil(footer.getBoundingClientRect().height) : 0;
+
+      photoCarousel.style.setProperty("--photo-detail-nav-height", `${navbarHeight}px`);
+      photoCarousel.style.setProperty("--photo-detail-footer-height", `${footerHeight}px`);
+      document.body.style.setProperty("--photo-detail-nav-offset", `${navbarHeight + 8}px`);
     };
 
     const updateThumbSelection = () => {
@@ -230,6 +241,7 @@ $(document).ready(function () {
     const showPhotoDetail = () => {
       photoCarousel.hidden = false;
       requestAnimationFrame(() => {
+        updatePhotoViewportMetrics();
         photoCarousel.classList.add("is-visible");
         updatePhotoStageMetrics();
       });
@@ -274,6 +286,7 @@ $(document).ready(function () {
 
     photoImages.forEach(markImageAsLoaded);
     window.addEventListener("resize", () => {
+      window.requestAnimationFrame(updatePhotoViewportMetrics);
       window.requestAnimationFrame(updatePhotoStageMetrics);
     });
 
@@ -281,6 +294,7 @@ $(document).ready(function () {
       renderPhotoSlide(activeIndex, 0, true);
     }
 
+    updatePhotoViewportMetrics();
     showPhotoOverview();
     photoCarousel.hidden = true;
 
