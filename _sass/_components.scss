@@ -605,7 +605,7 @@ html[data-theme="dark"] .cv .card {
 .photo-feature-note {
   position: absolute;
   top: calc(var(--photo-image-bottom) + var(--photo-image-offset-y) + 8px);
-  left: 50%;
+  left: var(--photo-image-left);
   width: var(--photo-image-width);
   margin: 0;
   font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
@@ -614,7 +614,6 @@ html[data-theme="dark"] .cv .card {
   letter-spacing: 0.03em;
   color: #111;
   text-align: center;
-  transform: translateX(-50%);
   z-index: 3;
 }
 
