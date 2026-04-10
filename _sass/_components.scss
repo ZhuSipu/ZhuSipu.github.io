@@ -185,6 +185,204 @@ html[data-theme="dark"] .cv .card {
   }
 }
 
+.empty-state {
+  border: 1px dashed var(--global-divider-color);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--global-text-color-light);
+}
+
+.layout-cv .post-header {
+  .post-title-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-title {
+    margin-bottom: 0;
+  }
+}
+
+.cv-download-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-list {
+  .project-entry {
+    padding-bottom: 0.25rem;
+  }
+
+  .project-links {
+    margin-top: 0.85rem;
+  }
+
+  .project-media {
+    margin-top: 1.25rem;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .project-media-section-title {
+    margin-bottom: 0.75rem;
+    font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--global-text-color-light);
+  }
+
+  .project-media-grid,
+  .project-video-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .project-media-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .project-media-card,
+  .project-video-card {
+    figure {
+      margin-bottom: 0;
+    }
+  }
+
+  .project-media-figure {
+    display: block;
+    width: 100%;
+    border-radius: 0.5rem;
+    background: var(--global-card-bg-color);
+  }
+
+  .project-media-caption,
+  .project-media-card .caption {
+    margin-top: 0.65rem;
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  .project-video-frame {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: #000;
+  }
+}
+
+.photo-gallery {
+  display: grid;
+  gap: 3rem;
+}
+
+.photo-feature {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.photo-feature-image {
+  figure {
+    margin: 0;
+  }
+}
+
+.photo-feature-figure {
+  display: block;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.photo-feature-meta {
+  max-width: 20rem;
+}
+
+.photo-feature-title,
+.photo-feature-kicker {
+  font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+}
+
+.photo-feature-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.photo-feature-kicker {
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  font-weight: 650;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--global-text-color-light);
+}
+
+.photo-feature-description {
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.blog-post-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.blog-post-card {
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  background: var(--global-card-bg-color);
+}
+
+.blog-post-date,
+.blog-post-link {
+  font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+}
+
+.blog-post-date {
+  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--global-text-color-light);
+}
+
+.blog-post-title {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.blog-post-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.blog-post-title a:hover {
+  color: var(--global-theme-color);
+  text-decoration: none;
+}
+
+.blog-post-excerpt {
+  margin-bottom: 0.85rem;
+}
+
+.blog-post-link {
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
 // Repositories
 
 @media (min-width: 768px) {

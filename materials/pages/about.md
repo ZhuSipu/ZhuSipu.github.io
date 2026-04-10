@@ -19,7 +19,7 @@ social: true # includes social icons at the bottom of the page
 projects:
   enabled: true
 ---
-I am **Sipu Zhu (Paul)**, an incoming PhD student in Architecture at **Tsinghua University,** with a strong interest in interdisciplinary research across **design**, **technology**, **and the humanities****.**
+I am **Sipu Zhu (Paul)**, an incoming PhD student in Architecture at **Tsinghua University**, with a strong interest in interdisciplinary research across **design**, **technology**, and **the humanities**.
 
 My current research interests include **architectural design**, **built environment studies**, **human-computer interaction**, **AI in architecture**, **spatial intelligence**, and **urban studies**.
 

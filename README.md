@@ -10,8 +10,12 @@ If you want to update the website content, only edit files inside `materials/`.
 - `materials/pages/about.md`: homepage text and profile block
 - `materials/pages/cv.md`: CV page options
 - `materials/pages/projects.md`: projects page options
+- `materials/pages/photography.md`: photography landing page
+- `materials/pages/blog.md`: blog landing page
+- `materials/pages/blog/*.md`: individual blog articles
 - `materials/data/cv.yml`: CV content
 - `materials/data/projects.yml`: project records used by the homepage, projects page, and CV
+- `materials/data/photography.yml`: photography works shown on the photography page
 - `materials/data/socials.yml`: email and social links
 - `materials/publications/papers.bib`: publications
 - `materials/images/prof_pic.jpg`: profile photo
@@ -32,6 +36,8 @@ There should be only one real copy of editable content, and it lives in `materia
 - CV structure and experience data: `materials/data/cv.yml`
 - Publications: `materials/publications/papers.bib`
 - Projects: `materials/data/projects.yml`
+- Photography: `materials/data/photography.yml`
+- Blog articles: `materials/pages/blog/*.md`
 
 The CV page reads `materials/data/cv.yml` for CV-specific sections, and pulls publications and projects from their canonical sources instead of duplicating them inside the CV data.
 

@@ -1,0 +1,51 @@
+{% assign empty_array = '' | split: ',' %}
+{% assign photo_items = include.items | default: empty_array | sort: 'importance' %}
+
+<div class="photo-gallery">
+  {% if photo_items.size > 0 %}
+    {% for item in photo_items %}
+      {% assign image_path = item.image | default: item.path %}
+      {% if image_path %}
+        <article class="photo-feature">
+          <div class="photo-feature-image">
+            {% if image_path contains '://' %}
+              {% include figure.liquid url=image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" %}
+            {% else %}
+              {% if image_path contains '/assets/' %}
+                {% assign resolved_image_path = image_path %}
+              {% else %}
+                {% assign resolved_image_path = '/assets/img/' | append: image_path %}
+              {% endif %}
+              {% include figure.liquid path=resolved_image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" cache_bust=true %}
+            {% endif %}
+          </div>
+
+          <div class="photo-feature-meta">
+            {% if item.title %}
+              <div class="photo-feature-title">{{ item.title }}</div>
+            {% endif %}
+
+            {% assign meta_parts = empty_array %}
+            {% if item.location %}
+              {% assign meta_parts = meta_parts | push: item.location %}
+            {% endif %}
+            {% if item.year %}
+              {% assign meta_parts = meta_parts | push: item.year %}
+            {% endif %}
+            {% if meta_parts.size > 0 %}
+              <div class="photo-feature-kicker">{{ meta_parts | join: ' / ' }}</div>
+            {% endif %}
+
+            {% if item.description %}
+              <p class="photo-feature-description">{{ item.description }}</p>
+            {% endif %}
+          </div>
+        </article>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <div class="empty-state">
+      Photography works will appear here once images are added to <code>materials/data/photography.yml</code>.
+    </div>
+  {% endif %}
+</div>

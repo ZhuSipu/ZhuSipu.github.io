@@ -1,9 +1,14 @@
+{% assign empty_array = '' | split: ',' %}
 {% assign project_items = include.projects | sort: "importance" %}
 
-<div class="publications">
+<div class="publications project-list">
   <ol class="bibliography">
     {% for project in project_items %}
-      <li>
+      {% assign project_images = project.images | default: project.gallery | default: empty_array %}
+      {% assign project_videos = project.videos | default: project.youtube | default: empty_array %}
+      {% assign project_links = project.links | default: project.resources | default: empty_array %}
+
+      <li class="project-entry">
         <div class="abbr">
           {% if project.year %}
             <abbr class="badge">{{ project.year }}</abbr>
@@ -18,6 +23,89 @@
         {% endif %}
         {% if project.details %}
           <div class="periodical">{{ project.details | newline_to_br }}</div>
+        {% endif %}
+
+        {% if project_links.size > 0 %}
+          <div class="links project-links">
+            {% for link in project_links %}
+              {% if link.url %}
+                <a href="{{ link.url }}" class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer">
+                  {{ link.label | default: 'Link' }}
+                </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if project_images.size > 0 or project_videos.size > 0 %}
+          <div class="project-media">
+            {% if project_images.size > 0 %}
+              <section class="project-media-section">
+                <div class="project-media-section-title">Images</div>
+                <div class="project-media-grid">
+                  {% for image in project_images %}
+                    {% assign image_path = image.path | default: image.url %}
+                    {% if image_path %}
+                      <article class="project-media-card">
+                        {% if image_path contains '://' %}
+                          {% include figure.liquid url=image_path class="project-media-figure" alt=image.alt caption=image.caption loading="lazy" %}
+                        {% else %}
+                          {% if image_path contains '/assets/' %}
+                            {% assign resolved_image_path = image_path %}
+                          {% else %}
+                            {% assign resolved_image_path = '/assets/img/' | append: image_path %}
+                          {% endif %}
+                          {% include figure.liquid path=resolved_image_path class="project-media-figure" alt=image.alt caption=image.caption loading="lazy" cache_bust=true %}
+                        {% endif %}
+                      </article>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </section>
+            {% endif %}
+
+            {% if project_videos.size > 0 %}
+              <section class="project-media-section">
+                <div class="project-media-section-title">Videos</div>
+                <div class="project-video-grid">
+                  {% for video in project_videos %}
+                    {% assign video_url = video.url | default: '' %}
+                    {% assign youtube_id = video.id %}
+                    {% if youtube_id == nil or youtube_id == '' %}
+                      {% if video_url contains 'youtu.be/' %}
+                        {% assign youtube_id = video_url | split: 'youtu.be/' | last | split: '?' | first %}
+                      {% elsif video_url contains '/shorts/' %}
+                        {% assign youtube_id = video_url | split: '/shorts/' | last | split: '?' | first %}
+                      {% elsif video_url contains '/embed/' %}
+                        {% assign youtube_id = video_url | split: '/embed/' | last | split: '?' | first %}
+                      {% elsif video_url contains 'v=' %}
+                        {% assign youtube_id = video_url | split: 'v=' | last | split: '&' | first %}
+                      {% endif %}
+                    {% endif %}
+
+                    {% if youtube_id %}
+                      <article class="project-video-card">
+                        <div class="embed-responsive embed-responsive-16by9 project-video-frame">
+                          <iframe
+                            class="embed-responsive-item"
+                            src="https://www.youtube.com/embed/{{ youtube_id }}"
+                            title="{{ video.title | default: project.title | escape }}"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                          ></iframe>
+                        </div>
+                        {% if video.caption %}
+                          <div class="project-media-caption">{{ video.caption }}</div>
+                        {% endif %}
+                      </article>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </section>
+            {% endif %}
+          </div>
         {% endif %}
       </li>
     {% endfor %}

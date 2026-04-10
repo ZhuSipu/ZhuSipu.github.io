@@ -6,8 +6,8 @@ layout: default
 
 <div class="post layout-cv">
   <header class="post-header">
-    <h1 class="post-title">
-      {{ page.title }}
+    <div class="post-title-row">
+      <h1 class="post-title">{{ page.title }}</h1>
       {% if page.cv_pdf %}
         <a
           {% if page.cv_pdf contains '://' %}
@@ -17,12 +17,13 @@ layout: default
           {% endif %}
           target="_blank"
           rel="noopener noreferrer"
-          class="float-right"
+          class="btncv cv-download-link"
         >
-          <i class="fa-solid fa-file-pdf"></i>
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          <span>Download CV</span>
         </a>
       {% endif %}
-    </h1>
+    </div>
     {% if page.description %}
       <p class="post-description">{{ page.description }}</p>
     {% endif %}

@@ -1,0 +1,26 @@
+{% assign empty_array = '' | split: ',' %}
+{% assign posts = include.posts | default: empty_array %}
+
+<div class="blog-post-list">
+  {% if posts.size > 0 %}
+    {% for post in posts %}
+      {% assign preview_text = post.excerpt | default: post.description %}
+      <article class="blog-post-card">
+        {% if post.date %}
+          <div class="blog-post-date">{{ post.date | date: '%B %-d, %Y' }}</div>
+        {% endif %}
+        <h2 class="blog-post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        {% if preview_text %}
+          <p class="blog-post-excerpt">{{ preview_text }}</p>
+        {% endif %}
+        <a class="blog-post-link" href="{{ post.url | relative_url }}">Read article</a>
+      </article>
+    {% endfor %}
+  {% else %}
+    <div class="empty-state">
+      No blog posts published yet. Add Markdown pages under <code>materials/pages/blog/</code> to populate this section.
+    </div>
+  {% endif %}
+</div>
