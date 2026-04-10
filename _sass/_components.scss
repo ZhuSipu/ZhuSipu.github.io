@@ -429,8 +429,8 @@ html[data-theme="dark"] .cv .card {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
   padding: 0;
   border: 0;
   background: transparent;
@@ -451,7 +451,7 @@ html[data-theme="dark"] .cv .card {
 .photo-detail-back path {
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.45;
+  stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -470,7 +470,7 @@ html[data-theme="dark"] .cv .card {
   display: flex;
   width: var(--photo-image-width);
   justify-content: flex-start;
-  margin: 0 auto 20px;
+  margin: 0 auto 10px;
 }
 
 .photo-carousel-nav {
@@ -589,7 +589,7 @@ html[data-theme="dark"] .cv .card {
 
 .photo-feature-note {
   width: var(--photo-image-width);
-  margin: 20px 0 0;
+  margin: 5px 0 0;
   font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   font-size: 1.0rem;
   font-weight: 500;
@@ -602,6 +602,10 @@ html[data-theme="dark"] .cv .card {
 
 body.photo-gallery-detail-mode .container {
   max-width: calc(100vw - 2rem);
+}
+
+body.photo-gallery-detail-mode .container.mt-5 {
+  margin-top: 0.5rem !important;
 }
 
 body.photo-gallery-detail-mode {
