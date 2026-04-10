@@ -121,10 +121,15 @@ $(document).ready(function () {
       if (!stageRect.width || !imageRect.width) return;
 
       const imageLeft = Math.max(0, imageRect.left - stageRect.left);
+      const imageTop = Math.max(0, imageRect.top - stageRect.top);
       const imageRight = Math.max(0, stageRect.right - imageRect.right);
+      const imageBottom = Math.max(0, imageRect.bottom - stageRect.top);
 
       photoCarouselStage.style.setProperty("--photo-image-left", `${imageLeft}px`);
+      photoCarouselStage.style.setProperty("--photo-image-top", `${imageTop}px`);
       photoCarouselStage.style.setProperty("--photo-image-right", `${imageRight}px`);
+      photoCarouselStage.style.setProperty("--photo-image-height", `${imageRect.height}px`);
+      photoCarouselStage.style.setProperty("--photo-image-bottom", `${imageBottom}px`);
       photoCarouselStage.style.setProperty("--photo-image-width", `${imageRect.width}px`);
     };
 
@@ -134,7 +139,6 @@ $(document).ready(function () {
 
       photoCarousel.style.setProperty("--photo-detail-nav-height", `${navbarHeight}px`);
       photoCarousel.style.setProperty("--photo-detail-footer-height", `${footerHeight}px`);
-      document.body.style.setProperty("--photo-detail-nav-offset", `${navbarHeight + 8}px`);
     };
 
     const updateThumbSelection = () => {
