@@ -1,9 +1,71 @@
-# Add photography entries here. Example:
-# - title: Courtyard Light
-#   importance: 1
-#   image: user/photography/courtyard-light.jpg
-#   alt: Sunlight falling across a courtyard wall.
-#   location: Beijing, China
-#   year: 2025
-#   description: Early morning light study recorded during a site walk.
-[]
+- title: Photo 01
+  importance: 1
+  image: user/photography/photo-01.jpg
+  alt: Photography work 01 by Sipu Zhu.
+  description: Photography work 01.
+
+- title: Photo 02
+  importance: 2
+  image: user/photography/photo-02.jpg
+  alt: Photography work 02 by Sipu Zhu.
+  description: Photography work 02.
+
+- title: Photo 03
+  importance: 3
+  image: user/photography/photo-03.jpg
+  alt: Photography work 03 by Sipu Zhu.
+  description: Photography work 03.
+
+- title: Photo 04
+  importance: 4
+  image: user/photography/photo-04.jpg
+  alt: Photography work 04 by Sipu Zhu.
+  description: Photography work 04.
+
+- title: Photo 05
+  importance: 5
+  image: user/photography/photo-05.jpg
+  alt: Photography work 05 by Sipu Zhu.
+  description: Photography work 05.
+
+- title: Photo 06
+  importance: 6
+  image: user/photography/photo-06.jpg
+  alt: Photography work 06 by Sipu Zhu.
+  description: Photography work 06.
+
+- title: Photo 07
+  importance: 7
+  image: user/photography/photo-07.jpg
+  alt: Photography work 07 by Sipu Zhu.
+  description: Photography work 07.
+
+- title: Photo 08
+  importance: 8
+  image: user/photography/photo-08.jpg
+  alt: Photography work 08 by Sipu Zhu.
+  description: Photography work 08.
+
+- title: Photo 09
+  importance: 9
+  image: user/photography/photo-09.jpg
+  alt: Photography work 09 by Sipu Zhu.
+  description: Photography work 09.
+
+- title: Photo 10
+  importance: 10
+  image: user/photography/photo-10.jpg
+  alt: Photography work 10 by Sipu Zhu.
+  description: Photography work 10.
+
+- title: Photo 11
+  importance: 11
+  image: user/photography/photo-11.jpg
+  alt: Photography work 11 by Sipu Zhu.
+  description: Photography work 11.
+
+- title: Photo 12
+  importance: 12
+  image: user/photography/photo-12.jpg
+  alt: Photography work 12 by Sipu Zhu.
+  description: Photography work 12.
