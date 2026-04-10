@@ -7,7 +7,13 @@
       <div class="photo-overview-grid">
         {% for item in photo_items %}
           {% assign image_path = item.image | default: item.path %}
+          {% assign thumb_path = item.thumbnail %}
           {% if image_path %}
+            {% unless thumb_path %}
+              {% assign image_segments = image_path | split: '/' %}
+              {% assign image_filename = image_segments | last %}
+              {% assign thumb_path = 'user/photography/thumbs/' | append: image_filename %}
+            {% endunless %}
             <button
               class="photo-thumb"
               type="button"
@@ -16,15 +22,25 @@
               data-photo-index="{{ forloop.index0 }}"
             >
               <div class="photo-thumb-image">
-                {% if image_path contains '://' %}
-                  {% include figure.liquid url=image_path class="photo-thumb-figure" alt=item.alt title=item.title loading="lazy" %}
+                <span class="photo-thumb-overlay" aria-hidden="true">
+                  <span class="photo-thumb-overlay-label">View</span>
+                  <span class="photo-thumb-overlay-icon">&rsaquo;</span>
+                </span>
+                {% assign thumb_loading = 'lazy' %}
+                {% assign thumb_fetchpriority = nil %}
+                {% if forloop.index <= 3 %}
+                  {% assign thumb_loading = 'eager' %}
+                  {% assign thumb_fetchpriority = 'high' %}
+                {% endif %}
+                {% if thumb_path contains '://' %}
+                  {% include figure.liquid url=thumb_path class="photo-thumb-figure" alt=item.alt title=item.title loading=thumb_loading fetchpriority=thumb_fetchpriority sizes="(max-width: 768px) 50vw, 33vw" %}
                 {% else %}
-                  {% if image_path contains '/assets/' %}
-                    {% assign resolved_image_path = image_path %}
+                  {% if thumb_path contains '/assets/' %}
+                    {% assign resolved_thumb_path = thumb_path %}
                   {% else %}
-                    {% assign resolved_image_path = '/assets/img/' | append: image_path %}
+                    {% assign resolved_thumb_path = '/assets/img/' | append: thumb_path %}
                   {% endif %}
-                  {% include figure.liquid path=resolved_image_path class="photo-thumb-figure" alt=item.alt title=item.title loading="lazy" cache_bust=true %}
+                  {% include figure.liquid path=resolved_thumb_path class="photo-thumb-figure" alt=item.alt title=item.title loading=thumb_loading fetchpriority=thumb_fetchpriority sizes="(max-width: 768px) 50vw, 33vw" cache_bust=true %}
                 {% endif %}
               </div>
             </button>
@@ -34,8 +50,6 @@
     </div>
 
     <div class="photo-detail-view" data-photo-carousel tabindex="0" hidden>
-      <button class="photo-detail-back" type="button" data-photo-back>All Photos</button>
-
       <div class="photo-carousel-stage">
         <button class="photo-carousel-nav photo-carousel-nav-prev" type="button" aria-label="Previous photograph" data-photo-prev>
           <span aria-hidden="true">&lsaquo;</span>
@@ -50,16 +64,42 @@
                 data-photo-slide
                 aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
               >
+                <div class="photo-feature-shell">
+                  <div class="photo-feature-topbar">
+                    <button class="photo-detail-back" type="button" data-photo-back>All Photos</button>
+                  </div>
+
                 <div class="photo-feature-image">
                   {% if image_path contains '://' %}
-                    {% include figure.liquid url=image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" %}
+                    {% include figure.liquid url=image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" sizes="100vw" %}
                   {% else %}
                     {% if image_path contains '/assets/' %}
                       {% assign resolved_image_path = image_path %}
                     {% else %}
                       {% assign resolved_image_path = '/assets/img/' | append: image_path %}
                     {% endif %}
-                    {% include figure.liquid path=resolved_image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" cache_bust=true %}
+                    {% include figure.liquid path=resolved_image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" sizes="100vw" cache_bust=true %}
+                  {% endif %}
+                </div>
+
+                  {% assign has_meta = false %}
+                  {% if item.title or item.description or item.location or item.year %}
+                    {% assign has_meta = true %}
+                  {% endif %}
+                  {% if has_meta %}
+                    <div class="photo-feature-meta">
+                      {% if item.title %}
+                        <p class="photo-feature-title">{{ item.title }}</p>
+                      {% endif %}
+                      {% if item.description %}
+                        <p class="photo-feature-description">{{ item.description }}</p>
+                      {% endif %}
+                      {% if item.location or item.year %}
+                        <p class="photo-feature-context">
+                          {% if item.location %}{{ item.location }}{% endif %}{% if item.location and item.year %} · {% endif %}{% if item.year %}{{ item.year }}{% endif %}
+                        </p>
+                      {% endif %}
+                    </div>
                   {% endif %}
                 </div>
               </article>

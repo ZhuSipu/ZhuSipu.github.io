@@ -60,37 +60,176 @@ $(document).ready(function () {
 
   const photoCarousel = document.querySelector("[data-photo-carousel]");
   if (photoCarousel) {
+    const PHOTO_MODE_DURATION_MS = 380;
+    const PHOTO_SLIDE_DURATION_MS = 420;
     const photoOverview = document.querySelector("[data-photo-overview]");
     const photoThumbs = Array.from(document.querySelectorAll("[data-photo-thumb]"));
-    const photoBackButton = document.querySelector("[data-photo-back]");
+    const photoBackButtons = Array.from(document.querySelectorAll("[data-photo-back]"));
     const slides = Array.from(photoCarousel.querySelectorAll("[data-photo-slide]"));
     const prevButton = photoCarousel.querySelector("[data-photo-prev]");
     const nextButton = photoCarousel.querySelector("[data-photo-next]");
+    const photoImages = Array.from(document.querySelectorAll(".photo-gallery img"));
     let activeIndex = slides.findIndex((slide) => slide.classList.contains("is-active"));
+    let isTransitioning = false;
 
     if (activeIndex < 0) {
       activeIndex = 0;
     }
 
-    const renderPhotoSlide = (nextIndex) => {
-      slides.forEach((slide, index) => {
-        const isActive = index === nextIndex;
-        slide.classList.toggle("is-active", isActive);
-        slide.setAttribute("aria-hidden", isActive ? "false" : "true");
+    const markImageAsLoaded = (image) => {
+      if (!image) return;
+      if (image.complete) {
+        image.classList.add("is-loaded");
+        return;
+      }
+      image.addEventListener(
+        "load",
+        () => {
+          image.classList.add("is-loaded");
+        },
+        { once: true }
+      );
+    };
+
+    const preloadPhotoImage = (index) => {
+      const slide = slides[index];
+      if (!slide) return;
+      const image = slide.querySelector("img");
+      if (!image || !image.currentSrc) return;
+
+      const preload = new Image();
+      preload.decoding = "async";
+      preload.src = image.currentSrc;
+    };
+
+    const updateThumbSelection = () => {
+      photoThumbs.forEach((thumb, index) => {
+        thumb.classList.toggle("is-selected", index === activeIndex && !photoOverview.hidden);
       });
-      activeIndex = nextIndex;
+    };
+
+    const renderPhotoSlide = (nextIndex, direction = 0, immediate = false) => {
+      const currentSlide = slides[activeIndex];
+      const nextSlide = slides[nextIndex];
+
+      if (!nextSlide || currentSlide === nextSlide) {
+        activeIndex = nextIndex;
+        if (nextSlide) {
+          nextSlide.classList.add("is-active");
+          nextSlide.setAttribute("aria-hidden", "false");
+        }
+        preloadPhotoImage(nextIndex);
+        preloadPhotoImage((nextIndex + 1) % slides.length);
+        preloadPhotoImage((nextIndex - 1 + slides.length) % slides.length);
+        updateThumbSelection();
+        return;
+      }
+
+      slides.forEach((slide, index) => {
+        if (index !== activeIndex && index !== nextIndex) {
+          slide.classList.remove("is-active", "is-entering", "is-exiting", "from-next", "from-prev", "to-next", "to-prev");
+          slide.setAttribute("aria-hidden", "true");
+        }
+      });
+
+      if (immediate || direction === 0) {
+        if (currentSlide) {
+          currentSlide.classList.remove("is-active", "is-entering", "is-exiting", "from-next", "from-prev", "to-next", "to-prev");
+          currentSlide.setAttribute("aria-hidden", "true");
+        }
+        nextSlide.classList.remove("is-entering", "is-exiting", "from-next", "from-prev", "to-next", "to-prev");
+        nextSlide.classList.add("is-active");
+        nextSlide.setAttribute("aria-hidden", "false");
+        activeIndex = nextIndex;
+        preloadPhotoImage(nextIndex);
+        preloadPhotoImage((nextIndex + 1) % slides.length);
+        preloadPhotoImage((nextIndex - 1 + slides.length) % slides.length);
+        updateThumbSelection();
+        return;
+      }
+
+      isTransitioning = true;
+
+      const incomingDirectionClass = direction > 0 ? "from-next" : "from-prev";
+      const outgoingDirectionClass = direction > 0 ? "to-next" : "to-prev";
+
+      nextSlide.classList.remove("is-exiting", "to-next", "to-prev");
+      nextSlide.classList.add("is-active", "is-entering", incomingDirectionClass);
+      nextSlide.setAttribute("aria-hidden", "false");
+
+      if (currentSlide) {
+        currentSlide.classList.remove("is-entering", "from-next", "from-prev");
+        currentSlide.classList.add("is-active", "is-exiting", outgoingDirectionClass);
+        currentSlide.setAttribute("aria-hidden", "true");
+      }
+
+      requestAnimationFrame(() => {
+        nextSlide.classList.remove("is-entering", "from-next", "from-prev");
+      });
+
+      window.setTimeout(() => {
+        if (currentSlide) {
+          currentSlide.classList.remove("is-active", "is-exiting", "to-next", "to-prev");
+        }
+        nextSlide.classList.remove("is-entering", "from-next", "from-prev", "is-exiting", "to-next", "to-prev");
+        nextSlide.classList.add("is-active");
+        activeIndex = nextIndex;
+        isTransitioning = false;
+        preloadPhotoImage(nextIndex);
+        preloadPhotoImage((nextIndex + 1) % slides.length);
+        preloadPhotoImage((nextIndex - 1 + slides.length) % slides.length);
+        updateThumbSelection();
+      }, PHOTO_SLIDE_DURATION_MS);
+    };
+
+    const showPhotoOverview = () => {
+      if (!photoOverview) return;
+      photoOverview.hidden = false;
+      requestAnimationFrame(() => {
+        photoOverview.classList.add("is-visible");
+      });
+    };
+
+    const hidePhotoOverview = () => {
+      if (!photoOverview) return;
+      photoOverview.classList.remove("is-visible");
+      window.setTimeout(() => {
+        if (document.body.classList.contains("photo-gallery-detail-mode")) {
+          photoOverview.hidden = true;
+        }
+      }, PHOTO_MODE_DURATION_MS);
+    };
+
+    const showPhotoDetail = () => {
+      photoCarousel.hidden = false;
+      requestAnimationFrame(() => {
+        photoCarousel.classList.add("is-visible");
+      });
+    };
+
+    const hidePhotoDetail = () => {
+      photoCarousel.classList.remove("is-visible");
+      window.setTimeout(() => {
+        if (!document.body.classList.contains("photo-gallery-detail-mode")) {
+          photoCarousel.hidden = true;
+        }
+      }, PHOTO_MODE_DURATION_MS);
     };
 
     const setPhotoMode = (detailMode) => {
       document.body.classList.toggle("photo-gallery-detail-mode", detailMode);
-      if (photoOverview) {
-        photoOverview.hidden = detailMode;
+      if (detailMode) {
+        hidePhotoOverview();
+        showPhotoDetail();
+      } else {
+        hidePhotoDetail();
+        showPhotoOverview();
       }
-      photoCarousel.hidden = !detailMode;
+      updateThumbSelection();
     };
 
     const openPhotoDetail = (nextIndex) => {
-      renderPhotoSlide(nextIndex);
+      renderPhotoSlide(nextIndex, nextIndex >= activeIndex ? 1 : -1, true);
       setPhotoMode(true);
       photoCarousel.focus();
     };
@@ -100,27 +239,32 @@ $(document).ready(function () {
     };
 
     const stepPhotoSlide = (direction) => {
-      if (!slides.length) return;
+      if (!slides.length || isTransitioning) return;
       const nextIndex = (activeIndex + direction + slides.length) % slides.length;
-      renderPhotoSlide(nextIndex);
+      renderPhotoSlide(nextIndex, direction);
     };
 
+    photoImages.forEach(markImageAsLoaded);
+
     if (slides.length) {
-      renderPhotoSlide(activeIndex);
+      renderPhotoSlide(activeIndex, 0, true);
     }
 
-    setPhotoMode(false);
+    showPhotoOverview();
+    photoCarousel.hidden = true;
 
     photoThumbs.forEach((thumb) => {
       thumb.addEventListener("click", () => {
         const nextIndex = Number(thumb.getAttribute("data-photo-index") || "0");
+        photoThumbs.forEach((item) => item.classList.remove("is-selected"));
+        thumb.classList.add("is-selected");
         openPhotoDetail(nextIndex);
       });
     });
 
-    if (photoBackButton) {
-      photoBackButton.addEventListener("click", closePhotoDetail);
-    }
+    photoBackButtons.forEach((button) => {
+      button.addEventListener("click", closePhotoDetail);
+    });
 
     if (prevButton) {
       prevButton.addEventListener("click", () => stepPhotoSlide(-1));
