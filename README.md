@@ -11,9 +11,9 @@ If you want to update the website content, only edit files inside `materials/`.
 - `materials/pages/cv.md`: CV page options
 - `materials/pages/projects.md`: projects page options
 - `materials/data/cv.yml`: CV content
+- `materials/data/projects.yml`: project records used by the homepage, projects page, and CV
 - `materials/data/socials.yml`: email and social links
 - `materials/publications/papers.bib`: publications
-- `materials/projects/*.md`: project records used by the homepage, projects page, and CV
 - `materials/images/prof_pic.jpg`: profile photo
 
 ## Repository Structure
@@ -31,7 +31,7 @@ There should be only one real copy of editable content, and it lives in `materia
 
 - CV structure and experience data: `materials/data/cv.yml`
 - Publications: `materials/publications/papers.bib`
-- Projects: `materials/projects/*.md`
+- Projects: `materials/data/projects.yml`
 
 The CV page reads `materials/data/cv.yml` for CV-specific sections, and pulls publications and projects from their canonical sources instead of duplicating them inside the CV data.
 
@@ -50,3 +50,16 @@ Start the development server with one command:
 ```
 
 `./scripts/dev` runs `bundle exec jekyll serve` and lightly watches `materials/` so edits there trigger a rebuild without needing a second terminal command.
+
+## GitHub Pages Deployment
+
+The repository now includes a GitHub Actions workflow at `.github/workflows/pages.yml`.
+
+To publish the latest site:
+
+1. Push your changes to `main`.
+2. In GitHub, open `Settings -> Pages`.
+3. Set **Source** to **GitHub Actions** if it is not already selected.
+4. Wait for the `Deploy GitHub Pages` workflow to finish.
+
+The site will be published at `https://zhusipu.github.io/`.
