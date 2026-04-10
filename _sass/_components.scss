@@ -412,6 +412,7 @@ html[data-theme="dark"] .cv .card {
 .photo-detail-view {
   --photo-detail-edge-gap: 50px;
   --photo-detail-viewport-height: 60vh;
+  --photo-image-offset-y: 30px;
   position: relative;
   min-height: var(--photo-detail-viewport-height);
   opacity: 0;
@@ -471,7 +472,7 @@ html[data-theme="dark"] .cv .card {
 
 .photo-carousel-topbar {
   position: absolute;
-  top: var(--photo-image-top);
+  top: calc(var(--photo-image-top) + var(--photo-image-offset-y));
   left: var(--photo-image-left);
   z-index: 3;
   display: flex;
@@ -483,7 +484,7 @@ html[data-theme="dark"] .cv .card {
 .photo-carousel-nav {
   --photo-nav-shift-x: 0%;
   position: absolute;
-  top: calc(var(--photo-image-top) + (var(--photo-image-height) / 2));
+  top: calc(var(--photo-image-top) + var(--photo-image-offset-y) + (var(--photo-image-height) / 2));
   z-index: 2;
   display: inline-flex;
   align-items: center;
@@ -588,6 +589,7 @@ html[data-theme="dark"] .cv .card {
   justify-content: center;
   width: 100%;
   height: 100%;
+  transform: translateY(var(--photo-image-offset-y));
 
   figure {
     margin: 0;
@@ -602,7 +604,7 @@ html[data-theme="dark"] .cv .card {
 
 .photo-feature-note {
   position: absolute;
-  top: calc(var(--photo-image-bottom) + 8px);
+  top: calc(var(--photo-image-bottom) + var(--photo-image-offset-y) + 8px);
   left: 50%;
   width: var(--photo-image-width);
   margin: 0;
