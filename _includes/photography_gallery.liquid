@@ -51,6 +51,10 @@
 
     <div class="photo-detail-view" data-photo-carousel tabindex="0" hidden>
       <div class="photo-carousel-stage">
+        <div class="photo-carousel-topbar">
+          <button class="photo-detail-back" type="button" data-photo-back>All Photos</button>
+        </div>
+
         <button class="photo-carousel-nav photo-carousel-nav-prev" type="button" aria-label="Previous photograph" data-photo-prev>
           <span aria-hidden="true">&lsaquo;</span>
         </button>
@@ -65,41 +69,29 @@
                 aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
               >
                 <div class="photo-feature-shell">
-                  <div class="photo-feature-topbar">
-                    <button class="photo-detail-back" type="button" data-photo-back>All Photos</button>
+                  <div class="photo-feature-image">
+                    {% if image_path contains '://' %}
+                      {% include figure.liquid url=image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" sizes="100vw" %}
+                    {% else %}
+                      {% if image_path contains '/assets/' %}
+                        {% assign resolved_image_path = image_path %}
+                      {% else %}
+                        {% assign resolved_image_path = '/assets/img/' | append: image_path %}
+                      {% endif %}
+                      {% include figure.liquid path=resolved_image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" sizes="100vw" cache_bust=true %}
+                    {% endif %}
                   </div>
 
-                <div class="photo-feature-image">
-                  {% if image_path contains '://' %}
-                    {% include figure.liquid url=image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" sizes="100vw" %}
-                  {% else %}
-                    {% if image_path contains '/assets/' %}
-                      {% assign resolved_image_path = image_path %}
-                    {% else %}
-                      {% assign resolved_image_path = '/assets/img/' | append: image_path %}
+                  {% capture photo_note %}
+                    {% if item.description %}
+                      {{ item.description }}
+                    {% elsif item.location or item.year %}
+                      {% if item.location %}{{ item.location }}{% endif %}{% if item.location and item.year %} · {% endif %}{% if item.year %}{{ item.year }}{% endif %}
                     {% endif %}
-                    {% include figure.liquid path=resolved_image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" sizes="100vw" cache_bust=true %}
-                  {% endif %}
-                </div>
-
-                  {% assign has_meta = false %}
-                  {% if item.title or item.description or item.location or item.year %}
-                    {% assign has_meta = true %}
-                  {% endif %}
-                  {% if has_meta %}
-                    <div class="photo-feature-meta">
-                      {% if item.title %}
-                        <p class="photo-feature-title">{{ item.title }}</p>
-                      {% endif %}
-                      {% if item.description %}
-                        <p class="photo-feature-description">{{ item.description }}</p>
-                      {% endif %}
-                      {% if item.location or item.year %}
-                        <p class="photo-feature-context">
-                          {% if item.location %}{{ item.location }}{% endif %}{% if item.location and item.year %} · {% endif %}{% if item.year %}{{ item.year }}{% endif %}
-                        </p>
-                      {% endif %}
-                    </div>
+                  {% endcapture %}
+                  {% assign photo_note = photo_note | strip %}
+                  {% if photo_note != '' %}
+                    <p class="photo-feature-note">{{ photo_note }}</p>
                   {% endif %}
                 </div>
               </article>

@@ -439,7 +439,15 @@ html[data-theme="dark"] .cv .card {
 
 .photo-carousel-stage {
   position: relative;
-  width: 100%;
+  width: 70vw;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.photo-carousel-topbar {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0.45rem;
 }
 
 .photo-carousel-nav {
@@ -465,11 +473,11 @@ html[data-theme="dark"] .cv .card {
 }
 
 .photo-carousel-nav-prev {
-  left: -3.5rem;
+  left: -1.5rem;
 }
 
 .photo-carousel-nav-next {
-  right: -3.5rem;
+  right: -1.5rem;
 }
 
 .photo-carousel-nav:hover {
@@ -537,50 +545,19 @@ html[data-theme="dark"] .cv .card {
 }
 
 .photo-feature-shell {
-  width: 70vw;
-  max-width: 1120px;
-  margin: 0 auto;
-}
-
-.photo-feature-topbar {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 1rem;
-}
-
-.photo-feature-meta {
   width: 100%;
-  margin: 1rem auto 0;
-  text-align: center;
+  margin: 0;
 }
 
-.photo-feature-title,
-.photo-feature-description,
-.photo-feature-context {
-  margin-bottom: 0;
-}
-
-.photo-feature-title {
+.photo-feature-note {
+  width: 100%;
+  margin: 0.45rem 0 0;
   font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--global-text-color);
-}
-
-.photo-feature-description {
-  margin-top: 0.45rem;
-  color: var(--global-text-color-light);
-}
-
-.photo-feature-context {
-  margin-top: 0.35rem;
-  font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--global-text-color-light);
+  text-align: left;
 }
 
 body.photo-gallery-detail-mode .container {
@@ -614,8 +591,8 @@ body.photo-gallery-detail-mode .photo-feature-image img {
     gap: 0.75rem;
   }
 
-  .photo-feature-shell {
-    width: calc(100vw - 4rem);
+  .photo-carousel-stage {
+    width: calc(100vw - 3rem);
     max-width: 100%;
   }
 
@@ -626,11 +603,11 @@ body.photo-gallery-detail-mode .photo-feature-image img {
   }
 
   .photo-carousel-nav-prev {
-    left: -2rem;
+    left: -0.8rem;
   }
 
   .photo-carousel-nav-next {
-    right: -2rem;
+    right: -0.8rem;
   }
 }
 
