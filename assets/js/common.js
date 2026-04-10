@@ -57,4 +57,54 @@ $(document).ready(function () {
   $('[data-toggle="popover"]').popover({
     trigger: "hover",
   });
+
+  const photoCarousel = document.querySelector("[data-photo-carousel]");
+  if (photoCarousel) {
+    const slides = Array.from(photoCarousel.querySelectorAll("[data-photo-slide]"));
+    const prevButton = photoCarousel.querySelector("[data-photo-prev]");
+    const nextButton = photoCarousel.querySelector("[data-photo-next]");
+    let activeIndex = slides.findIndex((slide) => slide.classList.contains("is-active"));
+
+    if (activeIndex < 0) {
+      activeIndex = 0;
+    }
+
+    const renderPhotoSlide = (nextIndex) => {
+      slides.forEach((slide, index) => {
+        const isActive = index === nextIndex;
+        slide.classList.toggle("is-active", isActive);
+        slide.setAttribute("aria-hidden", isActive ? "false" : "true");
+      });
+      activeIndex = nextIndex;
+    };
+
+    const stepPhotoSlide = (direction) => {
+      if (!slides.length) return;
+      const nextIndex = (activeIndex + direction + slides.length) % slides.length;
+      renderPhotoSlide(nextIndex);
+    };
+
+    if (slides.length) {
+      renderPhotoSlide(activeIndex);
+    }
+
+    if (prevButton) {
+      prevButton.addEventListener("click", () => stepPhotoSlide(-1));
+    }
+
+    if (nextButton) {
+      nextButton.addEventListener("click", () => stepPhotoSlide(1));
+    }
+
+    photoCarousel.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        stepPhotoSlide(-1);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        stepPhotoSlide(1);
+      }
+    });
+  }
 });
