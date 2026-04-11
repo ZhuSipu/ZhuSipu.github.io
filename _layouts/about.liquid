@@ -51,7 +51,7 @@ layout: default
     <!-- Projects -->
     {% if page.projects and page.projects.enabled %}
       <h2 class="section-title">projects</h2>
-      {% include project_list.liquid projects=site.data.projects %}
+      {% include project_list.liquid projects=site.data.projects show_media=false link_titles=true %}
     {% endif %}
 
     <!-- Social -->

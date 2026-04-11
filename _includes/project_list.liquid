@@ -1,21 +1,40 @@
 {% assign empty_array = '' | split: ',' %}
 {% assign project_items = include.projects | sort: "importance" %}
+{% assign show_media = include.show_media %}
+{% assign link_titles = include.link_titles %}
+{% if show_media == nil %}
+  {% assign show_media = true %}
+{% endif %}
+{% if link_titles == nil %}
+  {% assign link_titles = false %}
+{% endif %}
 
 <div class="publications project-list">
   <ol class="bibliography">
     {% for project in project_items %}
+      {% assign project_anchor = 'project-' | append: (project.title | slugify) %}
       {% assign project_images = project.images | default: project.gallery | default: empty_array %}
       {% assign project_videos = project.videos | default: project.youtube | default: empty_array %}
       {% assign project_links = project.links | default: project.resources | default: empty_array %}
+      {% assign has_media = false %}
+      {% if project_images.size > 0 or project_videos.size > 0 %}
+        {% assign has_media = true %}
+      {% endif %}
 
-      <li class="project-entry">
+      <li class="project-entry" id="{{ project_anchor }}">
         <div class="abbr">
           {% if project.year %}
             <abbr class="badge">{{ project.year }}</abbr>
           {% endif %}
         </div>
         <div class="award hidden"></div>
-        <div class="title">{{ project.title }}</div>
+        <div class="title">
+          {% if link_titles %}
+            <a class="project-title-link" href="/projects/#{{ project_anchor }}">{{ project.title }}</a>
+          {% else %}
+            {{ project.title }}
+          {% endif %}
+        </div>
         {% if project.description %}
           <div class="author">
             <em>{{ project.description }}</em>
@@ -37,7 +56,7 @@
           </div>
         {% endif %}
 
-        {% if project_images.size > 0 or project_videos.size > 0 %}
+        {% if show_media and has_media %}
           <div class="project-media">
             {% if project_images.size > 0 %}
               <section class="project-media-section">
