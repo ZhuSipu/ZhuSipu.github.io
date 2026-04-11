@@ -17,6 +17,10 @@
   description: Investigates how visual, auditory, and olfactory stimuli jointly support stress recovery in hospital staff break spaces through VR-based experiments with psychological and physiological measures.
   details: |
     Publication: Lyu, Dalin, Hengyi Cong, Sipu Zhu, Yulong Liu, and Weimin Zhuang. "Healing with sight, smell and sound: A virtual reality study on multisensory synergistic stress recovery in hospital staff break spaces." Building and Environment (2026): 114587.
+  images:
+    - path: user/projects/multisensory-vr-stress-recovery/截屏2026-04-11 10.46.26.png
+      alt:
+      caption:
 
 - title: Human-Robot Interaction in Architectural Space
   importance: 2
@@ -25,6 +29,14 @@
   details: |
     Status: Under review.
     Collaboration: Robot Control Laboratory, Department of Automation, Tsinghua University; AgiBot (Accelerated Evolution Robotics).
+  images:
+    - path: user/projects/human-robot-interaction/截屏2026-04-11 10.17.03.png
+      alt:
+      caption:
+  videos:
+    - url: https://youtu.be/r0YaKEi1wBk?si=2KQ2ZLIZbOu4x6v0
+      title:
+      caption:
 
 - title: Evaluation of Aesthetic Perception in Large Models
   importance: 3
@@ -33,6 +45,10 @@
   details: |
     Recognition: Rated A+ in the Tsinghua University Student Research Training (SRT) Program.
     Collaboration: Tsinghua FIB Lab, Department of Electronic Engineering, Tsinghua University.
+  images:
+    - path: user/projects/aesthetic-perception-large-models/截屏2026-04-11 10.28.08.png
+      alt:
+      caption:
 
 - title: Immersive Architectural Interaction Design with CAVE Projection
   importance: 4
@@ -41,3 +57,10 @@
   details: |
     Recognition: Rated A+ in the Tsinghua University Student Research Training (SRT) Program.
     Outcome: Long-term exhibition at the CAVE Space, School of Architecture, Tsinghua University; presented to Mark Evans and Annabell Ren of the Illinois Institute of Technology College of Architecture.
+  videos:
+    - url: https://youtu.be/rw2ZLwP00-Y?si=Sg_btCHhJcBK3LXc
+      title:
+      caption:
+    - url: https://youtu.be/BAHgoT437-g?si=_YjnQxgF2kJFRrfg
+      title:
+      caption:
