@@ -36,7 +36,7 @@ education:
     start: 2022
     end: 2026
     highlights:
-      - GPA: 3.89/4.0, ranked 2nd in cohort.
+      - "GPA: 3.89/4.0, ranked 2nd in cohort."
 
 experience:
   - organization: Tsinghua Architectural Design and Research Institute

@@ -51,12 +51,6 @@
 
     <div class="photo-detail-view" data-photo-carousel tabindex="0" hidden>
       <div class="photo-carousel-stage">
-        <button class="photo-carousel-nav photo-carousel-nav-prev" type="button" aria-label="Previous photograph" data-photo-prev>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M14.75 5.5 8.25 12l6.5 6.5" />
-          </svg>
-        </button>
-
         <div class="photo-carousel-track">
           {% for item in photo_items %}
             {% assign image_path = item.image | default: item.path %}
@@ -76,41 +70,51 @@
                     </button>
                   </div>
 
-                  <div class="photo-feature-image">
-                    {% if image_path contains '://' %}
-                      {% include figure.liquid url=image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" sizes="100vw" %}
-                    {% else %}
-                      {% if image_path contains '/assets/' %}
-                        {% assign resolved_image_path = image_path %}
-                      {% else %}
-                        {% assign resolved_image_path = '/assets/img/' | append: image_path %}
+                  <div class="photo-feature-content">
+                    <div class="photo-feature-media">
+                      <button class="photo-carousel-nav photo-carousel-nav-prev" type="button" aria-label="Previous photograph" data-photo-prev>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                          <path d="M14.75 5.5 8.25 12l6.5 6.5" />
+                        </svg>
+                      </button>
+
+                      <div class="photo-feature-image">
+                        {% if image_path contains '://' %}
+                          {% include figure.liquid url=image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" sizes="100vw" %}
+                        {% else %}
+                          {% if image_path contains '/assets/' %}
+                            {% assign resolved_image_path = image_path %}
+                          {% else %}
+                            {% assign resolved_image_path = '/assets/img/' | append: image_path %}
+                          {% endif %}
+                          {% include figure.liquid path=resolved_image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" sizes="100vw" cache_bust=true %}
+                        {% endif %}
+                      </div>
+
+                      <button class="photo-carousel-nav photo-carousel-nav-next" type="button" aria-label="Next photograph" data-photo-next>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                          <path d="M9.25 5.5 15.75 12l-6.5 6.5" />
+                        </svg>
+                      </button>
+                    </div>
+
+                    {% capture photo_note %}
+                      {% if item.description %}
+                        {{ item.description }}
+                      {% elsif item.location or item.year %}
+                        {% if item.location %}{{ item.location }}{% endif %}{% if item.location and item.year %} · {% endif %}{% if item.year %}{{ item.year }}{% endif %}
                       {% endif %}
-                      {% include figure.liquid path=resolved_image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" sizes="100vw" cache_bust=true %}
+                    {% endcapture %}
+                    {% assign photo_note = photo_note | strip %}
+                    {% if photo_note != '' %}
+                      <p class="photo-feature-note">{{ photo_note }}</p>
                     {% endif %}
                   </div>
-
-                  {% capture photo_note %}
-                    {% if item.description %}
-                      {{ item.description }}
-                    {% elsif item.location or item.year %}
-                      {% if item.location %}{{ item.location }}{% endif %}{% if item.location and item.year %} · {% endif %}{% if item.year %}{{ item.year }}{% endif %}
-                    {% endif %}
-                  {% endcapture %}
-                  {% assign photo_note = photo_note | strip %}
-                  {% if photo_note != '' %}
-                    <p class="photo-feature-note">{{ photo_note }}</p>
-                  {% endif %}
                 </div>
               </article>
             {% endif %}
           {% endfor %}
         </div>
-
-        <button class="photo-carousel-nav photo-carousel-nav-next" type="button" aria-label="Next photograph" data-photo-next>
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M9.25 5.5 15.75 12l-6.5 6.5" />
-          </svg>
-        </button>
       </div>
     </div>
   {% else %}

@@ -65,12 +65,10 @@ $(document).ready(function () {
     const photoOverview = document.querySelector("[data-photo-overview]");
     const photoThumbs = Array.from(document.querySelectorAll("[data-photo-thumb]"));
     const photoBackButtons = Array.from(document.querySelectorAll("[data-photo-back]"));
-    const photoCarouselStage = photoCarousel.querySelector(".photo-carousel-stage");
     const navbar = document.querySelector("#navbar");
-    const footer = document.querySelector("footer");
     const slides = Array.from(photoCarousel.querySelectorAll("[data-photo-slide]"));
-    const prevButton = photoCarousel.querySelector("[data-photo-prev]");
-    const nextButton = photoCarousel.querySelector("[data-photo-next]");
+    const prevButtons = Array.from(photoCarousel.querySelectorAll("[data-photo-prev]"));
+    const nextButtons = Array.from(photoCarousel.querySelectorAll("[data-photo-next]"));
     const photoImages = Array.from(document.querySelectorAll(".photo-gallery img"));
     let activeIndex = slides.findIndex((slide) => slide.classList.contains("is-active"));
     let isTransitioning = false;
@@ -83,14 +81,12 @@ $(document).ready(function () {
       if (!image) return;
       if (image.complete) {
         image.classList.add("is-loaded");
-        window.requestAnimationFrame(updatePhotoStageMetrics);
         return;
       }
       image.addEventListener(
         "load",
         () => {
           image.classList.add("is-loaded");
-          window.requestAnimationFrame(updatePhotoStageMetrics);
         },
         { once: true }
       );
@@ -107,36 +103,10 @@ $(document).ready(function () {
       preload.src = image.currentSrc;
     };
 
-    const updatePhotoStageMetrics = () => {
-      if (!photoCarouselStage) return;
-
-      const activeSlide = slides[activeIndex];
-      const activeImage = activeSlide ? activeSlide.querySelector(".photo-feature-image img") : null;
-
-      if (!activeImage) return;
-
-      const stageRect = photoCarouselStage.getBoundingClientRect();
-      const imageRect = activeImage.getBoundingClientRect();
-
-      if (!stageRect.width || !imageRect.width) return;
-
-      const imageLeft = Math.max(0, imageRect.left - stageRect.left);
-      const imageTop = Math.max(0, imageRect.top - stageRect.top);
-      const imageRight = Math.max(0, stageRect.right - imageRect.right);
-      const imageBottom = Math.max(0, imageRect.bottom - stageRect.top);
-
-      photoCarouselStage.style.setProperty("--photo-image-left", `${imageLeft}px`);
-      photoCarouselStage.style.setProperty("--photo-image-top", `${imageTop}px`);
-      photoCarouselStage.style.setProperty("--photo-image-right", `${imageRight}px`);
-      photoCarouselStage.style.setProperty("--photo-image-height", `${imageRect.height}px`);
-      photoCarouselStage.style.setProperty("--photo-image-bottom", `${imageBottom}px`);
-      photoCarouselStage.style.setProperty("--photo-image-width", `${imageRect.width}px`);
-    };
-
     const updatePhotoViewportMetrics = () => {
       const navbarBottom = navbar ? Math.ceil(navbar.getBoundingClientRect().bottom) : 0;
-      const footerHeight = footer ? Math.ceil(footer.getBoundingClientRect().height) : 0;
-      const usableHeight = Math.max(0, window.innerHeight - navbarBottom - footerHeight);
+      const footerHeight = 0;
+      const usableHeight = Math.max(0, window.innerHeight - navbarBottom);
 
       photoCarousel.style.setProperty("--photo-detail-nav-height", `${navbarBottom}px`);
       photoCarousel.style.setProperty("--photo-detail-footer-height", `${footerHeight}px`);
@@ -159,7 +129,6 @@ $(document).ready(function () {
           nextSlide.classList.add("is-active");
           nextSlide.setAttribute("aria-hidden", "false");
         }
-        window.requestAnimationFrame(updatePhotoStageMetrics);
         preloadPhotoImage(nextIndex);
         preloadPhotoImage((nextIndex + 1) % slides.length);
         preloadPhotoImage((nextIndex - 1 + slides.length) % slides.length);
@@ -183,7 +152,6 @@ $(document).ready(function () {
         nextSlide.classList.add("is-active");
         nextSlide.setAttribute("aria-hidden", "false");
         activeIndex = nextIndex;
-        window.requestAnimationFrame(updatePhotoStageMetrics);
         preloadPhotoImage(nextIndex);
         preloadPhotoImage((nextIndex + 1) % slides.length);
         preloadPhotoImage((nextIndex - 1 + slides.length) % slides.length);
@@ -218,7 +186,6 @@ $(document).ready(function () {
         nextSlide.classList.add("is-active");
         activeIndex = nextIndex;
         isTransitioning = false;
-        window.requestAnimationFrame(updatePhotoStageMetrics);
         preloadPhotoImage(nextIndex);
         preloadPhotoImage((nextIndex + 1) % slides.length);
         preloadPhotoImage((nextIndex - 1 + slides.length) % slides.length);
@@ -249,7 +216,6 @@ $(document).ready(function () {
       requestAnimationFrame(() => {
         updatePhotoViewportMetrics();
         photoCarousel.classList.add("is-visible");
-        updatePhotoStageMetrics();
       });
     };
 
@@ -293,7 +259,6 @@ $(document).ready(function () {
     photoImages.forEach(markImageAsLoaded);
     window.addEventListener("resize", () => {
       window.requestAnimationFrame(updatePhotoViewportMetrics);
-      window.requestAnimationFrame(updatePhotoStageMetrics);
     });
 
     if (slides.length) {
@@ -317,13 +282,13 @@ $(document).ready(function () {
       button.addEventListener("click", closePhotoDetail);
     });
 
-    if (prevButton) {
-      prevButton.addEventListener("click", () => stepPhotoSlide(-1));
-    }
+    prevButtons.forEach((button) => {
+      button.addEventListener("click", () => stepPhotoSlide(-1));
+    });
 
-    if (nextButton) {
-      nextButton.addEventListener("click", () => stepPhotoSlide(1));
-    }
+    nextButtons.forEach((button) => {
+      button.addEventListener("click", () => stepPhotoSlide(1));
+    });
 
     photoCarousel.addEventListener("keydown", (event) => {
       if (event.key === "ArrowLeft") {

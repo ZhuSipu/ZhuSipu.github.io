@@ -3,7 +3,7 @@ layout: page
 title: blog
 permalink: /blog/
 description: Short essays, notes, and reflections in text form.
-nav: true
+nav: false
 nav_order: 4
 ---
 
