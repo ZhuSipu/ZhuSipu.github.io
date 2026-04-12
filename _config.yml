@@ -10,11 +10,10 @@ contact_note: >
   Feel free to reach out by email for research discussions, collaboration opportunities, or academic inquiries.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Personal academic website of Sipu Zhu (Paul), incoming PhD student in Architecture at Tsinghua University.
-footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with the <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
+footer_text:
 keywords: architecture, architectural design, human-computer interaction, AI in architecture, spatial intelligence, urban studies
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: # favicon disabled
+icon: favicon-sz.svg
 
 url: https://zhusipu.github.io # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/. Leave blank for root

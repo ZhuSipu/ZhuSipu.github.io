@@ -2,7 +2,7 @@
 layout: page
 title: photography
 permalink: /photography/
-description: A selection of photographic works presented as full-width image studies.
+description: I am passionate about travel and photography, exploring spatial relationships and composition through images.
 nav: true
 nav_order: 3
 ---
