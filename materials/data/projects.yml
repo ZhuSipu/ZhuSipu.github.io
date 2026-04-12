@@ -38,10 +38,10 @@
       title:
       caption:
 
-- title: Evaluation of Aesthetic Perception in Large Models
+- title: Evaluation of Aesthetic Perception in Large Language Models
   importance: 3
   year: 2025
-  description: Evaluates the aesthetic perception of large models by comparing their judgments on architectural images with human aesthetic responses.
+  description: Evaluates the aesthetic perception of large language models by comparing their judgments with human aesthetic responses.
   details: |
     Recognition: Rated A+ in the Tsinghua University Student Research Training (SRT) Program.
     Collaboration: Tsinghua FIB Lab, Department of Electronic Engineering, Tsinghua University.

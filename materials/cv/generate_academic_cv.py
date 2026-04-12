@@ -197,13 +197,13 @@ end_section()
 section("Education")
 entry(
     "Tsinghua University, Beijing, China",
-    "Sep 2026 - Present",
+    "Sep 2026 - Expected",
     "Incoming PhD in Architectural Design, Architecture",
     "Advised by Academician Zhuang Weimin",
 )
 entry(
     "Tsinghua University, Beijing, China",
-    "Sep 2022 - Jun 2026",
+    "Sep 2022 - Present",
     "Bachelor of Architecture",
     "GPA: 3.89/4.0, ranked 2nd",
 )
@@ -243,9 +243,9 @@ project(
     "Spatial scale, visual attention, and perception toward robots in architectural environments; under review, in collaboration with Tsinghua University Robot Control Laboratory and AgiBot.",
 )
 project(
-    "Evaluation of Aesthetic Perception in Large Models",
+    "Evaluation of Aesthetic Perception in Large Language Models",
     "2025",
-    "Comparative study of large-model judgments and human aesthetic responses to architectural images; rated A+ in the Tsinghua University Student Research Training Program.",
+    "Comparative study of large language model judgments and human aesthetic responses; rated A+ in the Tsinghua University Student Research Training Program.",
 )
 project(
     "Immersive Architectural Interaction Design with CAVE Projection",
