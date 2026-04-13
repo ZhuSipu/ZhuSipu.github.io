@@ -38,8 +38,20 @@
       title:
       caption:
 
-- title: Evaluation of Aesthetic Perception in Large Language Models
+- title: AI-Assisted Multi-Scale Historic District Renewal
   importance: 3
+  year: 2026
+  description: Investigates AI-assisted block-scale planning decision-making and deep learning-based courtyard generation for the renewal of Beijing's historic old city.
+  details: |
+    Status: Ongoing.
+    Collaboration: Tsinghua Architectural Design and Research Institute; Beijing Construction Engineering Group.
+  images:
+    - path: user/projects/ai-assisted-multi-scale-historic-district-renewal/image-01.png
+      alt:
+      caption:
+
+- title: Evaluation of Aesthetic Perception in Large Language Models
+  importance: 4
   year: 2025
   description: Evaluates the aesthetic perception of large language models by comparing their judgments with human aesthetic responses.
   details: |
@@ -51,7 +63,7 @@
       caption:
 
 - title: Immersive Architectural Interaction Design with CAVE Projection
-  importance: 4
+  importance: 5
   year: 2024
   description: Explores immersive and interactive architectural design workflows using CAVE projection, VR simulation, and real-time digital environments.
   details: |

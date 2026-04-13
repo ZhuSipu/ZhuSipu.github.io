@@ -243,6 +243,11 @@ project(
     "Spatial scale, visual attention, and perception toward robots in architectural environments; under review, in collaboration with Tsinghua University Robot Control Laboratory and AgiBot.",
 )
 project(
+    "AI-Assisted Multi-Scale Historic District Renewal",
+    "2026",
+    "AI-assisted block-scale planning decision-making and deep learning-based courtyard generation for the renewal of Beijing's historic old city; ongoing.",
+)
+project(
     "Evaluation of Aesthetic Perception in Large Language Models",
     "2025",
     "Comparative study of large language model judgments and human aesthetic responses; rated A+ in the Tsinghua University Student Research Training Program.",
