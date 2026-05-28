@@ -1,0 +1,84 @@
+basics:
+  name: Sipu Zhu
+  label: Incoming PhD Student in Architecture
+  email: zhusp22@mails.tsinghua.edu.cn
+  location: Beijing, China
+  summary: Incoming PhD student in Architecture at Tsinghua University, interested in interdisciplinary research across design, technology, and the humanities.
+
+sections:
+  - type: education
+    title: Education
+  - type: experience
+    title: Experience
+  - type: awards
+    title: Awards
+  - type: publications
+    title: Publications
+  - type: projects
+    title: Projects
+  - type: interests
+    title: Research Interests
+
+education:
+  - institution: Tsinghua University
+    location: Beijing, China
+    degree: Incoming PhD in Architectural Design
+    field: Architecture
+    start: 2026
+    end: Expected
+    highlights:
+      - Incoming PhD student under Academician Zhuang Weimin of the Chinese Academy of Engineering.
+
+  - institution: Tsinghua University
+    location: Beijing, China
+    degree: Bachelor of Architecture
+    field: Architecture
+    start: 2022
+    end: present
+    highlights:
+      - "GPA: 3.89/4.0, ranked 2nd in cohort."
+
+experience:
+  - organization: Tsinghua Architectural Design and Research Institute
+    role: Intern
+    location: Beijing, China
+    start: 2026-02
+    end: present
+
+  - organization: Vanke Southwest Architectural Design Research Center
+    role: Intern
+    location: China
+    start: 2024-06
+    end: 2024-09
+
+awards:
+  - title: Toyota Scholarship
+    date: 2025
+    issuer: Tsinghua Alumni Comprehensive Excellence Scholarship
+
+  - title: Cheng Xiankang Memorial Scholarship
+    date: 2024
+    issuer: Tsinghua Alumni Comprehensive Excellence Scholarship
+
+  - title: Guangyi Design First-Class Scholarship
+    date: 2024
+    issuer: Tsinghua University
+
+  - title: Toyota Scholarship
+    date: 2023
+    issuer: Tsinghua Alumni Comprehensive Excellence Scholarship
+
+  - title: Outstanding Social Work Scholarship
+    date: 2023
+    issuer: Tsinghua University
+
+interests:
+  - name: Focus Areas
+    icon: fa-solid fa-tag
+    items:
+      - Architectural Design
+      - Built Environment
+      - Human-Computer Interaction
+      - AI in Architecture
+      - Spatial Intelligence
+      - Urban Studies

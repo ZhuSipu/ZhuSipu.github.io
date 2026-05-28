@@ -1,0 +1,78 @@
+# Optional fields per project:
+# images:
+#   - path: user/projects/example/image-01.jpg
+#     alt: Short alt text
+#     caption: Optional caption shown under the image
+# videos:
+#   - id: dQw4w9WgXcQ
+#     title: Optional iframe title
+#     caption: Optional caption shown under the video
+# links:
+#   - label: Paper
+#     url: https://example.com
+
+- title: Multisensory VR Study on Stress Recovery in Hospital Staff Break Spaces
+  importance: 1
+  year: 2026
+  description: Investigates how visual, auditory, and olfactory stimuli jointly support stress recovery in hospital staff break spaces through VR-based experiments with psychological and physiological measures.
+  details: |
+    Publication: Lyu, Dalin, Hengyi Cong, Sipu Zhu, Yulong Liu, and Weimin Zhuang. "Healing with sight, smell and sound: A virtual reality study on multisensory synergistic stress recovery in hospital staff break spaces." Building and Environment (2026): 114587.
+  images:
+    - path: user/projects/multisensory-vr-stress-recovery/image-01.png
+      alt:
+      caption:
+
+- title: Human-Robot Interaction in Architectural Space
+  importance: 2
+  year: 2026
+  description: Examines how spatial scale influences human visual attention and perception toward robots through controlled eye-tracking experiments in corridor and hall settings.
+  details: |
+    Status: Under review.
+    Collaboration: Robot Control Laboratory, Department of Automation, Tsinghua University; AgiBot (Accelerated Evolution Robotics).
+  images:
+    - path: user/projects/human-robot-interaction/image-01.png
+      alt:
+      caption:
+  videos:
+    - url: https://youtu.be/r0YaKEi1wBk?si=2KQ2ZLIZbOu4x6v0
+      title:
+      caption:
+
+- title: AI-Assisted Multi-Scale Historic District Renewal
+  importance: 3
+  year: 2026
+  description: Investigates AI-assisted block-scale planning decision-making and deep learning-based courtyard generation for the renewal of Beijing's historic old city.
+  details: |
+    Status: Ongoing.
+    Collaboration: Tsinghua Architectural Design and Research Institute; Beijing Construction Engineering Group.
+  images:
+    - path: user/projects/ai-assisted-multi-scale-historic-district-renewal/image-01.png
+      alt:
+      caption:
+
+- title: Evaluation of Aesthetic Perception in Large Language Models
+  importance: 4
+  year: 2025
+  description: Evaluates the aesthetic perception of large language models by comparing their judgments with human aesthetic responses.
+  details: |
+    Recognition: Rated A+ in the Tsinghua University Student Research Training (SRT) Program.
+    Collaboration: Tsinghua FIB Lab, Department of Electronic Engineering, Tsinghua University.
+  images:
+    - path: user/projects/aesthetic-perception-large-models/image-01.png
+      alt:
+      caption:
+
+- title: Immersive Architectural Interaction Design with CAVE Projection
+  importance: 5
+  year: 2024
+  description: Explores immersive and interactive architectural design workflows using CAVE projection, VR simulation, and real-time digital environments.
+  details: |
+    Recognition: Rated A+ in the Tsinghua University Student Research Training (SRT) Program.
+    Outcome: Long-term exhibition at the CAVE Space, School of Architecture, Tsinghua University; presented to Mark Evans and Annabell Ren of the Illinois Institute of Technology College of Architecture.
+  videos:
+    - url: https://youtu.be/rw2ZLwP00-Y?si=Sg_btCHhJcBK3LXc
+      title:
+      caption:
+    - url: https://youtu.be/BAHgoT437-g?si=_YjnQxgF2kJFRrfg
+      title:
+      caption:
