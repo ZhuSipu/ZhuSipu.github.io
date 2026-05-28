@@ -38,6 +38,16 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ '/' | relative_url }}">about</a>
             </li>
+            {% if site.enable_darkmode %}
+              <!-- Toogle theme mode -->
+              <li class="toggle-container">
+                <button id="light-toggle" title="Change theme">
+                  <span class="theme-toggle-icon" id="light-toggle-system" aria-hidden="true">◐</span>
+                  <span class="theme-toggle-icon" id="light-toggle-dark" aria-hidden="true">☾</span>
+                  <span class="theme-toggle-icon" id="light-toggle-light" aria-hidden="true">☀</span>
+                </button>
+              </li>
+            {% endif %}
           </ul>
         </div>
       {% else %}
