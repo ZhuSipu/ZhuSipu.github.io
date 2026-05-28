@@ -1,10 +1,8 @@
 ---
-layout: blog
-title: Sipu Zhu Blog
-blog_title: Sipu Zhu Blog
+layout: page
+title: blog
 permalink: /blog/
-description: Notes on architecture, spatial intelligence, AI, travel, and the built environment.
-hero_image: /assets/img/user/photography/photo-08.jpg
+description: Short essays, notes, and reflections in text form.
 nav: true
 nav_order: 4
 ---
