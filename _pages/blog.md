@@ -5,7 +5,7 @@ blog_title: Sipu Zhu Blog
 permalink: /blog/
 description: Notes on architecture, spatial intelligence, AI, travel, and the built environment.
 hero_image: /assets/img/user/photography/photo-08.jpg
-nav: false
+nav: true
 nav_order: 4
 ---
 
