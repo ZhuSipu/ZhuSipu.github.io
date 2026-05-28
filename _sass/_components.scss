@@ -791,53 +791,6 @@ body.photo-gallery-detail-mode .photo-feature-image img {
   font-weight: 650;
 }
 
-.blog-site-navbar {
-  position: sticky;
-  z-index: 20;
-  width: 100%;
-  border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-bg-color);
-  box-shadow: none;
-}
-
-.navbar.navbar-light.blog-site-navbar .navbar-brand,
-.navbar.navbar-light.blog-site-navbar .blog-site-nav .nav-link {
-  color: var(--global-text-color);
-  font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
-  text-decoration: none;
-}
-
-.navbar.navbar-light.blog-site-navbar .navbar-brand {
-  font-size: var(--font-navbar-brand, 1rem);
-  font-weight: var(--font-navbar-brand-weight, 700);
-  line-height: var(--font-navbar-brand-line-height, 1.2);
-}
-
-.blog-site-nav {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.navbar.navbar-light.blog-site-navbar .blog-site-nav .nav-link {
-  padding-right: 0;
-  padding-left: 0;
-  font-size: var(--font-navbar-link, 1rem);
-  font-weight: var(--font-navbar-link-weight, 650);
-  line-height: var(--font-navbar-link-line-height, 1.2);
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-.navbar.navbar-light.blog-site-navbar .blog-site-nav .nav-link.active {
-  font-weight: var(--font-navbar-active-weight, 750);
-}
-
-.navbar.navbar-light.blog-site-navbar .navbar-brand:hover,
-.navbar.navbar-light.blog-site-navbar .blog-site-nav .nav-link:hover {
-  color: var(--global-text-color-light);
-}
-
 .blog-home {
   margin-top: -3rem;
 }
@@ -891,18 +844,6 @@ body.photo-gallery-detail-mode .photo-feature-image img {
 }
 
 @media (max-width: 575.98px) {
-  .blog-site-navbar .container {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .blog-site-nav {
-    width: 100%;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
   .blog-hero {
     min-height: 20rem;
   }
