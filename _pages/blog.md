@@ -1,8 +1,10 @@
 ---
 layout: page
 title: blog
+blog_home: true
+blog_title: Unbuilts
 permalink: /blog/
-description: Short essays, notes, and reflections in text form.
+description: history, reality, and other unfinished structures
 nav: true
 nav_order: 4
 ---

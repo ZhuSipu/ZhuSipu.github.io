@@ -1,7 +1,20 @@
 <header>
   <!-- Nav Bar -->
-  <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
+  <nav
+    id="navbar"
+    class="navbar navbar-light navbar-expand-sm {% if page.blog_home %}blog-site-navbar{% endif %} {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}"
+    role="navigation"
+  >
     <div class="container">
+      {% if page.blog_home %}
+        <a class="navbar-brand title blog-site-brand" href="{{ '/blog/' | relative_url }}">
+          {{- page.blog_title | default: page.title -}}
+        </a>
+        <div class="blog-site-nav ml-auto">
+          <a class="nav-link {% if page.permalink == '/blog/' %}active{% endif %}" href="{{ '/blog/' | relative_url }}">home</a>
+          <a class="nav-link" href="{{ '/' | relative_url }}">about</a>
+        </div>
+      {% else %}
       {% if page.permalink != '/' %}
         <a class="navbar-brand title" href="{{ site.baseurl }}/">
           {% if site.title == 'blank' %}
@@ -137,6 +150,7 @@
           {% endif %}
         </ul>
       </div>
+      {% endif %}
     </div>
   </nav>
   {% if site.enable_progressbar %}
