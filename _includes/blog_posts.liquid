@@ -4,13 +4,17 @@
 <div class="blog-post-list">
   {% if posts.size > 0 %}
     {% for post in posts %}
+      {% assign preview_text = post.excerpt | default: post.description %}
       <article class="blog-post-card">
-        <a class="blog-post-hit" href="{{ post.url | relative_url }}">
-          <h2 class="blog-post-title">{{ post.title }}</h2>
-          {% if post.date %}
-            <time class="blog-post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%B %-d, %Y' }}</time>
-          {% endif %}
-        </a>
+        <h2 class="blog-post-title">
+          <a class="blog-post-title-link" href="{{ post.url | relative_url }}" lang="{{ post.lang | default: page.lang }}">{{ post.title }}</a>
+        </h2>
+        {% if preview_text %}
+          <p class="blog-post-subtitle">{{ preview_text | strip_html }}</p>
+        {% endif %}
+        {% if post.date %}
+          <time class="blog-post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%B %-d, %Y' }}</time>
+        {% endif %}
       </article>
     {% endfor %}
   {% else %}

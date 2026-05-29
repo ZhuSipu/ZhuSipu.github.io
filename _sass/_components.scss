@@ -748,38 +748,27 @@ body.photo-gallery-detail-mode .photo-feature-image img {
 
 .blog-post-card {
   border-bottom: 1px solid var(--global-divider-color);
-  padding: 0;
+  padding: 1.2rem 0 1.25rem;
   background: transparent;
 }
 
-.blog-post-hit,
 .blog-post-date {
   font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
-}
-
-.blog-post-hit {
-  display: block;
-  margin: 0.85rem -1rem;
-  padding: 1.2rem 1rem 1.25rem;
-  color: inherit;
-  text-decoration: none;
-}
-
-.blog-post-hit:hover,
-.blog-post-hit:focus-visible {
-  text-decoration: none;
-  outline: none;
 }
 
 .blog-post-title {
   max-width: 920px;
   margin: 0 0 0.45rem;
-  color: inherit;
   font-family: var(--font-title-family, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
   font-size: clamp(1rem, 2.7vw, 2.2rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: 0;
+}
+
+.blog-post-title-link {
+  color: inherit;
+  text-decoration: none;
   display: inline-block;
   transform: translateY(0);
   transform-origin: left bottom;
@@ -790,9 +779,30 @@ body.photo-gallery-detail-mode .photo-feature-image img {
   background-size: 0% 2px;
 }
 
-.layout-page.blog-home.lang-zh .blog-post-title {
+.blog-post-title-link[lang="zh"] {
   font-family: "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif", "Noto Serif CJK SC", "Noto Serif SC", serif;
   font-weight: 800;
+}
+
+.blog-post-title-link:hover,
+.blog-post-title-link:focus-visible {
+  color: var(--global-theme-color);
+  background-size: 100% 2px;
+  transform: translateY(-3px) scale(1.1);
+  text-shadow: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.blog-post-subtitle {
+  max-width: 860px;
+  margin: 0.45rem 0 0;
+  color: var(--global-text-color);
+  font-family: var(--font-body-family, Charter, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif);
+  font-size: clamp(0.58rem, 1.3vw, 1rem);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0;
 }
 
 .blog-post-date {
@@ -802,14 +812,6 @@ body.photo-gallery-detail-mode .photo-feature-image img {
   font-size: 0.95rem;
   font-style: italic;
   white-space: nowrap;
-}
-
-.blog-post-hit:hover .blog-post-title,
-.blog-post-hit:focus-visible .blog-post-title {
-  color: var(--global-theme-color);
-  background-size: 100% 2px;
-  transform: translateY(-3px) scale(1.1);
-  text-shadow: none;
 }
 
 .blog-home {
@@ -865,15 +867,12 @@ body.photo-gallery-detail-mode .photo-feature-image img {
 }
 
 @media (max-width: 575.98px) {
-  .blog-post-hit {
-    margin-right: -0.5rem;
-    margin-left: -0.5rem;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-  }
-
   .blog-post-title {
     font-size: 1.05rem;
+  }
+
+  .blog-post-subtitle {
+    font-size: 0.58rem;
   }
 
   .blog-post-date {
