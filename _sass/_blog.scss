@@ -1,0 +1,278 @@
+/*******************************************************************************
+ * Blog article reading layout
+ ******************************************************************************/
+
+.layout-page.blog-article {
+  --blog-body-font: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", "Source Han Serif CN", "SimSun", Georgia, serif;
+  --blog-ui-font: "Inter", "Geist", "Söhne", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  max-width: 760px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 4rem;
+
+  .post-header {
+    margin: 3.2rem auto 3rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  .post-title {
+    max-width: 720px;
+    margin: 0;
+    color: var(--global-text-color);
+    font-family: var(--blog-body-font);
+    font-size: clamp(2rem, 4.8vw, 3.45rem);
+    font-weight: 600;
+    line-height: 1.22;
+    letter-spacing: 0;
+  }
+
+  article {
+    font-family: var(--blog-body-font);
+    font-size: 1.12rem;
+    font-weight: 400;
+    line-height: 1.95;
+    letter-spacing: 0.01em;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    hanging-punctuation: allow-end;
+  }
+
+  p,
+  li {
+    font-family: var(--blog-body-font);
+    font-size: 1.12rem;
+    font-weight: 400;
+    line-height: 1.95;
+  }
+
+  p {
+    margin: 0 0 1.25rem;
+  }
+
+  p + p {
+    margin-top: 0.1rem;
+  }
+
+  small {
+    display: block;
+    margin: 0.5rem 0 2.2rem;
+    color: var(--global-text-color-light);
+    font-family: var(--blog-ui-font);
+    font-size: 0.92rem;
+    line-height: 1.85;
+    text-align: left;
+  }
+
+  h2,
+  h3,
+  h4 {
+    font-family: var(--blog-ui-font);
+    font-weight: 650;
+    letter-spacing: 0;
+  }
+
+  h2 {
+    margin: 3.8rem 0 1.35rem;
+    padding-top: 0.2rem;
+    color: var(--global-text-color);
+    font-size: 1.55rem;
+    line-height: 1.35;
+  }
+
+  h2::before {
+    display: block;
+    width: 2.4rem;
+    height: 2px;
+    margin-bottom: 1.1rem;
+    background: var(--global-theme-color);
+    content: "";
+  }
+
+  h3 {
+    margin: 2.6rem 0 1rem;
+    font-size: 1.2rem;
+    line-height: 1.45;
+  }
+
+  a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+  }
+
+  strong,
+  b {
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  blockquote {
+    margin: 2.3rem 0;
+    padding: 1.35rem 1.45rem 1.35rem 1.6rem;
+    border-left: 2px solid var(--global-theme-color);
+    background: color-mix(in srgb, var(--global-theme-color) 5%, var(--global-bg-color));
+    color: var(--global-text-color);
+    font-size: 1.02rem;
+    line-height: 1.85;
+    text-align: left;
+  }
+
+  blockquote p {
+    margin: 0 0 0.8rem;
+    font-family: var(--blog-body-font);
+    font-size: 1.02rem;
+    line-height: 1.85;
+  }
+
+  blockquote p:last-child {
+    margin-bottom: 0;
+  }
+
+  figure {
+    margin: 2.6rem auto 2.8rem;
+  }
+
+  figure picture,
+  figure img {
+    display: block;
+    width: 100%;
+  }
+
+  figure img {
+    border-radius: 2px;
+  }
+
+  .caption {
+    max-width: 92%;
+    margin: 0.7rem auto 0;
+    color: var(--global-text-color-light);
+    font-family: var(--blog-ui-font);
+    font-size: 0.82rem;
+    font-weight: 400;
+    line-height: 1.65;
+    text-align: center;
+  }
+
+  sup {
+    font-family: var(--blog-ui-font);
+    font-size: 0.72em;
+    line-height: 0;
+  }
+
+  .footnotes {
+    margin-top: 4rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--global-divider-color);
+    font-family: var(--blog-ui-font);
+    font-size: 0.88rem;
+    line-height: 1.75;
+    text-align: left;
+  }
+
+  .footnotes ol {
+    padding-left: 1.2rem;
+  }
+
+  .footnotes li,
+  .footnotes p {
+    font-family: var(--blog-ui-font);
+    font-size: 0.88rem;
+    line-height: 1.75;
+  }
+}
+
+html[data-theme="dark"] .layout-page.blog-article {
+  blockquote {
+    background: color-mix(in srgb, var(--global-theme-color) 13%, var(--global-bg-color));
+  }
+}
+
+.layout-page.blog-article.lang-en {
+  --blog-body-font: Charter, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+
+  article {
+    font-size: 1.08rem;
+    line-height: 1.82;
+    letter-spacing: 0;
+    text-align: left;
+  }
+
+  p,
+  li {
+    font-size: 1.08rem;
+    line-height: 1.82;
+  }
+
+  .post-title {
+    font-family: var(--blog-body-font);
+    font-size: clamp(2.2rem, 5vw, 3.65rem);
+    line-height: 1.08;
+  }
+
+  h2 {
+    font-size: 1.45rem;
+  }
+
+  blockquote,
+  blockquote p {
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout-page.blog-article {
+    max-width: 100%;
+    padding-right: 0.15rem;
+    padding-left: 0.15rem;
+
+    .post-header {
+      margin-top: 2.1rem;
+      margin-bottom: 2.2rem;
+      padding-bottom: 1.25rem;
+    }
+
+    .post-title {
+      font-size: 2rem;
+      line-height: 1.25;
+    }
+
+    article,
+    p,
+    li {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      text-align: left;
+    }
+
+    h2 {
+      margin-top: 3rem;
+      font-size: 1.35rem;
+    }
+
+    blockquote {
+      margin-right: -0.1rem;
+      margin-left: -0.1rem;
+      padding: 1.1rem 1.15rem;
+    }
+
+    figure {
+      margin-right: -0.15rem;
+      margin-left: -0.15rem;
+    }
+  }
+
+  .layout-page.blog-article.lang-en {
+    .post-title {
+      font-size: 2.15rem;
+      line-height: 1.12;
+    }
+
+    article,
+    p,
+    li {
+      font-size: 1.04rem;
+      line-height: 1.75;
+    }
+  }
+}

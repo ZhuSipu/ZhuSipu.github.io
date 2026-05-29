@@ -6,9 +6,9 @@
     role="navigation"
   >
     <div class="container">
-      {% if page.blog_home %}
+      {% if page.blog_home or page.blog_post %}
         <a class="navbar-brand title" href="{{ '/blog/' | relative_url }}">
-          {{- page.blog_title | default: page.title -}}
+          {{- page.blog_title | default: 'Unbuilts' -}}
         </a>
 
         <!-- Navbar Toggle -->
@@ -38,6 +38,20 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ '/' | relative_url }}">about</a>
             </li>
+            {% if page.translation_url %}
+              <li class="nav-item language-switch-item">
+                <a
+                  class="nav-link language-switch-link"
+                  href="{{ page.translation_url | relative_url }}"
+                  {% if page.translation_lang %}
+                    hreflang="{{ page.translation_lang }}"
+                    lang="{{ page.translation_lang }}"
+                  {% endif %}
+                >
+                  {{ page.translation_label | default: 'EN' }}
+                </a>
+              </li>
+            {% endif %}
             {% if site.enable_darkmode %}
               <!-- Toogle theme mode -->
               <li class="toggle-container">
@@ -172,6 +186,20 @@
               <button id="search-toggle" title="Search" onclick="openSearchModal()">
                 <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span>
               </button>
+            </li>
+          {% endif %}
+          {% if page.translation_url %}
+            <li class="nav-item language-switch-item">
+              <a
+                class="nav-link language-switch-link"
+                href="{{ page.translation_url | relative_url }}"
+                {% if page.translation_lang %}
+                  hreflang="{{ page.translation_lang }}"
+                  lang="{{ page.translation_lang }}"
+                {% endif %}
+              >
+                {{ page.translation_label | default: 'EN' }}
+              </a>
             </li>
           {% endif %}
           {% if site.enable_darkmode %}

@@ -8,7 +8,7 @@ layout: default
   </style>
 {% endif %}
 
-<div class="post layout-page{% if page.blog_home %} blog-home{% endif %}">
+<div class="post layout-page{% if page.blog_home %} blog-home{% endif %}{% if page.blog_post %} blog-article{% endif %}{% if page.lang %} lang-{{ page.lang }}{% endif %}">
   {% if page.blog_home %}
     <header class="blog-hero">
       <div class="blog-hero-content">
@@ -21,7 +21,9 @@ layout: default
   {% else %}
     <header class="post-header">
       <h1 class="post-title">{{ page.title }}</h1>
-      <p class="post-description">{{ page.description }}</p>
+      {% if page.description %}
+        <p class="post-description">{{ page.description }}</p>
+      {% endif %}
     </header>
   {% endif %}
 
