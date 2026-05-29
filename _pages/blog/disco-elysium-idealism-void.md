@@ -16,8 +16,6 @@ excerpt: "从瑞瓦肖的失败革命、意识形态废墟与自由的虚无，�
 <p><small>本文会涉及《极乐迪斯科》的关键情节和结局。不过，这并不是一部主要依靠精彩结局取胜的游戏。对于这样的作品，结局未必是意义的终点，重要的或许不是发生了什么，而是玩家如何在过程中审视自身与世界。如果非常介意剧透，可以跳过第三节。</small></p>
 
 > 每天清晨，当我走出去，身后的你还在沉睡，我感觉自己有一点悲伤。我把它藏在心底，沿着远航路走下去。我每走一步，它都在生长。当我走到加油站的时候，悲伤已经充斥了我的全身。我踏上轻轨，回头张望，弓形集电器上落下火花。我知道会是这样——直到我从四十二路下来，重新回到你身边……你啊你。我每走一步，脚步就越发轻盈，几乎让我想要开始奔跑，我有时会那样做。不敢相信我会遇见你，不敢相信跟你在一起的那些快乐。你拥有如此浩瀚又博大的灵魂，而我也将一直，永远回到你身边。
->
-> Harry, I wanted to write you a letter, so you can read it when you wake up. Maybe it will make you happy. Every morning when I step out and you're asleep behind me, I find a little piece of sadness in me. I carry it in my chest down Voyager Road... Every step I take, it grows. By the time I reach the fuel station it has filled me entirely. I step on the light rail and look back, sparks fall from the bow collector. I know it will be like this until late afternoon, when I get off the 42 -- and walk back to you... You, you... Every step I take will get lighter. It almost makes me run! Sometimes I do. I can't believe I met you. I can't believe the happiness I feel with you. You have a vast, vast soul and I will always, always, always come back to it. Kisses, kisses, kisses.
 
 ## 一、世界观
 
@@ -42,8 +40,6 @@ Harry 的意识形态倾向也是一种游戏机制。玩家在对话中反复�
 {% include figure.liquid path="/assets/img/user/blog/disco/04.jpg" alt="康米主义支线中的火柴盒塔及其原型第三国际纪念碑" caption="康米主义支线中的火柴盒塔及其原型第三国际纪念碑" loading="lazy" zoomable=true %}
 
 > 迪斯科是历史上最悲哀的音乐形式之一。它试图在崩溃的边缘维持一场派对。它那种昂贵的、闪亮的服装和强撑的乐观，实际上是对即将到来的虚无的绝望抵抗。这正是瑞瓦肖的精神内核：在一场彻底失败的革命之后，在末日阴影下，人们依然试图通过一种怪异的华丽感来证明自己活着。
->
-> Disco is one of the saddest musical forms in history. It attempts to sustain a party on the brink of collapse. Its expensive, glittering costumes and forced optimism are, in fact, a desperate resistance against the encroaching void. This is the spiritual core of Revachol: in the wake of a completely failed revolution and under the shadow of the apocalypse, people still try to prove they are alive through a strange, flamboyant splendor.
 
 ## 二、意识形态
 
@@ -64,8 +60,6 @@ Harry 的意识形态倾向也是一种游戏机制。玩家在对话中反复�
 这种复杂性并不只体现在火柴盒塔上，也体现在工会、康米主义对话选项和游戏结局中。游戏保留了对失败革命的情感，但也拒绝把左翼怀旧浪漫化。Evrart 和工会带有腐败和操控性，工会以建设青少年中心的名义侵害渔村利益，也卷入毒品和权力交易。许多康米主义的对话选项显得荒诞、偏执、夸张，似乎也在影射历史上的某些暴行：“革命进行得还不够彻底，他们应该再多杀400万人”。这些内容并不只是笑话。它们提示玩家：革命在游戏中并不天然纯洁，左翼政治也可能与暴力、教条、权力和控制纠缠在一起。在这一意义上，《极乐迪斯科》既保留了康米主义作为失败理想的情感吸引，也呈现了它在组织实践、语言习惯和权力结构中的问题。这种态度在游戏结局中被进一步凸显。剧情将一个被革命失败、长期孤独和个人欲望共同塑造的康米主义老兵设定为最终的真凶。他既连接着游戏对康米主义的复杂态度，也把问题推进到游戏非传统的叙事结构。
 
 > “在大多数游戏里，失败意味着‘重来’。但在《极乐迪斯科》里，失败是最美的部分。Harry 搞砸一件事时的那种笨拙、那种自尊心的破碎，往往能带来比成功更迷人的视觉表现和叙事深度。我们花了很多精力去描绘这种‘优美的失败’。”
->
-> "In most games, failure means 'try again.' But in Disco Elysium, failure is the most beautiful part. The clumsiness of Harry messing things up, the shattering of his self-esteem—it often brings a more captivating visual expression and narrative depth than success ever could. We spent a lot of effort depicting this 'beautiful failure'."
 
 ## 三、叙事哲学
 
@@ -84,8 +78,6 @@ Iosef Dros，一个被革命失败遗留在历史边缘的人，最终承担了�
 因此，《极乐迪斯科》的反传统叙事并不是单纯为了制造新奇感。它之所以有效，恰恰在于它更接近现实经验本身。现实生活往往并不按照戏剧结构展开：努力未必带来清晰回报，冲突未必通向和解，真相也未必恢复秩序。失望、意外、误解、偶然和反戏剧性，本来就是现实的一部分。在这一意义上，游戏的目标并不是为玩家创造一个替代性现实。它并不让玩家暂时逃入一个更有秩序、更有正义、更有解释力的世界，而是让玩家在虚构中重新遭遇现实的不稳定性。正因为如此，《极乐迪斯科》的叙事哲学最终会自然指向它的现实关切：游戏为什么会以这样的方式理解政治、失败和意义。
 
 > “有些开发者会说：‘我们的游戏里没有政治。’这本身就是一种极其激进的、支持现状的政治姿态。对于我们来说，不去描绘马丁内斯的阶级矛盾和意识形态冲突，就等于不去描绘那里的空气。你不能假装那些东西不存在，除非你生活在一个完全真空的泡沫里。”
->
-> "Some developers would say, 'There is no politics in our game.' That itself is an extremely radical, pro-status quo political stance. For us, failing to depict the class struggle and ideological conflicts of Martinez would be like failing to depict the air there. You cannot pretend those things don't exist unless you live in a complete vacuum."
 
 ## 四、现实世界
 
