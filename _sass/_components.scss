@@ -761,19 +761,13 @@ body.photo-gallery-detail-mode .photo-feature-image img {
   display: block;
   margin: 0.85rem -1rem;
   padding: 1.2rem 1rem 1.25rem;
-  border-radius: 0.35rem;
   color: inherit;
   text-decoration: none;
-  transform: translateY(0);
-  transition: background-color 0.22s ease, color 0.22s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .blog-post-hit:hover,
 .blog-post-hit:focus-visible {
-  background: color-mix(in srgb, var(--global-theme-color) 8%, transparent);
-  color: var(--global-theme-color);
   text-decoration: none;
-  transform: translateY(-3px);
   outline: none;
 }
 
@@ -786,35 +780,36 @@ body.photo-gallery-detail-mode .photo-feature-image img {
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: 0;
+  display: inline-block;
+  transform: translateY(0);
+  transform-origin: left bottom;
+  transition: color 0.22s ease, background-size 0.28s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 2px;
 }
 
-.blog-post-subtitle {
-  max-width: 860px;
-  margin: 0;
-  color: var(--global-text-color);
-  font-family: var(--font-body-family, Charter, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif);
-  font-size: clamp(0.58rem, 1.3vw, 1rem);
-  font-weight: 400;
-  line-height: 1.35;
-  letter-spacing: 0;
+.layout-page.blog-home.lang-zh .blog-post-title {
+  font-family: "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif", "Noto Serif CJK SC", "Noto Serif SC", serif;
+  font-weight: 800;
 }
 
 .blog-post-date {
   display: block;
   margin-top: 0.35rem;
   color: var(--global-text-color-light);
-  font-size: 0.82em;
+  font-size: 0.95rem;
   font-style: italic;
   white-space: nowrap;
 }
 
-.blog-post-separator {
-  display: none;
-}
-
-.blog-post-hit:hover .blog-post-subtitle,
-.blog-post-hit:focus-visible .blog-post-subtitle {
-  color: var(--global-text-color);
+.blog-post-hit:hover .blog-post-title,
+.blog-post-hit:focus-visible .blog-post-title {
+  color: var(--global-theme-color);
+  background-size: 100% 2px;
+  transform: translateY(-3px) scale(1.1);
+  text-shadow: none;
 }
 
 .blog-home {
@@ -881,8 +876,8 @@ body.photo-gallery-detail-mode .photo-feature-image img {
     font-size: 1.05rem;
   }
 
-  .blog-post-subtitle {
-    font-size: 0.58rem;
+  .blog-post-date {
+    font-size: 0.9rem;
   }
 
   .blog-hero {
