@@ -4,7 +4,6 @@ title: "《极乐迪斯科》：理想主义的废墟之上，是自由的虚无
 date: 2026-05-29
 blog_post: true
 permalink: /blog/disco-elysium-idealism-void/
-description: "从瑞瓦肖的失败革命、意识形态废墟与自由的虚无，重读《极乐迪斯科》的政治、叙事和现实关切。"
 excerpt: "从瑞瓦肖的失败革命、意识形态废墟与自由的虚无，重读《极乐迪斯科》的政治、叙事和现实关切。"
 ---
 
