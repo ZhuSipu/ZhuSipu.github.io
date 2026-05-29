@@ -3,8 +3,8 @@
  ******************************************************************************/
 
 .layout-page.blog-article {
-  --blog-body-font: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", "Source Han Serif CN", "SimSun", Georgia, serif;
-  --blog-ui-font: "Inter", "Geist", "Söhne", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --blog-body-font: "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif", "Noto Serif CJK SC", "Noto Serif SC", serif;
+  --blog-ui-font: "Source Han Sans SC", "Source Han Sans CN", "Source Han Sans", "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
   max-width: 760px;
   margin-right: auto;
   margin-left: auto;
@@ -188,7 +188,8 @@ html[data-theme="dark"] .layout-page.blog-article {
 }
 
 .layout-page.blog-article.lang-en {
-  --blog-body-font: Charter, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --blog-body-font: var(--font-body-family, Charter, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif);
+  --blog-ui-font: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
 
   article {
     font-size: 1.08rem;
