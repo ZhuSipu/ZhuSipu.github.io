@@ -26,7 +26,8 @@ The repository is split into two roles:
 
 - `materials/` is user-facing content: text, data, publications, projects, and images
 - root Jekyll folders such as `_includes/`, `_layouts/`, `_plugins/`, `_sass/`, and most of `assets/` are code/runtime structure
-- root content entry points such as `_pages/`, `_data/`, `_bibliography/`, `_projects/`, and `assets/img/user/` are symlinks into `materials/`
+- Jekyll pages, data, and bibliography are read directly from `materials/pages/`, `materials/data/`, and `materials/publications/`; there are no duplicate `_pages/`, `_data/`, or `_bibliography/` copies
+- `assets/img/user/` remains the runtime image path used by templates and page content
 - root `_config.yml` is runtime/build configuration for Jekyll and is no longer edited for normal content or style changes
 
 There should be only one real copy of editable content, and it lives in `materials/`.

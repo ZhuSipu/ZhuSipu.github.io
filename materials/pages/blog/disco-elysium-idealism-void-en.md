@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Disco Elysium: Above the Ruins of Idealism, the Void of Freedom"
+title: "Disco Elysium: On the Ruins of Idealism Lies the Void of Freedom"
 date: 2026-05-29
 blog_post: true
 lang: en
