@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "《极乐迪斯科》：理想主义的废墟之上，是自由的虚无"
+title: "极乐迪斯科：理想主义的废墟之上，是自由的虚无"
 date: 2026-05-29
 blog_post: true
 lang: zh
