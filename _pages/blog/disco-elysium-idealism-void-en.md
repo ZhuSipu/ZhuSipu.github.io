@@ -4,6 +4,7 @@ title: "Disco Elysium: Above the Ruins of Idealism, the Void of Freedom"
 date: 2026-05-29
 blog_post: true
 lang: en
+canonical_lang: false
 permalink: /blog/disco-elysium-idealism-void-en/
 translation_url: /blog/disco-elysium-idealism-void/
 translation_label: 中文
