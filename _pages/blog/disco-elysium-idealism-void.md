@@ -97,7 +97,7 @@ Iosef Dros，一个被革命失败遗留在历史边缘的人，最终承担了�
 
 正因如此，《极乐迪斯科》的希望不是胜利式的希望，而是一种更克制的、存在主义式的希望：世界没有预先设定意义，人也很难完全修复自身，但只要人仍愿意行动、承担和重新开始，意义就仍可能在自由的虚无之中被创造出来。
 
-## 尾注
+## References
 
 [^1]: Disco Elysium Wiki. (n.d.). *Dora Ingerlund*. Fandom. Retrieved May 28, 2026, from https://discoelysium.fandom.com/wiki/Dora_Ingerlund
 
@@ -117,13 +117,13 @@ Iosef Dros，一个被革命失败遗留在历史边缘的人，最终承担了�
 
 [^9]: Lodder, C. (1983). *Russian constructivism*. Yale University Press.
 
-[^10]: Rostov, A. (2022, December 20). 《〈极乐迪斯科〉引言：我们生于后启示录时代》 (Kotoha, Trans.). 机核 GCORES. https://www.gcores.com/articles/160061 (Original work published 2021)
+[^10]: Rostov, A. (2022, December 20). *Introduction to Disco Elysium: We Were Born in the Post-Apocalypse* (Kotoha, Trans.). GCORES. https://www.gcores.com/articles/160061 (Original work published 2021)
 
 [^11]: Hobsbawm, E. (1994). *Age of extremes: The short twentieth century, 1914-1991*. Michael Joseph.
 
 [^12]: Fisher, M. (2009). *Capitalist realism: Is there no alternative?* Zero Books ; Harvey, D. (2005). *A brief history of neoliberalism*. Oxford University Press.
 
-[^13]: 郭亨宇. (2021年8月8日). 《〈极乐迪斯科〉：“苏联寄出的最后一封信笺”》. 澎湃新闻. https://m.thepaper.cn/newsDetail_forward_13934716
+[^13]: Guo, H. (2021, August 8). *Disco Elysium: "The Last Letter Sent by the Soviet Union"*. The Paper. https://m.thepaper.cn/newsDetail_forward_13934716
 
 [^14]: Jackson, G. (2019, December 13). *Disco Elysium developers shout out Marx and Engels in Game Awards victory speech*. Kotaku. https://kotaku.com/disco-elysium-developers-shout-out-marx-and-engels-1840403603
 

@@ -39,6 +39,12 @@
               <a class="nav-link" href="{{ '/' | relative_url }}">about</a>
             </li>
             {% if page.translation_url %}
+              {% assign language_switch_label = page.translation_label | default: 'EN' %}
+              {% if page.lang == 'en' %}
+                {% assign language_switch_label = 'EN' %}
+              {% elsif page.lang == 'zh' %}
+                {% assign language_switch_label = '中文' %}
+              {% endif %}
               <li class="nav-item language-switch-item">
                 <a
                   class="nav-link language-switch-link"
@@ -48,7 +54,7 @@
                     lang="{{ page.translation_lang }}"
                   {% endif %}
                 >
-                  {{ page.translation_label | default: 'EN' }}
+                  {{ language_switch_label }}
                 </a>
               </li>
             {% endif %}
@@ -189,6 +195,12 @@
             </li>
           {% endif %}
           {% if page.translation_url %}
+            {% assign language_switch_label = page.translation_label | default: 'EN' %}
+            {% if page.lang == 'en' %}
+              {% assign language_switch_label = 'EN' %}
+            {% elsif page.lang == 'zh' %}
+              {% assign language_switch_label = '中文' %}
+            {% endif %}
             <li class="nav-item language-switch-item">
               <a
                 class="nav-link language-switch-link"
@@ -198,7 +210,7 @@
                   lang="{{ page.translation_lang }}"
                 {% endif %}
               >
-                {{ page.translation_label | default: 'EN' }}
+                {{ language_switch_label }}
               </a>
             </li>
           {% endif %}

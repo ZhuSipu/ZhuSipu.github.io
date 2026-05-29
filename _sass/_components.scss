@@ -779,10 +779,10 @@ body.photo-gallery-detail-mode .photo-feature-image img {
 
 .blog-post-title {
   max-width: 920px;
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.45rem;
   color: inherit;
   font-family: var(--font-title-family, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
-  font-size: clamp(2rem, 5.4vw, 4.4rem);
+  font-size: clamp(1rem, 2.7vw, 2.2rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: 0;
@@ -793,14 +793,15 @@ body.photo-gallery-detail-mode .photo-feature-image img {
   margin: 0;
   color: var(--global-text-color);
   font-family: var(--font-body-family, Charter, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif);
-  font-size: clamp(1.15rem, 2.6vw, 2rem);
+  font-size: clamp(0.58rem, 1.3vw, 1rem);
   font-weight: 400;
   line-height: 1.35;
   letter-spacing: 0;
 }
 
 .blog-post-date {
-  display: inline;
+  display: block;
+  margin-top: 0.35rem;
   color: var(--global-text-color-light);
   font-size: 0.82em;
   font-style: italic;
@@ -808,7 +809,7 @@ body.photo-gallery-detail-mode .photo-feature-image img {
 }
 
 .blog-post-separator {
-  color: var(--global-text-color-light);
+  display: none;
 }
 
 .blog-post-hit:hover .blog-post-subtitle,
@@ -877,11 +878,11 @@ body.photo-gallery-detail-mode .photo-feature-image img {
   }
 
   .blog-post-title {
-    font-size: 2.1rem;
+    font-size: 1.05rem;
   }
 
   .blog-post-subtitle {
-    font-size: 1.15rem;
+    font-size: 0.58rem;
   }
 
   .blog-hero {
