@@ -789,8 +789,8 @@ body.photo-gallery-detail-mode .photo-feature-image img {
 .blog-post-subtitle {
   max-width: 860px;
   margin: 0.45rem 0 0;
-  color: var(--global-text-color);
-  font-family: var(--font-body-family, Charter, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif);
+  color: var(--global-text-color-light);
+  font-family: var(--font-ui, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
   font-size: clamp(0.58rem, 1.3vw, 1rem);
   font-weight: 400;
   line-height: 1.35;
