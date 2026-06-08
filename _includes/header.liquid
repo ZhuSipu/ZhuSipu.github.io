@@ -39,22 +39,18 @@
               <a class="nav-link" href="{{ '/' | relative_url }}">about</a>
             </li>
             {% if page.translation_url %}
-              {% assign language_switch_label = page.translation_label | default: 'EN' %}
-              {% if page.lang == 'en' %}
-                {% assign language_switch_label = 'EN' %}
-              {% elsif page.lang == 'zh' %}
-                {% assign language_switch_label = '中文' %}
-              {% endif %}
               <li class="nav-item language-switch-item">
                 <a
                   class="nav-link language-switch-link"
                   href="{{ page.translation_url | relative_url }}"
+                  aria-label="Switch language"
+                  title="Switch language"
                   {% if page.translation_lang %}
                     hreflang="{{ page.translation_lang }}"
                     lang="{{ page.translation_lang }}"
                   {% endif %}
                 >
-                  {{ language_switch_label }}
+                  <i class="fa-solid fa-globe" aria-hidden="true"></i>
                 </a>
               </li>
             {% endif %}
@@ -195,22 +191,18 @@
             </li>
           {% endif %}
           {% if page.translation_url %}
-            {% assign language_switch_label = page.translation_label | default: 'EN' %}
-            {% if page.lang == 'en' %}
-              {% assign language_switch_label = 'EN' %}
-            {% elsif page.lang == 'zh' %}
-              {% assign language_switch_label = '中文' %}
-            {% endif %}
             <li class="nav-item language-switch-item">
               <a
                 class="nav-link language-switch-link"
                 href="{{ page.translation_url | relative_url }}"
+                aria-label="Switch language"
+                title="Switch language"
                 {% if page.translation_lang %}
                   hreflang="{{ page.translation_lang }}"
                   lang="{{ page.translation_lang }}"
                 {% endif %}
               >
-                {{ language_switch_label }}
+                <i class="fa-solid fa-globe" aria-hidden="true"></i>
               </a>
             </li>
           {% endif %}

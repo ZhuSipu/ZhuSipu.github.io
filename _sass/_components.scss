@@ -774,7 +774,7 @@ body.photo-gallery-detail-mode .photo-feature-image img {
 .blog-post-title {
   max-width: 920px;
   margin: 0 0 0.45rem;
-  font-family: var(--font-title-family, "Geist", "Söhne", "Inter", "Helvetica Neue", Arial, sans-serif);
+  font-family: var(--font-body-family, Charter, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif);
   font-size: clamp(1rem, 2.7vw, 2.2rem);
   font-weight: 800;
   line-height: 1.1;
@@ -782,7 +782,7 @@ body.photo-gallery-detail-mode .photo-feature-image img {
 }
 
 .blog-post-title-link[lang="zh"] {
-  font-family: "Source Han Sans SC", "Source Han Sans CN", "Source Han Sans", "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
+  font-family: "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "SimSun", serif;
   font-weight: 800;
 }
 
