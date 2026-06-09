@@ -41,7 +41,7 @@
             {% if page.translation_url %}
               <li class="nav-item language-switch-item">
                 <a
-                  class="nav-link language-switch-link"
+                  class="nav-link nav-icon-button language-switch-link"
                   href="{{ page.translation_url | relative_url }}"
                   aria-label="Switch language"
                   title="Switch language"
@@ -50,14 +50,19 @@
                     lang="{{ page.translation_lang }}"
                   {% endif %}
                 >
-                  <span class="language-globe-icon" aria-hidden="true"></span>
+                  <svg class="language-globe-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <circle cx="10" cy="10" r="7"></circle>
+                    <path d="M3 10h14"></path>
+                    <path d="M10 3c2 2 3 4.3 3 7s-1 5-3 7"></path>
+                    <path d="M10 3c-2 2-3 4.3-3 7s1 5 3 7"></path>
+                  </svg>
                 </a>
               </li>
             {% endif %}
             {% if site.enable_darkmode %}
               <!-- Toogle theme mode -->
               <li class="toggle-container">
-                <button id="light-toggle" title="Change theme">
+                <button id="light-toggle" class="nav-icon-button" title="Change theme">
                   <span class="theme-toggle-icon" id="light-toggle-system" aria-hidden="true">◐</span>
                   <span class="theme-toggle-icon" id="light-toggle-dark" aria-hidden="true">☾</span>
                   <span class="theme-toggle-icon" id="light-toggle-light" aria-hidden="true">☀</span>
@@ -193,7 +198,7 @@
           {% if page.translation_url %}
             <li class="nav-item language-switch-item">
               <a
-                class="nav-link language-switch-link"
+                class="nav-link nav-icon-button language-switch-link"
                 href="{{ page.translation_url | relative_url }}"
                 aria-label="Switch language"
                 title="Switch language"
@@ -202,14 +207,19 @@
                   lang="{{ page.translation_lang }}"
                 {% endif %}
               >
-                <span class="language-globe-icon" aria-hidden="true"></span>
+                <svg class="language-globe-icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                  <circle cx="10" cy="10" r="7"></circle>
+                  <path d="M3 10h14"></path>
+                  <path d="M10 3c2 2 3 4.3 3 7s-1 5-3 7"></path>
+                  <path d="M10 3c-2 2-3 4.3-3 7s1 5 3 7"></path>
+                </svg>
               </a>
             </li>
           {% endif %}
           {% if site.enable_darkmode %}
             <!-- Toogle theme mode -->
             <li class="toggle-container">
-              <button id="light-toggle" title="Change theme">
+              <button id="light-toggle" class="nav-icon-button" title="Change theme">
                 <span class="theme-toggle-icon" id="light-toggle-system" aria-hidden="true">◐</span>
                 <span class="theme-toggle-icon" id="light-toggle-dark" aria-hidden="true">☾</span>
                 <span class="theme-toggle-icon" id="light-toggle-light" aria-hidden="true">☀</span>
