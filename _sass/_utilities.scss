@@ -113,9 +113,9 @@ progress::-moz-progress-bar {
 // Themes transition
 
 html.transition,
-html.transition *,
-html.transition *:before,
-html.transition *:after {
+html.transition :not(.photo-gallery, .photo-gallery *),
+html.transition :not(.photo-gallery, .photo-gallery *):before,
+html.transition :not(.photo-gallery, .photo-gallery *):after {
   transition: all 750ms !important;
   transition-delay: 0 !important;
 }

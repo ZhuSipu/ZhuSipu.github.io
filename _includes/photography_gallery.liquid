@@ -1,23 +1,22 @@
 {% assign empty_array = '' | split: ',' %}
-{% assign photo_items = include.items | default: empty_array | sort: 'importance' %}
+{% assign photo_items = include.items | default: empty_array | where_exp: 'item', 'item.image or item.path' | sort: 'importance' %}
 
-<div class="photo-gallery">
+<div class="photo-gallery" data-photo-gallery>
   {% if photo_items.size > 0 %}
     <div class="photo-overview" data-photo-overview>
       <div class="photo-overview-grid">
         {% for item in photo_items %}
           {% assign image_path = item.image | default: item.path %}
-          {% assign thumb_path = item.thumbnail %}
           {% if image_path %}
-            {% unless thumb_path %}
-              {% assign image_segments = image_path | split: '/' %}
-              {% assign image_filename = image_segments | last %}
-              {% assign thumb_path = 'user/photography/thumbs/' | append: image_filename %}
+            {% unless image_path contains '://' or image_path contains '/assets/' %}
+              {% assign image_path = '/assets/img/' | append: image_path %}
             {% endunless %}
-            <button
+            <a
               class="photo-thumb"
-              type="button"
+              href="{{ image_path | relative_url }}"
               aria-label="Open {{ item.title | default: 'photograph' }}"
+              aria-haspopup="dialog"
+              aria-controls="photo-viewer"
               data-photo-thumb
               data-photo-index="{{ forloop.index0 }}"
             >
@@ -26,39 +25,26 @@
                   <span class="photo-thumb-overlay-label">View</span>
                   <span class="photo-thumb-overlay-icon">&rsaquo;</span>
                 </span>
-                {% assign thumb_loading = 'lazy' %}
-                {% assign thumb_fetchpriority = nil %}
-                {% if forloop.index <= 3 %}
-                  {% assign thumb_loading = 'eager' %}
-                  {% assign thumb_fetchpriority = 'high' %}
-                {% endif %}
-                {% if thumb_path contains '://' %}
-                  {% include figure.liquid url=thumb_path class="photo-thumb-figure" alt=item.alt title=item.title loading=thumb_loading fetchpriority=thumb_fetchpriority sizes="(max-width: 768px) 50vw, 33vw" %}
-                {% else %}
-                  {% if thumb_path contains '/assets/' %}
-                    {% assign resolved_thumb_path = thumb_path %}
-                  {% else %}
-                    {% assign resolved_thumb_path = '/assets/img/' | append: thumb_path %}
-                  {% endif %}
-                  {% include figure.liquid path=resolved_thumb_path class="photo-thumb-figure" alt=item.alt title=item.title loading=thumb_loading fetchpriority=thumb_fetchpriority sizes="(max-width: 768px) 50vw, 33vw" cache_bust=true %}
-                {% endif %}
+                {% include photography_image.liquid item=item index=forloop.index0 %}
               </div>
-            </button>
+            </a>
           {% endif %}
         {% endfor %}
       </div>
     </div>
 
-    <div class="photo-detail-view" data-photo-carousel tabindex="0" hidden>
+    <div class="photo-detail-view" id="photo-viewer" data-photo-carousel role="dialog" aria-modal="true" aria-label="Photograph viewer" tabindex="-1" hidden>
       <div class="photo-carousel-stage">
         <div class="photo-carousel-track">
           {% for item in photo_items %}
             {% assign image_path = item.image | default: item.path %}
             {% if image_path %}
               <article
-                class="photo-feature{% if forloop.first %} is-active{% endif %}"
+                class="photo-feature"
                 data-photo-slide
-                aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
+                aria-hidden="true"
+                hidden
+                inert
               >
                 <div class="photo-feature-shell">
                   <div class="photo-feature-topbar">
@@ -79,16 +65,7 @@
                       </button>
 
                       <div class="photo-feature-image">
-                        {% if image_path contains '://' %}
-                          {% include figure.liquid url=image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" sizes="100vw" %}
-                        {% else %}
-                          {% if image_path contains '/assets/' %}
-                            {% assign resolved_image_path = image_path %}
-                          {% else %}
-                            {% assign resolved_image_path = '/assets/img/' | append: image_path %}
-                          {% endif %}
-                          {% include figure.liquid path=resolved_image_path class="photo-feature-figure" alt=item.alt title=item.title loading="lazy" sizes="100vw" cache_bust=true %}
-                        {% endif %}
+                        {% include photography_image.liquid item=item detail=true %}
                       </div>
 
                       <button class="photo-carousel-nav photo-carousel-nav-next" type="button" aria-label="Next photograph" data-photo-next>
@@ -123,3 +100,4 @@
     </div>
   {% endif %}
 </div>
+<script src="{{ '/assets/js/photography.js' | relative_url | bust_file_cache }}"></script>

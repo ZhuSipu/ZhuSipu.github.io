@@ -1,0 +1,461 @@
+{
+  "recipe": "webp-v1-pillow-12.3.0-82/86-lanczos",
+  "photos": {
+    "user/photography/photo-01.jpg": {
+      "source_sha256": "2e5adbef95e634243c65c800177580950c346c80f37af0041c11c31d40be80fb",
+      "width": 3000,
+      "height": 1896,
+      "ratio": 1.58227848,
+      "variants": [
+        {
+          "path": "/assets/img/generated/photography/photo-01-320-38d71bfc07.webp",
+          "width": 320,
+          "height": 202,
+          "bytes": 8418
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-01-640-0d77e8d167.webp",
+          "width": 640,
+          "height": 404,
+          "bytes": 30680
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-01-1280-ca2101c8b4.webp",
+          "width": 1280,
+          "height": 809,
+          "bytes": 133430
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-01-1920-5d2d569e0b.webp",
+          "width": 1920,
+          "height": 1213,
+          "bytes": 270024
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-01-2560-0ee52d7f99.webp",
+          "width": 2560,
+          "height": 1618,
+          "bytes": 423936
+        }
+      ]
+    },
+    "user/photography/photo-02.jpg": {
+      "source_sha256": "074dc6a8ede050239a9e802ca9878c0da910705565bd051ae4d9cfb630e32f9c",
+      "width": 3000,
+      "height": 2001,
+      "ratio": 1.49925037,
+      "variants": [
+        {
+          "path": "/assets/img/generated/photography/photo-02-320-13a897b988.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 9532
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-02-640-dab609b187.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 26242
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-02-1280-ca5ced2cc3.webp",
+          "width": 1280,
+          "height": 854,
+          "bytes": 86592
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-02-1920-674aaea574.webp",
+          "width": 1920,
+          "height": 1281,
+          "bytes": 159450
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-02-2560-0497c6b3c2.webp",
+          "width": 2560,
+          "height": 1708,
+          "bytes": 240774
+        }
+      ]
+    },
+    "user/photography/photo-03.jpg": {
+      "source_sha256": "c718cdb2d9b20bb3a468c1e554aaca30e2795e7c62be34346c4cda258de02b22",
+      "width": 3000,
+      "height": 2001,
+      "ratio": 1.49925037,
+      "variants": [
+        {
+          "path": "/assets/img/generated/photography/photo-03-320-3c1ed422fb.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 17600
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-03-640-9ff9367138.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 51074
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-03-1280-ccf0b4b580.webp",
+          "width": 1280,
+          "height": 854,
+          "bytes": 172332
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-03-1920-fbfd451827.webp",
+          "width": 1920,
+          "height": 1281,
+          "bytes": 312318
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-03-2560-897e76f103.webp",
+          "width": 2560,
+          "height": 1708,
+          "bytes": 476986
+        }
+      ]
+    },
+    "user/photography/photo-04.jpg": {
+      "source_sha256": "c8421fc0ffff52909de250af58ed1018d6849db060fbbb2cc7a81034cb8bc388",
+      "width": 3000,
+      "height": 1855,
+      "ratio": 1.61725067,
+      "variants": [
+        {
+          "path": "/assets/img/generated/photography/photo-04-320-8701edad30.webp",
+          "width": 320,
+          "height": 198,
+          "bytes": 7858
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-04-640-1f94434d33.webp",
+          "width": 640,
+          "height": 396,
+          "bytes": 20170
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-04-1280-7ae1c73565.webp",
+          "width": 1280,
+          "height": 791,
+          "bytes": 68988
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-04-1920-4011ba5ee1.webp",
+          "width": 1920,
+          "height": 1187,
+          "bytes": 119240
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-04-2560-f7479e8c31.webp",
+          "width": 2560,
+          "height": 1583,
+          "bytes": 173670
+        }
+      ]
+    },
+    "user/photography/photo-05.jpg": {
+      "source_sha256": "195e2dd0c0454af864b17d15d0e70878bd4caa759bddc9605ccce6315ab283e5",
+      "width": 3000,
+      "height": 2001,
+      "ratio": 1.49925037,
+      "variants": [
+        {
+          "path": "/assets/img/generated/photography/photo-05-320-a464426fad.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 4732
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-05-640-3b33970f50.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 11308
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-05-1280-21d46882ea.webp",
+          "width": 1280,
+          "height": 854,
+          "bytes": 34806
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-05-1920-5fdcdaaea8.webp",
+          "width": 1920,
+          "height": 1281,
+          "bytes": 63726
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-05-2560-e65ad78f59.webp",
+          "width": 2560,
+          "height": 1708,
+          "bytes": 104314
+        }
+      ]
+    },
+    "user/photography/photo-06.jpg": {
+      "source_sha256": "b60872350588a0a39fb1f4af4d802d4b5ee57719e655dc7ef898dee7cce84b87",
+      "width": 3000,
+      "height": 2000,
+      "ratio": 1.5,
+      "variants": [
+        {
+          "path": "/assets/img/generated/photography/photo-06-320-9886210484.webp",
+          "width": 320,
+          "height": 213,
+          "bytes": 10544
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-06-640-8282dd7ef5.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 34162
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-06-1280-a6708365ac.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 129076
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-06-1920-2c71027092.webp",
+          "width": 1920,
+          "height": 1280,
+          "bytes": 244570
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-06-2560-fbcdc8b6c9.webp",
+          "width": 2560,
+          "height": 1707,
+          "bytes": 370412
+        }
+      ]
+    },
+    "user/photography/photo-07.jpg": {
+      "source_sha256": "a8953d87b2795bff00b7a9721088cc1d045edef9a69b89cffedbf1ff98264783",
+      "width": 2800,
+      "height": 1893,
+      "ratio": 1.47913365,
+      "variants": [
+        {
+          "path": "/assets/img/generated/photography/photo-07-320-91607184a9.webp",
+          "width": 320,
+          "height": 216,
+          "bytes": 19506
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-07-640-21393d7472.webp",
+          "width": 640,
+          "height": 433,
+          "bytes": 61118
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-07-1280-50dea11f91.webp",
+          "width": 1280,
+          "height": 865,
+          "bytes": 213232
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-07-1920-6ceee673bc.webp",
+          "width": 1920,
+          "height": 1298,
+          "bytes": 435258
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-07-2560-3147205ec2.webp",
+          "width": 2560,
+          "height": 1731,
+          "bytes": 731438
+        }
+      ]
+    },
+    "user/photography/photo-08.jpg": {
+      "source_sha256": "979fe905ae51ae50033bc71dd94e930e1ec8420dc26de71211db935bbf756210",
+      "width": 2800,
+      "height": 1685,
+      "ratio": 1.66172107,
+      "variants": [
+        {
+          "path": "/assets/img/generated/photography/photo-08-320-1aefa352ed.webp",
+          "width": 320,
+          "height": 193,
+          "bytes": 11794
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-08-640-5bc66c3e1c.webp",
+          "width": 640,
+          "height": 385,
+          "bytes": 52258
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-08-1280-5c15a736c7.webp",
+          "width": 1280,
+          "height": 770,
+          "bytes": 265950
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-08-1920-6ff7dec13d.webp",
+          "width": 1920,
+          "height": 1155,
+          "bytes": 565276
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-08-2560-53cdf4dfa7.webp",
+          "width": 2560,
+          "height": 1541,
+          "bytes": 874458
+        }
+      ]
+    },
+    "user/photography/photo-09.jpg": {
+      "source_sha256": "5e6295d65212dd28b40a2dfdcb410c4479f27749b3725e5c64b631cfb95c7286",
+      "width": 3000,
+      "height": 1687,
+      "ratio": 1.77830468,
+      "variants": [
+        {
+          "path": "/assets/img/generated/photography/photo-09-320-6e1c68168d.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 3294
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-09-640-940c16930c.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 9042
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-09-1280-461c13a37a.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 32462
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-09-1920-02a0964dcd.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 68260
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-09-2560-5309d2e4fe.webp",
+          "width": 2560,
+          "height": 1440,
+          "bytes": 113608
+        }
+      ]
+    },
+    "user/photography/photo-10.jpg": {
+      "source_sha256": "f3d9d39e1fcc7f6aec9e7d20cd2f378878b68c466fed8a4f21a4afaf280b7792",
+      "width": 3000,
+      "height": 1687,
+      "ratio": 1.77830468,
+      "variants": [
+        {
+          "path": "/assets/img/generated/photography/photo-10-320-3f093ac0e2.webp",
+          "width": 320,
+          "height": 180,
+          "bytes": 1932
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-10-640-e350bf842c.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 5798
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-10-1280-cf6e92a758.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 22226
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-10-1920-35bac20cf8.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 43358
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-10-2560-c9e5e81337.webp",
+          "width": 2560,
+          "height": 1440,
+          "bytes": 68204
+        }
+      ]
+    },
+    "user/photography/photo-11.jpg": {
+      "source_sha256": "86ab1afcc500d71feb915cf863deb692965a0cee955260b799c36e1a3e712ea3",
+      "width": 3000,
+      "height": 1909,
+      "ratio": 1.5715034,
+      "variants": [
+        {
+          "path": "/assets/img/generated/photography/photo-11-320-cb900afdac.webp",
+          "width": 320,
+          "height": 204,
+          "bytes": 4890
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-11-640-1ff6a4d8f8.webp",
+          "width": 640,
+          "height": 407,
+          "bytes": 16084
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-11-1280-7e4ba6e544.webp",
+          "width": 1280,
+          "height": 815,
+          "bytes": 59518
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-11-1920-79534bbf37.webp",
+          "width": 1920,
+          "height": 1222,
+          "bytes": 108216
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-11-2560-4101e06a50.webp",
+          "width": 2560,
+          "height": 1629,
+          "bytes": 162364
+        }
+      ]
+    },
+    "user/photography/photo-12.jpg": {
+      "source_sha256": "44c2e511c36d77e042bb74db10e3ca79aec86ce2330632caa113d199301cf696",
+      "width": 3000,
+      "height": 1599,
+      "ratio": 1.87617261,
+      "variants": [
+        {
+          "path": "/assets/img/generated/photography/photo-12-320-829291d00d.webp",
+          "width": 320,
+          "height": 171,
+          "bytes": 9698
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-12-640-86758795c6.webp",
+          "width": 640,
+          "height": 341,
+          "bytes": 35934
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-12-1280-d301f02dda.webp",
+          "width": 1280,
+          "height": 682,
+          "bytes": 149482
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-12-1920-f17fcf30db.webp",
+          "width": 1920,
+          "height": 1023,
+          "bytes": 287464
+        },
+        {
+          "path": "/assets/img/generated/photography/photo-12-2560-4d26929288.webp",
+          "width": 2560,
+          "height": 1364,
+          "bytes": 439200
+        }
+      ]
+    }
+  }
+}

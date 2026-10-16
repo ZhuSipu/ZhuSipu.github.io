@@ -1,0 +1,59 @@
+{% assign photo_path = include.item.image | default: include.item.path %}
+{% assign photo_key = photo_path | remove_first: '/assets/img/' %}
+{% assign photo_asset = site.data.photography_images.photos[photo_key] %}
+{% if photo_path contains '://' or photo_path contains '/assets/' %}
+  {% assign original_path = photo_path %}
+{% else %}
+  {% assign original_path = '/assets/img/' | append: photo_path %}
+{% endif %}
+{% assign original_url = original_path | relative_url %}
+{% assign thumb_path = include.item.thumbnail %}
+{% if thumb_path %}
+  {% unless thumb_path contains '://' or thumb_path contains '/assets/' %}
+    {% assign thumb_path = '/assets/img/' | append: thumb_path %}
+  {% endunless %}
+{% elsif photo_asset %}
+  {% assign thumb_asset = photo_asset.variants[1] | default: photo_asset.variants.first %}
+  {% assign thumb_path = thumb_asset.path %}
+{% else %}
+  {% assign thumb_path = original_path %}
+{% endif %}
+{% assign thumb_url = thumb_path | relative_url %}
+
+{% if include.detail %}
+  <figure class="photo-feature-frame" data-photo-frame style="--photo-ratio: {{ photo_asset.ratio | default: 1.5 }}">
+    <img class="photo-feature-preview" src="{{ thumb_url }}" alt="" aria-hidden="true" decoding="async" loading="lazy" width="{{ photo_asset.width | default: 3 }}" height="{{ photo_asset.height | default: 2 }}">
+    <img
+      class="photo-feature-figure"
+      data-photo-full
+      data-photo-src="{% if photo_asset %}{{ photo_asset.variants[2].path | default: photo_asset.variants.last.path | relative_url }}{% else %}{{ original_url }}{% endif %}"
+      {% if photo_asset %}
+        data-photo-srcset="{% for variant in photo_asset.variants %}{% if variant.width >= 640 %}{{ variant.path | relative_url }} {{ variant.width }}w{% unless forloop.last %}, {% endunless %}{% endif %}{% endfor %}"
+      {% endif %}
+      width="{{ photo_asset.width | default: 3 }}"
+      height="{{ photo_asset.height | default: 2 }}"
+      alt="{{ include.item.alt | default: include.item.title | escape }}"
+      decoding="async"
+    >
+    <figcaption class="photo-load-error" data-photo-error hidden>
+      <span>This photo couldn’t be loaded.</span>
+      <button type="button" data-photo-retry>Try again</button>
+      <a href="{{ original_url }}" target="_blank" rel="noopener">Open original</a>
+    </figcaption>
+  </figure>
+{% else %}
+  <img
+    class="photo-thumb-figure"
+    src="{{ thumb_url }}"
+    {% if photo_asset and include.item.thumbnail == nil %}
+      srcset="{% for variant in photo_asset.variants %}{% if variant.width <= 640 %}{{ variant.path | relative_url }} {{ variant.width }}w{% unless variant.width == 640 or forloop.last %}, {% endunless %}{% endif %}{% endfor %}"
+      sizes="(max-width: 768px) calc((100vw - 54px) / 3), 220px"
+    {% endif %}
+    width="{{ photo_asset.width | default: 3 }}"
+    height="{{ photo_asset.height | default: 2 }}"
+    alt="{{ include.item.alt | default: include.item.title | escape }}"
+    decoding="async"
+    loading="{% if include.index < 4 %}eager{% else %}lazy{% endif %}"
+    {% if include.index == 0 %}fetchpriority="high"{% endif %}
+  >
+{% endif %}

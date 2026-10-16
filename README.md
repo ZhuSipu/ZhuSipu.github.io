@@ -58,6 +58,13 @@ Start the development server with one command:
 
 `./scripts/dev` runs `bundle exec jekyll serve` and lightly watches `materials/` so edits there trigger a rebuild without needing a second terminal command.
 
+After adding or replacing photography originals in `materials/images/photography/`, run
+`python3 scripts/optimize_photography.py` (requires Pillow with WebP support). This creates
+responsive WebP files in `assets/img/generated/photography/` and the generated
+`materials/data/photography_images.json` manifest. Commit both outputs. Original photos
+remain available; the gallery uses smaller thumbnails and loads detail images on demand.
+Unchanged source images are reused, and generated filenames include content hashes for caching.
+
 ## GitHub Pages Deployment
 
 The repository now includes a GitHub Actions workflow at `.github/workflows/pages.yml`.
