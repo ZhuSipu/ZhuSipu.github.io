@@ -444,15 +444,6 @@ html[data-theme="dark"] .cv .card {
   display: block;
   width: 100%;
   border-radius: 0;
-  opacity: 0;
-  transform: scale(1.015);
-  transition: opacity 0.45s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.photo-thumb-figure.is-loaded,
-.photo-feature-figure.is-loaded {
-  opacity: 1;
-  transform: scale(1);
 }
 
 .photo-thumb-image .photo-thumb-figure {
@@ -712,8 +703,8 @@ body.photo-gallery-detail-mode .photo-feature-image img {
 @media (prefers-reduced-motion: reduce) {
   .photo-overview,
   .photo-thumb,
-  .photo-thumb-figure img,
-  .photo-feature-figure img,
+  .photo-thumb-figure,
+  .photo-feature-figure,
   .photo-detail-view,
   .photo-feature,
   .photo-carousel-nav {

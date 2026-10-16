@@ -1,0 +1,59 @@
+<style>
+  html.page-loading::after,
+  html.page-revealing::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 2147483646;
+    pointer-events: none;
+    background: transparent;
+    opacity: 0;
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+    transition: backdrop-filter 0.8s ease, -webkit-backdrop-filter 0.8s ease, background-color 0.8s ease, opacity 0.8s ease;
+  }
+
+  html.page-loading::after {
+    background: rgba(255, 255, 255, 0.18);
+    opacity: 1;
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+  }
+
+  html[data-theme='dark'].page-loading::after {
+    background: rgba(0, 0, 0, 0.18);
+  }
+
+  html.loading-effects img {
+    transition: filter 0.75s ease, opacity 0.55s ease;
+  }
+
+  html.loading-effects img:not([data-image-ready]) {
+    filter: blur(14px);
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.page-loading::after,
+    html.page-revealing::after {
+      content: none;
+    }
+
+    html.loading-effects img {
+      transition: none;
+    }
+  }
+
+  @media print {
+    html.page-loading::after,
+    html.page-revealing::after {
+      content: none;
+    }
+
+    html.loading-effects img:not([data-image-ready]) {
+      filter: none;
+      opacity: 1;
+    }
+  }
+</style>
+<script src="{{ '/assets/js/loading.js' | relative_url | bust_file_cache }}"></script>

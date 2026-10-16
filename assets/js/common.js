@@ -69,28 +69,12 @@ $(document).ready(function () {
     const slides = Array.from(photoCarousel.querySelectorAll("[data-photo-slide]"));
     const prevButtons = Array.from(photoCarousel.querySelectorAll("[data-photo-prev]"));
     const nextButtons = Array.from(photoCarousel.querySelectorAll("[data-photo-next]"));
-    const photoImages = Array.from(document.querySelectorAll(".photo-gallery img"));
     let activeIndex = slides.findIndex((slide) => slide.classList.contains("is-active"));
     let isTransitioning = false;
 
     if (activeIndex < 0) {
       activeIndex = 0;
     }
-
-    const markImageAsLoaded = (image) => {
-      if (!image) return;
-      if (image.complete) {
-        image.classList.add("is-loaded");
-        return;
-      }
-      image.addEventListener(
-        "load",
-        () => {
-          image.classList.add("is-loaded");
-        },
-        { once: true }
-      );
-    };
 
     const preloadPhotoImage = (index) => {
       const slide = slides[index];
@@ -256,7 +240,6 @@ $(document).ready(function () {
       renderPhotoSlide(nextIndex, direction);
     };
 
-    photoImages.forEach(markImageAsLoaded);
     window.addEventListener("resize", () => {
       window.requestAnimationFrame(updatePhotoViewportMetrics);
     });
