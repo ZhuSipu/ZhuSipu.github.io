@@ -3,8 +3,8 @@
 This repository is a Jekyll site.
 
 The sitewide presentation and interaction principles are defined in
-[DESIGN.md](DESIGN.md). All page layouts inherit the same composition, image
-preview, and progressive reveal behavior.
+[DESIGN.md](DESIGN.md). All page layouts share a short initial soft-focus
+transition, responsive images, and advance image preparation for continuous reading.
 
 ## Edit Only `materials/`
 
@@ -67,12 +67,15 @@ After adding or replacing photography originals in `materials/images/photography
 responsive WebP files in `assets/img/generated/photography/` and the generated
 `materials/data/photography_images.json` manifest, and refreshes the embedded previews in
 `materials/data/image_previews.json`. Commit these outputs. Original photos
-remain available; the gallery uses smaller thumbnails and loads detail images on demand.
+remain available; the gallery uses smaller thumbnails and prepares likely detail images
+in the background, with the selected photo taking priority.
 Unchanged source images are reused, and generated filenames include content hashes for caching.
 
 After updating content images, run `python3 scripts/generate_image_previews.py` and commit
-`materials/data/image_previews.json`. It supplies embedded previews and intrinsic dimensions
-for the page composition and requires Pillow with WebP support.
+`materials/data/image_previews.json` together with `assets/img/generated/content/`.
+It supplies embedded previews, intrinsic dimensions, and responsive WebP versions for
+profile, project, and blog images. It requires Pillow with WebP support and reuses
+unchanged outputs. Original images remain available for full-resolution zoom.
 
 ## GitHub Pages Deployment
 

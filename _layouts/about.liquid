@@ -20,15 +20,13 @@ layout: default
         {% if page.profile.image %}
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
           {% assign style = site.data.site_style %}
-          {% assign profile_slot_percent = style.layout.profile.image_slot_width | default: '30%' | remove: '%' | plus: 0 %}
           {% if page.profile.image_circular %}
             {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
           {% else %}
             {% assign profile_image_class = 'img-fluid z-depth-1
       rounded' %}
           {% endif %}
-          {% capture sizes %}(min-width: {{ style.layout.max_width | default: '930px' }}) {{ style.layout.max_width | default: '930px' | remove: 'px' | minus: 30 | times: profile_slot_percent | divided_by: 100 }}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
+          {% capture sizes %}(min-width: 576px) {{ style.layout.profile.max_width_desktop | default: '220px' }}, {{ style.layout.profile.max_width_mobile | default: '240px' }}{% endcapture %}
           {%
             include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
             cache_bust=true

@@ -82,17 +82,17 @@
     if (!opened || token !== generation || !mayPrefetch()) return;
     const neighbors = [wrap(activeIndex + 1)];
     if (!connection || connection.effectiveType !== "3g") neighbors.push(wrap(activeIndex - 1));
-    const run = async () => {
+    const run = () => {
       for (const index of new Set(neighbors)) {
         if (!opened || token !== generation) return;
-        await loadPhoto(index);
+        loadPhoto(index);
       }
     };
     if (window.requestIdleCallback) {
-      const id = window.requestIdleCallback(run, { timeout: 800 });
+      const id = window.requestIdleCallback(run, { timeout: 160 });
       cancelIdle = () => window.cancelIdleCallback(id);
     } else {
-      const id = window.setTimeout(run, 120);
+      const id = window.setTimeout(run, 40);
       cancelIdle = () => clearTimeout(id);
     }
   };
@@ -124,7 +124,11 @@
     next.classList.add("is-active");
     const preview = next.querySelector(".photo-feature-preview");
     const thumbnail = thumbs[index].querySelector("img");
-    if (thumbnail.naturalWidth && thumbnail.hasAttribute("data-image-ready")) preview.src = thumbnail.currentSrc || thumbnail.src;
+    if (thumbnail.naturalWidth && thumbnail.hasAttribute("data-image-ready")) {
+      preview.src = thumbnail.currentSrc || thumbnail.src;
+      preview.classList.add("has-thumbnail");
+      if (window.siteImageLoading) window.siteImageLoading.ready(preview);
+    }
     thumbs.forEach((thumb, i) => thumb.setAttribute("aria-current", String(i === index)));
     if (previous && previous !== next && direction && !motion.matches) {
       previous.inert = true;
@@ -150,7 +154,8 @@
       next.querySelector(control).focus({ preventScroll: true });
     }
     trimPhotos([index, wrap(index - 1), wrap(index + 1)]);
-    loadPhoto(index, "high").then((success) => { if (success) prepareNeighbors(token); });
+    loadPhoto(index, "high");
+    prepareNeighbors(token);
   };
 
   const setBackgroundInert = (value) => {
@@ -204,7 +209,6 @@
     modeTimer = window.setTimeout(() => {
       if (opened) return;
       viewer.hidden = true;
-      trimPhotos([]);
     }, motion.matches ? 0 : 380);
   };
 
@@ -228,6 +232,23 @@
     thumb.addEventListener("focus", warm);
     thumb.addEventListener("pointerleave", () => clearTimeout(warmTimer));
     thumb.addEventListener("blur", () => clearTimeout(warmTimer));
+  });
+
+  // Prepare the first likely selections after the overview is clear and decoded.
+  // Keep these decoded images available when the viewer closes and reopens.
+  const overviewReady = window.siteImageLoading ? window.siteImageLoading.pageReady : Promise.resolve();
+  overviewReady.then(async () => {
+    if (!mayPrefetch()) return;
+    if (window.siteImageLoading) await Promise.all(thumbs.map((thumb) => window.siteImageLoading.ready(thumb.querySelector("img"))));
+    const warmOverview = () => {
+      if (opened || !viewer.hidden || document.hidden || jobs.size || !mayPrefetch()) return;
+      updateViewport();
+      const first = mayPrefetch() && (!connection || connection.effectiveType !== "3g") ? [0, wrap(1)] : [0];
+      trimPhotos(first);
+      first.forEach((index) => loadPhoto(index));
+    };
+    if (window.requestIdleCallback) window.requestIdleCallback(warmOverview, { timeout: 500 });
+    else window.setTimeout(warmOverview, 120);
   });
 
   viewer.addEventListener("click", (event) => {
