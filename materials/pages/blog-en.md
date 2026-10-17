@@ -6,7 +6,7 @@ blog_title: Unbuilts
 permalink: /blog/en/
 description: history, reality, and other unfinished structures
 lang: en
-translation_url: /blog/
+translation_url: /blog/zh/
 translation_label: 中文
 translation_lang: zh
 nav: false

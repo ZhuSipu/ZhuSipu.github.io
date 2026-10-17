@@ -7,7 +7,9 @@
   >
     <div class="container">
       {% if page.blog_home or page.blog_post %}
-        <a class="navbar-brand title" href="{{ '/blog/' | relative_url }}">
+        {% assign blog_home_url = '/blog/' %}
+        {% if page.lang == 'zh' %}{% assign blog_home_url = '/blog/zh/' %}{% endif %}
+        <a class="navbar-brand title" href="{{ blog_home_url | relative_url }}">
           {{- page.blog_title | default: 'Unbuilts' -}}
         </a>
 
@@ -30,7 +32,7 @@
         <div class="collapse navbar-collapse text-right" id="navbarNav">
           <ul class="navbar-nav ml-auto flex-nowrap">
             <li class="nav-item active">
-              <a class="nav-link" href="{{ '/blog/' | relative_url }}">
+              <a class="nav-link" href="{{ blog_home_url | relative_url }}">
                 home
                 <span class="sr-only">(current)</span>
               </a>
