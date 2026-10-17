@@ -432,6 +432,11 @@ html[data-theme="dark"] .cv .card {
   object-position: center;
 }
 
+.photo-thumb-surface {
+  position: absolute;
+  inset: 0;
+}
+
 .photo-detail-view {
   --photo-detail-nav-height: 0px;
   --photo-detail-footer-height: 0px;
@@ -668,7 +673,7 @@ html[data-theme="dark"] .cv .card {
 
 html.loading-effects .photo-feature-frame .photo-feature-figure {
   filter: none;
-  transition: opacity 0.24s ease;
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .photo-load-error {
@@ -739,6 +744,15 @@ html.loading-effects .photo-feature-frame .photo-feature-figure {
   text-align: center;
 }
 
+.photo-feature.is-active .photo-feature-note {
+  animation: photo-caption 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes photo-caption {
+  from { opacity: 0; filter: blur(5px); transform: translateY(4px); }
+  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+
 body.photo-gallery-detail-mode {
   overflow: hidden;
 }
@@ -760,6 +774,10 @@ body.photo-gallery-detail-mode footer.fixed-bottom {
 
   html.loading-effects .photo-feature-frame .photo-feature-figure {
     transition: none;
+  }
+
+  .photo-feature.is-active .photo-feature-note {
+    animation: none;
   }
 }
 

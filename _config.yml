@@ -135,6 +135,7 @@ exclude:
   - materials/publications/
   - materials/README.md
   - README.md
+  - DESIGN.md
   - .DS_Store
   - vendor
 keep_files:

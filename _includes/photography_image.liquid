@@ -7,6 +7,7 @@
   {% assign original_path = '/assets/img/' | append: photo_path %}
 {% endif %}
 {% assign original_url = original_path | relative_url %}
+{% assign image_preview = site.data.image_previews[original_path] %}
 {% assign thumb_path = include.item.thumbnail %}
 {% if thumb_path %}
   {% unless thumb_path contains '://' or thumb_path contains '/assets/' %}
@@ -22,7 +23,7 @@
 
 {% if include.detail %}
   <figure class="photo-feature-frame" data-photo-frame style="--photo-ratio: {{ photo_asset.ratio | default: 1.5 }}">
-    <img class="photo-feature-preview" src="{{ thumb_url }}" alt="" aria-hidden="true" decoding="async" loading="lazy" width="{{ photo_asset.width | default: 3 }}" height="{{ photo_asset.height | default: 2 }}">
+    <img class="photo-feature-preview" src="{{ image_preview.preview | default: thumb_url }}" alt="" aria-hidden="true" decoding="async" loading="lazy" width="{{ photo_asset.width | default: 3 }}" height="{{ photo_asset.height | default: 2 }}">
     <img
       class="photo-feature-figure"
       data-photo-full
@@ -42,6 +43,7 @@
     </figcaption>
   </figure>
 {% else %}
+  <span class="photo-thumb-surface" data-image-surface{% if image_preview %} style="--image-preview: url('{{ image_preview.preview }}');"{% endif %}>
   <img
     class="photo-thumb-figure"
     src="{{ thumb_url }}"
@@ -56,4 +58,5 @@
     loading="{% if include.index < 4 %}eager{% else %}lazy{% endif %}"
     {% if include.index == 0 %}fetchpriority="high"{% endif %}
   >
+  </span>
 {% endif %}

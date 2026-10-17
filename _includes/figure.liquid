@@ -1,13 +1,20 @@
 {% assign img_path = include.path | remove: '.jpg' | remove: '.jpeg' | remove: '.png' | remove: '.tiff' | remove: '.gif' %}
 {% assign parts = include.path | split: '.' %}
 {% assign ext = parts.last %}
+{% assign preview_key = include.path | prepend: '/' | replace: '//', '/' %}
+{% assign image_preview = site.data.image_previews[preview_key] %}
 
 <figure
   {% if include.slot %}
     slot="{{ include.slot }}"
   {% endif %}
 >
-  <picture>
+  <picture
+    {% if image_preview %}
+      data-image-surface
+      style="--image-preview: url('{{ image_preview.preview }}');"
+    {% endif %}
+  >
     <!-- Auto scaling with imagemagick -->
     <!--
       See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
@@ -38,11 +45,15 @@
       {% endif %}
       {% if include.width %}
         width="{{ include.width }}"
+      {% elsif image_preview %}
+        width="{{ image_preview.width }}"
       {% else %}
         width="100%"
       {% endif %}
       {% if include.height %}
         height="{{ include.height }}"
+      {% elsif image_preview %}
+        height="{{ image_preview.height }}"
       {% else %}
         height="auto"
       {% endif %}

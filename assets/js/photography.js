@@ -124,7 +124,7 @@
     next.classList.add("is-active");
     const preview = next.querySelector(".photo-feature-preview");
     const thumbnail = thumbs[index].querySelector("img");
-    preview.src = thumbnail.currentSrc || thumbnail.src;
+    if (thumbnail.naturalWidth && thumbnail.hasAttribute("data-image-ready")) preview.src = thumbnail.currentSrc || thumbnail.src;
     thumbs.forEach((thumb, i) => thumb.setAttribute("aria-current", String(i === index)));
     if (previous && previous !== next && direction && !motion.matches) {
       previous.inert = true;
@@ -161,7 +161,7 @@
     }
     for (let branch = viewer; branch.parentElement; branch = branch.parentElement) {
       Array.from(branch.parentElement.children).forEach((element) => {
-        if (element !== branch && !/^(SCRIPT|STYLE|LINK)$/.test(element.tagName)) {
+        if (element !== branch && !element.matches("#navbar") && !element.querySelector("#navbar") && !/^(SCRIPT|STYLE|LINK)$/.test(element.tagName)) {
           background.set(element, element.inert);
           element.inert = true;
         }
@@ -244,19 +244,22 @@
   document.addEventListener("keydown", (event) => {
     if (!opened || event.altKey || event.ctrlKey || event.metaKey) return;
     if (event.key === "Escape") { event.preventDefault(); closePhoto(); }
-    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+    if ((event.key === "ArrowLeft" || event.key === "ArrowRight") && viewer.contains(event.target)) {
       event.preventDefault();
       const direction = event.key === "ArrowRight" ? 1 : -1;
       selectPhoto(wrap(activeIndex + direction), direction);
     }
-    if (event.key === "Tab") {
-      const controls = Array.from(slides[activeIndex].querySelectorAll("button, a[href]"))
-        .filter((element) => element.getClientRects().length && !element.closest("[hidden], [inert]"));
-      const position = controls.indexOf(document.activeElement);
-      if (position < 0 || (event.shiftKey ? position === 0 : position === controls.length - 1)) {
-        event.preventDefault();
-        controls[event.shiftKey ? controls.length - 1 : 0].focus();
-      }
+  });
+
+  const navbar = document.querySelector("#navbar");
+  if (navbar && window.ResizeObserver) new ResizeObserver(updateViewport).observe(navbar);
+  if (navbar) navbar.addEventListener("click", (event) => {
+    const link = event.target.closest("a[href]");
+    if (!opened || !link || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const destination = new URL(link.href, window.location.href);
+    if (destination.pathname === window.location.pathname && destination.origin === window.location.origin && !destination.hash) {
+      event.preventDefault();
+      closePhoto();
     }
   });
 

@@ -8,6 +8,7 @@ import shutil
 from pathlib import Path
 
 from PIL import Image, ImageCms, ImageOps, __version__
+from generate_image_previews import main as generate_previews
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -78,3 +79,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    generate_previews()

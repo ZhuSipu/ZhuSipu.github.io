@@ -1,6 +1,7 @@
 {% assign empty_array = '' | split: ',' %}
 {% assign photo_items = include.items | default: empty_array | where_exp: 'item', 'item.image or item.path' | sort: 'importance' %}
 
+<link rel="preload" as="script" href="{{ '/assets/js/photography.js' | relative_url | bust_file_cache }}" fetchpriority="high">
 <div class="photo-gallery" data-photo-gallery>
   {% if photo_items.size > 0 %}
     <div class="photo-overview" data-photo-overview>
@@ -33,7 +34,7 @@
       </div>
     </div>
 
-    <div class="photo-detail-view" id="photo-viewer" data-photo-carousel role="dialog" aria-modal="true" aria-label="Photograph viewer" tabindex="-1" hidden>
+    <div class="photo-detail-view" id="photo-viewer" data-photo-carousel role="dialog" aria-label="Photograph viewer" tabindex="-1" hidden>
       <div class="photo-carousel-stage">
         <div class="photo-carousel-track">
           {% for item in photo_items %}
@@ -100,4 +101,4 @@
     </div>
   {% endif %}
 </div>
-<script src="{{ '/assets/js/photography.js' | relative_url | bust_file_cache }}"></script>
+<script async src="{{ '/assets/js/photography.js' | relative_url | bust_file_cache }}"></script>

@@ -259,6 +259,11 @@ let setCookieConsentTheme = (theme) => {
 };
 
 let transTheme = () => {
+  if (
+    document.documentElement.classList.contains("page-loading") ||
+    document.documentElement.classList.contains("page-revealing") ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) return;
   document.documentElement.classList.add("transition");
   window.setTimeout(() => {
     document.documentElement.classList.remove("transition");
